@@ -1,52 +1,9 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="MainPage.aspx.vb" Inherits="CarolinesBlog.WebForm1" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Website.Master" CodeBehind="HomePage.aspx.vb" Inherits="CarolinesBlog.WebForm2" %>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <link href="/app/css/MainPage.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/app/css/font-awesome.min.css" type="text/css" />
-    <link rel="stylesheet" href="/app/css/font-awesome.css" type="text/css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="/app/js/Navigation.js"></script>
-</head>
-<body>
-    <div id="side_nav_container" class="side-navigation closed page-load">
-        <span id="side_nav_close" class="x-out">X</span>
-        <ul class="menu-nav">
-            <li class="menu-depth-1"><span>Home</span></li>
-            <li class="menu-depth-1"><span>Golden Tresses</span></li>
-            <li class="menu-depth-1"><span>Golden Style</span></li>
-            <li class="menu-depth-1"><span>Golden Life</span></li>
-            <li class="menu-depth-1"><span>Golden Thoughts</span></li>
-            <li class="menu-depth-1"><span>Golden Girl</span></li>
-            <li class="menu-depth-1"><span>Golden Connections</span></li>
-        </ul>
-    </div>
-    <div class="page-header">
-        <div class="social-media-header">
-            <a class="fa fa-envelope social"></a>
-            <a class="fa fa-instagram social"></a>
-            <a class="fa fa-facebook-square social"></a>
-        </div>
-        <div class="logo">
-            <span class="logo-text">Black Girl Golden</span>
-        </div>
-        <div id="top_nav" class="menu-nav-container">
-            <ul class="menu-nav">
-                <li class="menu-depth-1"><span>Home</span></li>
-                <li class="menu-depth-1"><span>Golden Tresses</span></li>
-                <li class="menu-depth-1"><span>Golden Style</span></li>
-                <li class="menu-depth-1"><span>Golden Life</span></li>
-                <li class="menu-depth-1"><span>Golden Thoughts</span></li>
-                <li class="menu-depth-1"><span>Golden Girl</span></li>
-                <li class="menu-depth-1"><span>Golden Connections</span></li>
-            </ul>
-        </div>
-        <i id="side_nav_hamburger" class="fa fa-bars"></i>
-    </div>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="/app/css/HomePage.css" rel="stylesheet" type="text/css" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="full-image-header">
         <img src="\app\Images\Pink hat8_enlarged_cropped.jpg" />
     </div>
@@ -114,24 +71,11 @@
             </div>
         </div>
     </div>
-<%--    <div class="image-container">
-        <img src="\app\Images\dark_journal_1_resized.jpg" />
-        <div class="image-overlay">
-            <span class="overlay-text">“If there's a book that you want to read, but it hasn't been written yet, then you must write it.”</span>
-        </div>
-    </div>--%>
     <div class="quote-container">
         <div class="quote">
             <span class="quote-text">“If there's a book that you want to read, but it hasn't been written yet, then you must write it.”</span>
             <span class="quotee">- Toni Morrison</span>
         </div>
     </div>
-    <div class="page-footer">
-        <div class="social-media-footer">
-            <a id="footer_email" class="fa fa-envelope social"></a>
-            <a id="footer_instagram" class="fa fa-instagram social"></a>
-            <a id="footer_facebook" class="fa fa-facebook-square social"></a>
-        </div>
-    </div>
-</body>
-</html>
+
+</asp:Content>

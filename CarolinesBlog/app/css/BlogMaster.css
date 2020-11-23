@@ -1,0 +1,16 @@
+﻿body {
+}
+
+#ContentPlaceHolder1_BlogSideNav {
+    display: inline-block;
+    float: right;
+    width: 23%;
+    border-left: 1px solid #c2a329;
+}
+
+#blog_nav_content {
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

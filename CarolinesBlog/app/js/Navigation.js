@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     Navigation = setEventListeners();
-
+    /* sAu78RqK */
     function setEventListeners() {
         $(document).on("click", "#side_nav_hamburger", function () {
             console.log("Nav menu clicked");
