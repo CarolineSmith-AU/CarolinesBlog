@@ -1,12 +1,6 @@
 ﻿body {
 }
 
-#blog_content_container {
-    display:inline-block;
-    float: none;
-    width: 75%;
-}
-
 #blog_content {
     display: flex;
     flex-direction: column;

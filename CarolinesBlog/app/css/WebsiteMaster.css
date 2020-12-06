@@ -9,6 +9,15 @@ body {
     margin: 0;
 }
 
+.pointer:hover {
+    cursor: pointer;
+}
+
+/*************************** Input Forms ***************************/
+input.input {
+    padding: 7px 5px;
+}
+
 /*************************** Footer ***************************/
 .page-footer {
     position: relative;

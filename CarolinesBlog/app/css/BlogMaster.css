@@ -4,17 +4,112 @@
 #ContentPlaceHolder1_BlogSideNav {
     display: inline-block;
     float: right;
-    width: 23%;
-    border-left: 1px solid #c2a329;
+    width: 29%;
+    border-left: 0.5px solid #c2a329;
+}
+
+#blog_content_container {
+    display: inline-block;
+    float: none;
+    width: 70%;
+    min-height: 1000px;
 }
 
 #blog_nav_content {
-    padding: 0px 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 0px 25px;
 }
 
 #blog_main_container {
-
+    margin-top: 60px;
 }
+
+#email_label {
+    font-weight: 300;
+    margin: 0;
+    font-size: 14px;
+}
+
+#email_input_box {
+    margin-bottom: 20px;
+}
+
+#email_sub_input {
+    width: 90%;
+}
+
+.gold-button {
+    text-align: center;
+    background-color: #c2a329;
+    width: 130px;
+    padding: 10px;
+    border: 2px solid #c2a329;
+}
+
+.gold-button:hover {
+    background-color: #000000;
+}
+
+.gold-button:hover .button-text {
+    color: #c2a329;
+}
+
+.button-text {
+    color: #000000;
+}
+
+.blog-nav-section {
+    border-bottom: 0.5px solid #c2a329;
+    padding-bottom: 25px;
+}
+
+.topic-text {
+    color: #c2a329;
+    font-family: 'Oswald', sans-serif;
+    margin: 10px 0;
+    position: relative;
+    width: fit-content;
+}
+
+.topic-row .fa-angle-right:before {
+    width: 0;
+    font-weight: bold;
+    transition: all 0.5s;
+    position: absolute;
+    bottom: 3px;
+    right: 0;
+}
+
+.topic-text:hover .fa-angle-right:before {
+    right: -5px;
+}
+
+.topic-text span {
+    margin-right: 10px;
+}
+
+#posts_popular_section .topic-text span:after {
+    position: absolute;
+    content: " ";
+    background: #c2a329;
+    width: 100%;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    height: 2px;
+}
+
+/*.topic-text span:after {
+    position: absolute;
+    content: " ";
+    background: #c2a329;
+    width: 0;
+    bottom: 0;
+    left: 50%;
+    height: 2px;
+    transition: all 0.5s;
+    transform: translate(-50%);
+}
+
+.topic-text:hover span:after {
+    width: 100%;
+}*/

@@ -6,6 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="/app/css/WebsiteMaster.css" rel="stylesheet" type="text/css" />
+    <link href="/app/css/Uniform_Styles.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/app/css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="/app/css/font-awesome.css" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
