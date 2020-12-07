@@ -18,10 +18,6 @@ body {
     flex-direction: column;
 }
 
-.content-section {
-    margin: 3rem 9%;
-}
-
 /***************************Blog Image With Overlay***************************/
 .image-container {
     position: relative;
@@ -50,11 +46,6 @@ body {
 }
 
 /***************************Blog content***************************/
-.content-header {
-    font-size: 48px;
-    font-weight: 400;
-}
-
 .page-content-header {
     text-align: center;
 }
