@@ -49,6 +49,7 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.22.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -183,6 +184,13 @@
       <DependentUpon>BlogPostTemplate.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="BlogListView.aspx.designer.vb">
+      <DependentUpon>BlogListView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BlogListView.aspx.vb">
+      <DependentUpon>BlogListView.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Website.Master.designer.vb">
       <DependentUpon>Website.Master</DependentUpon>
     </Compile>
@@ -207,6 +215,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\css\BlogListView.css" />
     <Content Include="app\css\BlogMaster.css" />
     <Content Include="app\css\BlogPostTemplate.css" />
     <Content Include="app\css\font-awesome.css" />
@@ -220,15 +229,22 @@
     <Content Include="app\Images\DSCN0002 %282%29.JPG" />
     <Content Include="app\Images\DSCN0002.JPG" />
     <Content Include="app\Images\floral_gold_pattern.jpg" />
+    <Content Include="app\Images\gardenia_square.jpg" />
     <Content Include="app\Images\Girl-Reading.jpg" />
     <Content Include="app\Images\Girl-Reading_Resized.jpg" />
     <Content Include="app\Images\gold_mine.jpg" />
     <Content Include="app\Images\gold_mine_cropped.jpg" />
     <Content Include="app\Images\journaling_1_square_small.jpg" />
     <Content Include="app\Images\journaling_1_square_smaller.jpg" />
+    <Content Include="app\Images\laptop_coffee_resized_1.jpg" />
+    <Content Include="app\Images\lauren_blue_dress.jpg" />
+    <Content Include="app\Images\lauren_blue_dress_resized_2.jpg" />
+    <Content Include="app\Images\lauren_blue_dress_resized_3.jpg" />
+    <Content Include="app\Images\lauren_blue_dress_resized_4.jpg" />
     <Content Include="app\Images\luxury-gold-pattern.jpg" />
     <Content Include="app\Images\Pink hat8_enlarged_cropped.jpg" />
     <Content Include="app\Images\Pink hat8_large_cropped.jpg" />
+    <Content Include="app\Images\tea_square.jpg" />
     <Content Include="app\js\Navigation.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -269,6 +285,7 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="BlogPostTemplate.aspx" />
     <Content Include="app\css\Uniform_Styles.css" />
+    <Content Include="BlogListView.aspx" />
     <Content Include="Website.Master" />
   </ItemGroup>
   <ItemGroup>

@@ -17,14 +17,99 @@ body {
     margin: 3rem 9%;
 }
 
+@media(max-width: 1045px) {
+    .content-section {
+        margin: 3rem 3%;
+    }
+}
+
+.side-by-side-module {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #a88e24;
+    padding: 2%;
+}
+
 .content-header {
     font-size: 48px;
+    position: relative;
+    padding: 10px;
+}
+
+.content-header:after {
+    position: absolute;
+    content: " ";
+    background: #c2a329;
+    width: 430px;
+    bottom: 0;
+    left: 50%;
+    height: 4px;
+    transition: all 0.5s;
+    transform: translate(-50%);
+}
+
+.sub-content-header {
     font-weight: 400;
+    font-size: 36px;
+}
+
+.black {
+    color: #000000;
+}
+
+.gold {
+    color: #c2a329 ;
 }
 
 /*************************** Input Forms ***************************/
 input.input {
     padding: 7px 5px;
+}
+
+/*************************** Gold Button Styling ***************************/
+.gold-button {
+    text-align: center;
+    background-color: #c2a329;
+    width: 130px;
+    max-height: 24px;
+    padding: 6px;
+    border: 2px solid #c2a329;
+}
+
+.gold-button:hover {
+    background-color: #000000;
+}
+
+.gold-button:hover .button-text {
+    color: #c2a329;
+}
+
+.gold-button .button-text {
+    color: #000000;
+}
+
+/*************************** Black Button Styling ***************************/
+.black-button {
+    text-align: center;
+    background-color: #000000;
+    width: 130px;
+    max-height: 24px;
+    padding: 6px;
+    border: 2px solid #000000;
+}
+
+.black-button:hover {
+    background-color: #c2a329;
+}
+
+.black-button:hover .button-text {
+    color: #000000;
+}
+
+.black-button .button-text {
+    color: #c2a329;
 }
 
 /*************************** Footer ***************************/
@@ -93,7 +178,7 @@ ul {
 #top_nav .menu-nav li.menu-depth-1 {
     display: inline;
     margin: 5px 5%;
-    font-size: 15px;
+    font-size: 17px;
     position: relative;
 }
 
@@ -187,6 +272,20 @@ ul {
     }
 
 /***************************Side Navigation Bar Styling ***************************/
+@media(max-width: 830px) {
+    #top_nav {
+        display: none;
+    }
+
+    #side_nav_hamburger {
+        display: block !important;
+    }
+
+    .social-media-header {
+        display: none;
+    }
+}
+
 .page-container {
     position: relative;
 }
@@ -233,8 +332,8 @@ ul {
 
 .fa-bars {
     position: absolute;
-    left: 0;
-    top: 36%;
+    right: 0;
+    top: 28%;
     color: #c2a329;
     right: 1em;
     font-size: 34px !important;

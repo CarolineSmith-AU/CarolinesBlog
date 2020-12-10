@@ -24,7 +24,7 @@
 }
 
 #email_label {
-    font-weight: 300;
+    font-weight: 400;
     margin: 0;
     font-size: 14px;
 }
@@ -35,26 +35,6 @@
 
 #email_sub_input {
     width: 90%;
-}
-
-.gold-button {
-    text-align: center;
-    background-color: #c2a329;
-    width: 130px;
-    padding: 6px;
-    border: 2px solid #c2a329;
-}
-
-.gold-button:hover {
-    background-color: #000000;
-}
-
-.gold-button:hover .button-text {
-    color: #c2a329;
-}
-
-.button-text {
-    color: #000000;
 }
 
 .blog-nav-section {
