@@ -78,3 +78,21 @@
 #posts_popular_section .topic-text span {
     border-bottom: 2px solid #c2a329;
 }
+
+#blog_nav_content .blog-nav-section:last-child {
+    border-bottom: none;
+}
+
+@media(max-width: 850px) {
+    #ContentPlaceHolder1_BlogSideNav {
+        display: block;
+        float: none;
+        width: auto;
+        border-left: none;
+    }
+
+    #blog_content_container {
+        display: block;
+        width: auto;
+    }
+}

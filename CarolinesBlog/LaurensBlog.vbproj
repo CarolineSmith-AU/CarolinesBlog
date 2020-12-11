@@ -230,6 +230,8 @@
     <Content Include="app\Images\DSCN0002.JPG" />
     <Content Include="app\Images\floral_gold_pattern.jpg" />
     <Content Include="app\Images\gardenia_square.jpg" />
+    <Content Include="app\Images\gardenia_square_2.jpg" />
+    <Content Include="app\Images\gardenia_square_same.jpg" />
     <Content Include="app\Images\Girl-Reading.jpg" />
     <Content Include="app\Images\Girl-Reading_Resized.jpg" />
     <Content Include="app\Images\gold_mine.jpg" />

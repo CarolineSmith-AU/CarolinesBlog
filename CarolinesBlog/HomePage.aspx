@@ -13,7 +13,7 @@
             <h1 class="content-header">A Lifestyle and Self-Love Blog</h1>
         </div>
         <div class="whats-in-the-mine content-section side-by-side-module">
-            <div class="whats-in-mine-text">
+            <div class="whats-in-mine-text" id="left">
                 <h1 class="sub-content-header black">What's in the mine?</h1>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
@@ -35,7 +35,7 @@
                     <span class="button-text">Read About Me</span>
                 </div>
             </div>
-            <div class="whats-in-mine-img-cont">
+            <div class="whats-in-mine-img-cont" id="right">
                 <img class="whats-in-mine-image" src="\app\Images\lauren_blue_dress_resized_4.jpg" />
             </div>
         </div>
@@ -55,13 +55,13 @@
                 </div>
                 <div class="blog-post-2 blog-post">
                     <div class="blog-image-container">
-                        <img src="app/Images/gardenia_square.jpg" />
+                        <img src="app/Images/gardenia_square_same.jpg" />
                         <div class="gold-button blog-button pointer" id="blog_button_2">
                             <span class="button-text">Read Post</span>
                         </div>
                     </div>
                     <span class="blog-date">04/03/2020</span>
-                    <h2 class="blog-title">I Betcha Nobody Ever Told You, We Would Be Jammin' Til the Break of Dawn</h2>
+                    <h2 class="blog-title">This is a Test of a much Looooooooooooonger Blog Post Title that should wrap muliple lines.</h2>
                     <%--                    <p class="blog-description">This is a much longer description of the blog post that should wrap more than one line...</p>--%>
                 </div>
                 <div class="blog-post-3 blog-post">
