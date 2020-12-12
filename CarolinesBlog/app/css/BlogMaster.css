@@ -63,10 +63,6 @@
     right: -5px;
 }
 
-#posts_popular_section .topic-text:hover span {
-    border-bottom: none;
-}
-
 .topic-text span {
     margin-right: 10px;
 }
@@ -76,7 +72,11 @@
 }
 
 #posts_popular_section .topic-text span {
-    border-bottom: 2px solid #c2a329;
+    text-decoration: underline;
+}
+
+#posts_popular_section .topic-text:hover span {
+    text-decoration: none;
 }
 
 #blog_nav_content .blog-nav-section:last-child {

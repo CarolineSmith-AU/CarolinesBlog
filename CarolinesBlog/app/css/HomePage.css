@@ -111,7 +111,7 @@ body {
     justify-content: center;
 }
 
-.blog-button {
+.button-link {
     position: absolute;
     z-index: 11;
     top: 50%;
@@ -120,7 +120,7 @@ body {
     padding: 0;
 }
 
-.blog-image-container:hover .blog-button {
+.blog-image-container:hover .button-link {
     opacity: 1;
     padding: 6px;
     top: 39%;

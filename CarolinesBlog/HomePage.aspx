@@ -41,41 +41,8 @@
         </div>
         <div class="recent-blog-posts content-section">
             <span class="recent-blogs-title content-header">Recent Blog Posts</span>
-            <div class="blog-posts">
-                <div class="blog-post-1 blog-post">
-                    <div class="blog-image-container">
-                        <img src="\app\Images\journaling_1_square_small.jpg" />
-                        <div class="gold-button blog-button pointer" id="blog_button_1">
-                            <span class="button-text">Read Post</span>
-                        </div>
-                    </div>
-                    <span class="blog-date">05/03/2020</span>
-                    <h2 class="blog-title">This is a Test of a Looooong Blog Post Title</h2>
-                    <%--                    <p class="blog-description">This is a short description of the blog post...</p>--%>
-                </div>
-                <div class="blog-post-2 blog-post">
-                    <div class="blog-image-container">
-                        <img src="app/Images/gardenia_square_same.jpg" />
-                        <div class="gold-button blog-button pointer" id="blog_button_2">
-                            <span class="button-text">Read Post</span>
-                        </div>
-                    </div>
-                    <span class="blog-date">04/03/2020</span>
-                    <h2 class="blog-title">This is a Test of a much Looooooooooooonger Blog Post Title that should wrap muliple lines.</h2>
-                    <%--                    <p class="blog-description">This is a much longer description of the blog post that should wrap more than one line...</p>--%>
-                </div>
-                <div class="blog-post-3 blog-post">
-                    <div class="blog-image-container">
-                        <img src="app/Images/tea_square.jpg" />
-                        <div class="gold-button blog-button pointer" id="blog_button_3">
-                            <span class="button-text">Read Post</span>
-                        </div>
-                    </div>
-                    <span class="blog-date">03/03/2020</span>
-                    <h2 class="blog-title">Your Blog Title Should Go Here</h2>
-                    <%--                    <p class="blog-description">This is a short description of the blog post...</p>--%>
-                </div>
-            </div>
+            <asp:Literal runat="server" ID="asp_rec_blogs">
+            </asp:Literal>
             <div class="gold-button pointer" id="all_posts_button">
                 <span class="button-text">View All Posts</span>
             </div>

@@ -236,14 +236,17 @@
     <Content Include="app\Images\Girl-Reading_Resized.jpg" />
     <Content Include="app\Images\gold_mine.jpg" />
     <Content Include="app\Images\gold_mine_cropped.jpg" />
+    <Content Include="app\Images\gold_mine_square.jpg" />
     <Content Include="app\Images\journaling_1_square_small.jpg" />
     <Content Include="app\Images\journaling_1_square_smaller.jpg" />
     <Content Include="app\Images\laptop_coffee_resized_1.jpg" />
+    <Content Include="app\Images\laptop_coffee_square.jpg" />
     <Content Include="app\Images\lauren_blue_dress.jpg" />
     <Content Include="app\Images\lauren_blue_dress_resized_2.jpg" />
     <Content Include="app\Images\lauren_blue_dress_resized_3.jpg" />
     <Content Include="app\Images\lauren_blue_dress_resized_4.jpg" />
     <Content Include="app\Images\luxury-gold-pattern.jpg" />
+    <Content Include="app\Images\mug_square.jpg" />
     <Content Include="app\Images\Pink hat8_enlarged_cropped.jpg" />
     <Content Include="app\Images\Pink hat8_large_cropped.jpg" />
     <Content Include="app\Images\tea_square.jpg" />
