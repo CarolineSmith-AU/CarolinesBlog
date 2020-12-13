@@ -39,4 +39,13 @@ Partial Public Class Blog
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents BlogSideNav As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''asp_blog_nav_posts control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents asp_blog_nav_posts As Global.System.Web.UI.WebControls.Literal
 End Class

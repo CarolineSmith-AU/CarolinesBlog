@@ -5,47 +5,21 @@ Imports MySql.Data.MySqlClient
 Public Class BlogListView
     Inherits System.Web.UI.Page
 
-    Private conn As MySqlConnection
+    Private website_conn As New WebsiteMaster
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Get_All_Blog_Posts()
     End Sub
 
     Public Sub Get_All_Blog_Posts()
-        Try
-            Init_Conn()
-            Dim query As String = "SELECT * FROM blog_posts ORDER BY TIME_STAMP DESC;"
-            Dim da As New MySqlDataAdapter(query, conn)
-            Dim ds As New DataSet()
-            da.Fill(ds, "blog_posts")
-            Dim dt As DataTable = ds.Tables("blog_posts")
-            Dim post_html As String = ""
+        Dim query As String = "SELECT * FROM blog_posts ORDER BY TIME_STAMP DESC;"
+        Dim dt As DataTable = website_conn.Get_DataTable(query, "blog_posts")
+        Dim post_html As String = ""
 
-            For Each row As DataRow In dt.Rows
-                post_html &= "<a href='" & row.Item("BLOG_URL") & "'><div id='blog_content' data-id=" & row.Item("ID") & "><h1 class='blog-post-header'>" & row.Item("TITLE") & "</h1><div class='blog-post-Date'><span>" & row.Item("TIME_STAMP") & "</span></div><img class='blog-post-picture' src='" & row.Item("IMAGE_URL") & "' width='100%' height: 'auto';><p>" & row.Item("POST").Substring(0, 200) & "..." & "</p></div></a>"
-            Next
-            asp_blog_container.Text = post_html
-        Catch ex As Exception
-            Console.WriteLine("Error: {0}", ex.ToString())
-        Finally
-            Close_Conn()
-        End Try
-    End Sub
-
-    Public Sub Init_Conn()
-        Dim connstring As String = "server=aws-blogdb.cs5jheun794a.us-east-2.rds.amazonaws.com;
-            userid=admin;
-            password=hU8f6Dww;
-            database=blogdb"
-
-        conn = New MySqlConnection(connstring)
-        conn.Open()
-    End Sub
-
-    Public Sub Close_Conn()
-        If conn IsNot Nothing Then
-            conn.Close()
-        End If
+        For Each row As DataRow In dt.Rows
+            post_html &= "<a class='blog-content' href='" & row.Item("BLOG_URL") & "?dataID=" & row.Item("ID") & "'><div data-id=" & row.Item("ID") & "><h1 class='blog-post-header'>" & row.Item("TITLE") & "</h1><div class='blog-post-Date'><span>" & row.Item("TIME_STAMP") & "</span></div><img class='blog-post-picture' src='" & row.Item("IMAGE_URL") & "' width='100%' height: 'auto';><p>" & row.Item("POST").Substring(0, 200) & "..." & "</p></div></a>"
+        Next
+        asp_blog_container.Text = post_html
     End Sub
 
 End Class

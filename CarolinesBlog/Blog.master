@@ -40,39 +40,7 @@
                     </a>
                 </div>
 
-                <div class="blog-nav-section" id="posts_popular_section">
-                    <h2>Related Posts</h2>
-                    <a class="pointer topic-row">
-                        <div class="topic-text"><span>My 6-Year Hair Growth Journey & What I Learned</span></div>
-                    </a>
-                    <a class="pointer topic-row">
-                        <div class="topic-text"><span>Blog Post 2</span></div>
-                    </a>
-                    <a class="pointer topic-row">
-                        <div class="topic-text"><span>Blog Post 3</span></div>
-                    </a>
-                    <a class="pointer topic-row">
-                        <div class="topic-text"><span>Blog Post 4</span></div>
-                    </a>
-                    <a class="pointer topic-row">
-                        <div class="topic-text"><span>Blog Post 5</span></div>
-                    </a>
-                    <a class="pointer topic-row">
-                        <div class="topic-text"><span>Blog Post 6</span></div>
-                    </a>
-                    <a class="pointer topic-row">
-                        <div class="topic-text"><span>Blog Post 7</span></div>
-                    </a>
-                    <a class="pointer topic-row">
-                        <div class="topic-text"><span>Blog Post 8</span></div>
-                    </a>
-                    <a class="pointer topic-row">
-                        <div class="topic-text"><span>Blog Post 9</span></div>
-                    </a>
-                    <a class="pointer topic-row">
-                        <div class="topic-text"><span>Blog Post 10</span></div>
-                    </a>
-                </div>
+                <asp:Literal ID="asp_blog_nav_posts" runat="server"></asp:Literal>
             </div>
         </asp:Panel>
     </div>

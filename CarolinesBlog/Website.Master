@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="/app/js/Navigation.js"></script>
+    <script type="text/javascript" src="/app/js/WebsiteMaster.js"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
