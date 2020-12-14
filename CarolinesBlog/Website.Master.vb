@@ -6,7 +6,12 @@ Public Class WebsiteMaster
     Private conn As MySqlConnection
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        Dim action = HttpContext.Current.Request.Item("type")
+        Try
+            CallByName(Me, action, CallType.Method, Nothing)
+        Catch ex As Exception
+            Console.WriteLine("Error: {0}", ex.ToString())
+        End Try
     End Sub
     Public Sub Init_Conn()
         Dim connstring As String = "server=aws-blogdb.cs5jheun794a.us-east-2.rds.amazonaws.com;
@@ -46,6 +51,6 @@ Public Class WebsiteMaster
     End Function
 
     Public Sub Subscribe_To_Blog(ByVal email As String)
-        Dim query As String = "INSERT INTO sub_email_list (EMAIL_ADDR, IS_SUBSCRIBED) VALUES(" & email & ", 1"
+        Dim query As String = "INSERT INTO sub_email_list (EMAIL_ADDR, IS_SUBSCRIBED, BLOGGER_ID) VALUES(" & email & ", 1, 1)"
     End Sub
 End Class

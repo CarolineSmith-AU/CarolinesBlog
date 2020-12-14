@@ -21,6 +21,14 @@ a {
     margin: 3rem 9%;
 }
 
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
 @media(max-width: 1045px) {
     .content-section {
         margin: 3rem 3%;
@@ -297,19 +305,19 @@ ul {
 .side-navigation {
     height: 100%;
     background: #000000;
-    width: 25em;
+    width: 100%;
     position: fixed;
     z-index: 1000;
     left: 0;
 }
 
     .side-navigation.closed {
-        transform: translate(-25em, 0px);
+        transform: translate(-100%, 0px);
         transition: transform 0.8s ease-out;
     }
 
     .side-navigation.page-load {
-        transform: translate(-25em, 0px);
+        transform: translate(-100%, 0px);
         transition: none !important;
     }
 

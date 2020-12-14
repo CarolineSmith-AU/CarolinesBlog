@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/app/css/BlogMaster.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/app/js/BlogMaster.js"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -18,14 +19,20 @@
             <div id="blog_nav_content">
                 <div class="blog-nav-section" id="subscribe_section">
                     <h2>Subscribe to get Email Updates</h2>
-                    <div id="email_input_box">
-                        <p id="email_label">Email</p>
-                        <input id="email_sub_input" class="input" type="text" placeholder="" />
+                    <div class="sub-section">
+                        <div id="email_input_box">
+                            <p id="email_label">Email</p>
+                            <input id="email_sub_input" class="input sub-input" type="text" placeholder="" />
+                        </div>
+                        <div class="gold-button pointer blog-sub-button" id="blog_sub_button">
+                            <span class="button-text">Subscribe</span>
+                        </div>
                     </div>
-                    <div class="gold-button pointer" id="blog_sub_button">
-                        <span class="button-text">Subscribe</span>
+                    <div class="sub-success-section hidden">
+                        <p>You have successfully subscribed!</p>
                     </div>
                 </div>
+
 
                 <div class="blog-nav-section" id="posts_topic_section">
                     <h2>Posts by Topic</h2>
@@ -40,9 +47,13 @@
                     </a>
                 </div>
 
-                <asp:Literal ID="asp_blog_nav_posts" runat="server"></asp:Literal>
+                <div class='blog-nav-section' id='posts_popular_section'><h2>Related Posts</h2></div>
             </div>
         </asp:Panel>
     </div>
+
+    <script type="text/html" id="blog_nav_posts_template">
+        <a class='topic-row' data-id=%blog_id%  href='%blog_url%'><div class='topic-text'><span>%title%</span></div></a>
+    </script>
 
 </asp:Content>

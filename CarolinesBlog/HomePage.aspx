@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/app/css/HomePage.css" rel="stylesheet" type="text/css" />
     <link href="/app/css/Uniform_Styles.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/app/js/HomePage.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="full-image-header">
@@ -41,8 +42,9 @@
         </div>
         <div class="recent-blog-posts content-section">
             <span class="recent-blogs-title content-header">Recent Blog Posts</span>
-            <asp:Literal runat="server" ID="asp_rec_blogs">
-            </asp:Literal>
+
+            <div id="rec_blogs_container" class='blog-posts content-section'></div>
+
             <div class="gold-button pointer" id="all_posts_button">
                 <span class="button-text">View All Posts</span>
             </div>
@@ -62,14 +64,25 @@
                 <div class="sub-section">
                     <div id="email_input_box">
                         <p id="email_label">Email</p>
-                        <input id="email_sub_input" class="input" type="text" placeholder="" />
+                        <input id="email_sub_input" class="input sub-input" type="text" placeholder="" />
                     </div>
-                    <div class="black-button pointer" id="blog_sub_button">
+                    <div class="black-button pointer blog-sub-button" id="blog_sub_button">
                         <span class="button-text">Subscribe</span>
                     </div>
                 </div>
-
+                <div class="sub-success-section hidden">
+                    <p>You have successfully subscribed!</p>
+                </div>
             </div>
         </div>
     </div>
+
+    <script type="text/html" id="rec_blog_template">
+        <div class='blog-post' data-id="%blog_id%">
+            <div class='blog-image-container'>
+                <img src='%image_url%' /><a class='button-link' href='%blog_url%'><div class='gold-button blog-button pointer'><span class='button-text'>Read Post</span></div>
+                </a></div>
+            <span class='blog-Date'>%date%</span><h2 class='blog-title'>%title%</h2>
+        </div>
+    </script>
 </asp:Content>

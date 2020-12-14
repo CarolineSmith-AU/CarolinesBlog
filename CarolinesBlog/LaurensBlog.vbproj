@@ -158,6 +158,14 @@
       <DependentUpon>Blog.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="BlogPost.vb" />
+    <Compile Include="EndpointMaster.aspx.designer.vb">
+      <DependentUpon>EndpointMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EndpointMaster.aspx.vb">
+      <DependentUpon>EndpointMaster.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -251,6 +259,7 @@
     <Content Include="app\Images\Pink hat8_large_cropped.jpg" />
     <Content Include="app\Images\tea_square.jpg" />
     <Content Include="app\js\BlogListView.js" />
+    <Content Include="app\js\BlogMaster.js" />
     <Content Include="app\js\BlogPostTemplate.js" />
     <Content Include="app\js\HomePage.js" />
     <Content Include="app\js\Navigation.js" />
@@ -259,6 +268,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="EndpointMaster.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

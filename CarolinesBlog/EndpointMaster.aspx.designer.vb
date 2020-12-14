@@ -11,5 +11,5 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class HomePage
+Partial Public Class EndpointMaster
 End Class
