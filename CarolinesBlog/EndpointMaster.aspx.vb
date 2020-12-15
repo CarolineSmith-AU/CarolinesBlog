@@ -41,7 +41,7 @@ Public Class EndpointMaster
                 New JProperty("BLOG_TEXT", row.Item("POST")),
                 New JProperty("BLOG_TYPE", row.Item("BLOG_TYPE").ToString()),
                 New JProperty("IMAGE_URL", row.Item("IMAGE_URL")),
-                New JProperty("BLOG_URL", row.Item("BLOG_URL").ToString())))
+                New JProperty("BLOG_URL", row.Item("BLOG_URL").ToString() & "?dataID=" & row.Item("BLOG_ID").ToString())))
         Next
         Dim output As New JObject(New JProperty("POSTS", posts))
         Return output.ToString()

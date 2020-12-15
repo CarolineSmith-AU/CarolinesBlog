@@ -15,11 +15,13 @@
     </div>
 
     <script type="text/html" id="blog_posts_template">
-        <div id="blog_content">
-            <h1 class="blog-post-header">%title%</h1>
-            <div class="blog-post-date"><span>%date%</span></div>
-            <img class="blog-post-picture" src="%image_url%" width="100%" height: "auto";/>
-            <p>%blog_text%</p>
-        </div>
+        <a href="%blog_url%">
+            <div id="blog_content">
+                <h1 class="blog-post-header">%title%</h1>
+                <div class="blog-post-date"><span>%date%</span></div>
+                <img class="blog-post-picture" src="%image_url%" width="100%" height: "auto";/>
+                <p>%blog_text%</p>
+            </div>
+        </a>
     </script>
 </asp:Content>
