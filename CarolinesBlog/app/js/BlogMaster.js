@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     BlogMaster.getLoadedTemplate();
-
+    BlogListView.GetRecentBlogs();
 });
 
 BlogMaster = {

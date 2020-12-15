@@ -7,8 +7,6 @@ Public Class EndpointMaster
     Inherits System.Web.UI.Page
     Implements IReadOnlySessionState
 
-    Private Shared conn As MySqlConnection
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
     End Sub
@@ -16,16 +14,7 @@ Public Class EndpointMaster
 
     <WebMethod()> Public Shared Sub Subscribe_To_Blog(ByVal email_addr As String)
         Dim query As String = "INSERT INTO sub_email_list (EMAIL_ADDR, IS_SUBSCRIBED, BLOGGER_ID) VALUES('" & email_addr & "', 1, 1)"
-        Try
-            Init_Conn()
-            Dim da As New MySqlDataAdapter(query, CType(conn, MySqlConnection))
-            Dim ds As New DataSet()
-            da.Fill(ds, "blogdb")
-        Catch ex As Exception
-            Console.WriteLine("Error: {0}", ex.ToString())
-        Finally
-            Close_Conn()
-        End Try
+        Update_SQL_DB(query, "blogdb")
     End Sub
 
     <WebMethod()> Public Shared Function Get_Recent_Blog_Posts(ByVal num_to_get As Integer) As String
@@ -71,8 +60,13 @@ Public Class EndpointMaster
 
     Public Shared Function Get_DataTable(ByVal query As String, ByVal data_table As String)
         Dim dt As DataTable
+        Dim connstring As String = "server=aws-blogdb.cs5jheun794a.us-east-2.rds.amazonaws.com;
+            userid=admin;
+            password=hU8f6Dww;
+            database=blogdb"
+        Dim conn As New MySqlConnection(connstring)
         Try
-            Init_Conn()
+            conn.Open()
             Dim da As New MySqlDataAdapter(query, CType(conn, MySqlConnection))
             Dim ds As New DataSet()
             da.Fill(ds, data_table)
@@ -81,28 +75,30 @@ Public Class EndpointMaster
         Catch ex As Exception
             Console.WriteLine("Error: {0}", ex.ToString())
         Finally
-            Close_Conn()
+            If conn IsNot Nothing Then
+                conn.Close()
+            End If
         End Try
         Return Nothing
     End Function
 
-    Public Shared Sub Init_Conn()
+    Public Shared Sub Update_SQL_DB(ByVal query As String, ByVal data_table As String)
         Dim connstring As String = "server=aws-blogdb.cs5jheun794a.us-east-2.rds.amazonaws.com;
             userid=admin;
             password=hU8f6Dww;
             database=blogdb"
-
-        conn = New MySqlConnection(connstring)
-        conn.Open()
+        Dim conn As New MySqlConnection(connstring)
+        Try
+            conn.Open()
+            Dim da As New MySqlDataAdapter(query, CType(conn, MySqlConnection))
+            Dim ds As New DataSet()
+            da.Fill(ds, data_table)
+        Catch ex As Exception
+            Console.WriteLine("Error: {0}", ex.ToString())
+        Finally
+            If conn IsNot Nothing Then
+                conn.Close()
+            End If
+        End Try
     End Sub
-
-    Public Shared Sub Close_Conn()
-        If conn IsNot Nothing Then
-            conn.Close()
-        End If
-    End Sub
-
-    Public Shared Function Get_Conn()
-        Return conn
-    End Function
 End Class

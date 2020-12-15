@@ -1,4 +1,6 @@
-﻿Public Class Mail
+﻿Imports System.Net.Mail
+
+Public Class Mail
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load

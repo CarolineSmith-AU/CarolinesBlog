@@ -1,7 +1,4 @@
-﻿$(document).ready(function () {
-    BlogListView.GetRecentBlogs();
-});
-BlogListView = {
+﻿BlogListView = {
     blogs: null,
 
     GetRecentBlogs: function () {
