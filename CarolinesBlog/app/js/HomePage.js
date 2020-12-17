@@ -28,15 +28,17 @@ HomePage = {
     SetRecentBlogsHTML: function () {
         var template = $("#rec_blog_template").html();
         var html = HomePage.blogs.reduce(function (accumulator, currVal) {
+            var cleanedTitle = currVal.TITLE.replace("&", "and");
+            cleanedTitle = cleanedTitle.replace(/[^a-zA-Z0-9 ]/g, "");
             return accumulator + Util.templateHelper(template, {
                 blog_id: currVal.BLOG_ID,
                 image_url: currVal.IMAGE_URL,
-                blog_url: currVal.BLOG_URL,
+                blog_url: "/" + (currVal.BLOG_TYPE == 1 ? 'hair-blog' : currVal.BLOG_TYPE == 1 ? 'fashion-blog' : 'thoughts-blog') + "/" + currVal.BLOG_ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
                 date: currVal.DATE,
                 title: currVal.TITLE
             });
         }, "");
 
         $("#rec_blogs_container").html(html);
-    }
+    },
 };

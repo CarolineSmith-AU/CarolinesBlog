@@ -5,16 +5,14 @@
     Private blog_text As String
     Private blog_type As Integer
     Private image_url As String
-    Private blog_url As String
 
-    Public Sub New(blog_id As String, title As String, date_stamp As String, blog_text As String, blog_type As Integer, image_url As String, blog_url As String)
+    Public Sub New(blog_id As String, title As String, date_stamp As String, blog_text As String, blog_type As Integer, image_url As String)
         Me.blog_id = blog_id
         Me.title = title
         Me.date_stamp = date_stamp
         Me.blog_text = blog_text
         Me.blog_type = blog_type
         Me.image_url = image_url
-        Me.blog_url = blog_url
     End Sub
 
     Public Function Get_Blog_ID() As Integer
@@ -63,13 +61,5 @@
 
     Public Sub Set_Image_Url(ByVal image_url As String)
         Me.image_url = image_url
-    End Sub
-
-    Public Function Get_Blog_URL() As String
-        Return Me.blog_url
-    End Function
-
-    Public Sub Set_Blog_URL(ByVal blog_url As String)
-        Me.blog_url = blog_url
     End Sub
 End Class

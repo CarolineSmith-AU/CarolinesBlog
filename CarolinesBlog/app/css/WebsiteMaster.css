@@ -205,17 +205,19 @@ ul {
     background: #000000;
     left: 0;
     width: 10em;
-    padding: 30px 0px;
-    display: none;
+    padding: 0px;
+    max-height: 0px;
+    overflow: hidden;
     transition: all 0.5s;
-    border-left: 1.5px solid #262626;
+/*    border-left: 1.5px solid #262626;
     border-bottom: 1.5px solid #262626;
     border-right: 1.5px solid #262626;
-    border-top: 1.5px solid #262626;
+    border-top: 1.5px solid #262626;*/
 }
 
 #top_nav .menu-nav li.menu-depth-1:hover .menu-sub-nav-1 {
-    display: block;
+    max-height: 400px;
+    padding: 30px 0px;
 }
 
 #top_nav .menu-nav .menu-sub-nav-1 li {
@@ -366,7 +368,8 @@ ul {
     z-index: 10;
     left: 0;
     width: 10em;
-    display: none;
+    max-height: 0px;
+    overflow: hidden;
     padding: 0px;
     transition: all 0.5s ease-out;
     border-left: 3px solid #c2a329;
@@ -375,6 +378,7 @@ ul {
 
 #side_nav_container .menu-nav li.menu-depth-1:hover .menu-sub-nav-1 {
     display: block;
+    max-height: 400px;
 }
 
 #side_nav_container .menu-nav .menu-sub-nav-1 li {

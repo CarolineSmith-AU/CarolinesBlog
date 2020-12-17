@@ -1,32 +1,22 @@
 ﻿$(document).ready(function () {
-    BlogMaster.getLoadedTemplate();
-    BlogListView.GetRecentBlogs();
+    BlogMaster.getLoadedBlogTemplate();
 });
 
 BlogMaster = {
 
     blogs: null,
 
-    getLoadedTemplate: function () {
-        var url = window.location.pathname;
-        var currPageName = url.substring(url.lastIndexOf('/') + 1);
-        console.log(currPageName);
+    getLoadedBlogTemplate: function () {
+        var id = BlogMaster.GetIDFromURL();
 
-        switch (currPageName) {
-            case "BlogPostTemplate.aspx":
-                BlogMaster.getRelatedPosts();
-                break;
-            case "BlogListView.aspx":
-                BlogMaster.getRecentPosts();
-                break;
-            default:
-                console.log("Page not recognized");
+        if (id == "") {    
+            BlogMaster.getRecentPosts();
+        } else {
+            BlogMaster.getRelatedPosts(id);
         }
     },
-
-    getRelatedPosts: function () {
-        var blog_id = BlogMaster.dataIDURL();
-        var data = { blog_id: blog_id };
+    getRelatedPosts: function (id) {
+        var data = { blog_id: id };
         var params = JSON.stringify(data)
         $.ajax({
             type: "POST",
@@ -68,21 +58,14 @@ BlogMaster = {
             }
         });
     },
-
-    dataIDURL: function () {
-        const params = new URLSearchParams(window.location.search);
-        const dataID = params.get("dataID");
-        console.log(dataID);
-        return dataID;
-
-    },
-
     setRelatedBlogsHTML: function () {
         var template = $("#blog_nav_posts_template").html();
         var html = BlogMaster.blogs.reduce(function (accumulator, currVal) {
+            var cleanedTitle = currVal.TITLE.replace("&", "and");
+            cleanedTitle = cleanedTitle.replace(/[^a-zA-Z0-9 ]/g, "");
             return accumulator + Util.templateHelper(template, {
                 blog_id: currVal.BLOG_ID,
-                blog_url: currVal.BLOG_URL,
+                blog_url: "/" + (currVal.BLOG_TYPE == 0 ? 'hair-blog' : 'fashion-blog') + "/" + currVal.BLOG_ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
                 title: currVal.TITLE
             });
         }, "");
@@ -93,14 +76,22 @@ BlogMaster = {
     setRecentBlogsHTML: function () {
         var template = $("#blog_nav_posts_template").html();
         var html = BlogMaster.blogs.reduce(function (accumulator, currVal) {
+            var cleanedTitle = currVal.TITLE.replace("&", "and");
+            cleanedTitle = cleanedTitle.replace(/[^a-zA-Z0-9 ]/g, "");
             return accumulator + Util.templateHelper(template, {
                 blog_id: currVal.BLOG_ID,
-                blog_url: currVal.BLOG_URL,
+                blog_url: "/" + (currVal.BLOG_TYPE == 1 ? 'hair-blog' : currVal.BLOG_TYPE == 1 ? 'fashion-blog' : 'thoughts-blog') + "/" + currVal.BLOG_ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
                 title: currVal.TITLE
             });
         }, "");
         html = "<h2>Recent Posts</h2>" + html;
         $("#posts_popular_section").html(html);
+    },
+    GetIDFromURL: function () {
+        var temp = window.location.pathname.substring(1); //Erase first char which is '/'
+        var temp2 = temp.substring(temp.indexOf('/') + 1) //Go to next '/'
+        var id = temp2.substring(0, temp2.indexOf('/'));
+        return id;
     }
 
 };

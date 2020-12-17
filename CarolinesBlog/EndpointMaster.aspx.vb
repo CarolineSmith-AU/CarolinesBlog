@@ -7,6 +7,8 @@ Public Class EndpointMaster
     Inherits System.Web.UI.Page
     Implements IReadOnlySessionState
 
+    Private Const blogger_id As Integer = 1
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
     End Sub
@@ -23,14 +25,49 @@ Public Class EndpointMaster
         Dim posts As New JArray
 
         For Each row As DataRow In dt.Rows
-            Dim post As BlogPost = New BlogPost(row.Item("BLOG_ID"), row.Item("TITLE"), row.Item("TIME_STAMP"), row.Item("POST"), row.Item("BLOG_TYPE"), row.Item("IMAGE_URL"), row.Item("BLOG_URL"))
+            Dim post As BlogPost = New BlogPost(row.Item("BLOG_ID"), row.Item("TITLE"), row.Item("TIME_STAMP"), row.Item("POST"), row.Item("BLOG_TYPE"), row.Item("IMAGE_URL"))
             posts.Add(New JObject(New JProperty("BLOG_ID", row.Item("BLOG_ID").ToString()),
                 New JProperty("TITLE", row.Item("TITLE")),
                 New JProperty("DATE", row.Item("TIME_STAMP").ToString()),
                 New JProperty("BLOG_TEXT", row.Item("POST")),
                 New JProperty("BLOG_TYPE", row.Item("BLOG_TYPE").ToString()),
-                New JProperty("IMAGE_URL", row.Item("IMAGE_URL")),
-                New JProperty("BLOG_URL", row.Item("BLOG_URL").ToString() & "?dataID=" & row.Item("BLOG_ID").ToString())))
+                New JProperty("IMAGE_URL", row.Item("IMAGE_URL"))))
+        Next
+        Dim output As New JObject(New JProperty("POSTS", posts))
+        Return output.ToString()
+    End Function
+
+    <WebMethod()> Public Shared Function Get_Single_Blog_Post(ByVal blog_id As Integer) As String
+        Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = 1 AND BLOG_ID = " & blog_id & ";"
+        Dim dt As DataTable = Get_DataTable(query, "blog_posts")
+        Dim posts As New JArray
+
+        For Each row As DataRow In dt.Rows
+            Dim post As BlogPost = New BlogPost(row.Item("BLOG_ID"), row.Item("TITLE"), row.Item("TIME_STAMP"), row.Item("POST"), row.Item("BLOG_TYPE"), row.Item("IMAGE_URL"))
+            posts.Add(New JObject(New JProperty("BLOG_ID", row.Item("BLOG_ID").ToString()),
+                New JProperty("TITLE", row.Item("TITLE")),
+                New JProperty("DATE", row.Item("TIME_STAMP").ToString()),
+                New JProperty("BLOG_TEXT", row.Item("POST")),
+                New JProperty("BLOG_TYPE", row.Item("BLOG_TYPE").ToString()),
+                New JProperty("IMAGE_URL", row.Item("IMAGE_URL"))))
+        Next
+        Dim output As New JObject(New JProperty("POSTS", posts))
+        Return output.ToString()
+    End Function
+
+    <WebMethod()> Public Shared Function Get_Posts_By_Type(ByVal blog_type As Integer, ByVal num_to_get As Integer) As String
+        Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = 1 AND BLOG_TYPE = " & blog_type & " ORDER BY TIME_STAMP DESC LIMIT " & num_to_get.ToString() & ";"
+        Dim dt As DataTable = Get_DataTable(query, "blog_posts")
+        Dim posts As New JArray
+
+        For Each row As DataRow In dt.Rows
+            Dim post As BlogPost = New BlogPost(row.Item("BLOG_ID"), row.Item("TITLE"), row.Item("TIME_STAMP"), row.Item("POST"), row.Item("BLOG_TYPE"), row.Item("IMAGE_URL"))
+            posts.Add(New JObject(New JProperty("BLOG_ID", row.Item("BLOG_ID").ToString()),
+                New JProperty("TITLE", row.Item("TITLE")),
+                New JProperty("DATE", row.Item("TIME_STAMP").ToString()),
+                New JProperty("BLOG_TEXT", row.Item("POST")),
+                New JProperty("BLOG_TYPE", row.Item("BLOG_TYPE").ToString()),
+                New JProperty("IMAGE_URL", row.Item("IMAGE_URL"))))
         Next
         Dim output As New JObject(New JProperty("POSTS", posts))
         Return output.ToString()
@@ -49,14 +86,15 @@ Public Class EndpointMaster
                 Dim rel_posts_dt As DataTable = Get_DataTable(get_rel_posts_query, "blog_posts")
                 For Each row3 As DataRow In rel_posts_dt.Rows
                     rec_posts.Add(New JObject(New JProperty("BLOG_ID", row3.Item("BLOG_ID").ToString()),
-                        New JProperty("TITLE", row3.Item("TITLE")),
-                        New JProperty("BLOG_URL", row3.Item("BLOG_URL") & "?dataID=" & row3.Item("BLOG_ID").ToString())))
+                        New JProperty("TITLE", row3.Item("TITLE"))))
                 Next
             Next
         Next
         Dim output As New JObject(New JProperty("REC_POSTS", rec_posts))
         Return output.ToString()
     End Function
+
+
 
     Public Shared Function Get_DataTable(ByVal query As String, ByVal data_table As String)
         Dim dt As DataTable
