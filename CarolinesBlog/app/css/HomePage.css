@@ -177,17 +177,13 @@ body {
     font-style: normal;
 }
 
-.full-screen-sub-image:after {
-    content: "";
-    background-color: #a88e24;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 40%;
-    height: 100%;
-    opacity: 1;
-    z-index: 3;
+.view-all-text {
+    text-decoration: underline !important;
+}
+
+#view_all_blogs {
+    border: 2px solid #c2a329;
+    margin: auto;
 }
 
 /***************************Subscribe Module***************************/
@@ -209,11 +205,12 @@ body {
     position: absolute;
     z-index: 4;
     top: 0;
-    width: 40%;
+    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: #a88e24;
 }
 
 #sub_module_header {
@@ -243,7 +240,9 @@ body {
 }
 
 #email_sub_input {
-    width: 50%;
+    width: 100%;
+    position: absolute;
+    right: 0;
 }
 
 #email_label {
@@ -253,21 +252,20 @@ body {
     color: #000000;
 }
 
-/***************************Mobile Views***************************/
-@media screen and (max-width: 930px) and (min-width: 805px) {
-    #sub_module_header {
-        font-size: 30px;
-    }
-
-    #email_sub_input {
-        width: 80%;
-    }
-
-    .full-screen-sub-image:after {
-        width: 48%;
-    }
+.input-button-one-line {
+    position: relative;
 }
 
+#blog_sub_button {
+    position: absolute;
+    z-index: 60;
+    right: 0;
+    display: flex;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+}
+/***************************Mobile Views***************************/
 @media (max-width: 805px) {
     #sub_module_header {
         font-size: 22px;
@@ -277,33 +275,40 @@ body {
         padding-top: 0;
     }
 
-    #email_sub_input {
-        width: 100%;
-    }
-
     .blog-title {
         font-size: 15px;
     }
+}
 
-    .blog-posts {
-        flex-wrap: wrap;
+/*Change hover effects of "Read Post" button on blog link images*/
+@media(max-width: 1000px) {
+    .button-link {
+        position: absolute;
+        z-index: 11;
+        top: 55%;
+        opacity: 1;
+        padding: 6px;
     }
 
-    .blog-post {
-        width: 42%;
+    .blog-image-container:hover .button-link {
+        opacity: 1;
+        padding: 6px;
+        top: 55%;
     }
 }
 
-@media (max-width: 610px) {
+
+@media(max-width: 1020px) and (min-width: 610) {
+    #sub_module_form {
+        width: 52%;
+    }
+}
+@media (max-width: 710px) {
     #sub_module_header {
         width: 100%
     }
 
     #sub_module_form {
-        width: 70%;
-    }
-
-    .full-screen-sub-image:after {
         width: 100%;
     }
 
@@ -314,8 +319,12 @@ body {
     }
 
     .blog-post {
-        width: 60%;
+        width: 73%;
         margin: 15px;
+    }
+
+    .blog-posts {
+        flex-wrap: wrap;
     }
 
     .recent-blogs-title {

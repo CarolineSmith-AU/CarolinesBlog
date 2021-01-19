@@ -74,16 +74,20 @@ Public Class EndpointMaster
     End Function
 
     <WebMethod()> Public Shared Function Get_Related_Posts(ByVal blog_id As Integer)
+        'Get all tages related to the current blogger and related to blog parameter
         Dim get_curr_tags_query As String = "Select * FROM rel_blog_posts_keywords WHERE BLOG_ID = " & blog_id & " And BLOGGER_ID = " & 1
         Dim curr_tags_dt As DataTable = Get_DataTable(get_curr_tags_query, "rel_blog_posts_keywords")
         Dim rec_posts As New JArray
 
+        'First Iteration: For each tag, get all blogs sharing the current tag (excluding the current blog)
         For Each row1 As DataRow In curr_tags_dt.Rows
             Dim get_rel_tags_query As String = "Select * FROM rel_blog_posts_keywords WHERE BLOGGER_ID = " & 1 & " And KEY_WORD = '" & row1.Item("KEY_WORD") & "' AND NOT BLOG_ID = " & blog_id & " LIMIT 10"
             Dim rel_tags_dt As DataTable = Get_DataTable(get_rel_tags_query, "rel_blog_posts_keywords")
+            'Second Iteration: For each matching tag, select the associated post from blog_posts table.
             For Each row2 As DataRow In rel_tags_dt.Rows
                 Dim get_rel_posts_query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = 1 AND BLOG_ID = " & row2.Item("BLOG_ID")
                 Dim rel_posts_dt As DataTable = Get_DataTable(get_rel_posts_query, "blog_posts")
+                'Third iteration: Add each found related post to the return obj rel_posts
                 For Each row3 As DataRow In rel_posts_dt.Rows
                     rec_posts.Add(New JObject(New JProperty("BLOG_ID", row3.Item("BLOG_ID").ToString()),
                         New JProperty("TITLE", row3.Item("TITLE"))))

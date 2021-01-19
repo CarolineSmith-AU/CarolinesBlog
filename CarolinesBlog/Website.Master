@@ -5,6 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/app/css/WebsiteMaster.css" rel="stylesheet" type="text/css" />
     <link href="/app/css/Uniform_Styles.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/app/css/font-awesome.min.css" type="text/css" />

@@ -37,17 +37,18 @@
                 </div>
             </div>
             <div class="whats-in-mine-img-cont" id="right">
-                <img class="whats-in-mine-image" src="\app\Images\lauren_blue_dress_resized_4.jpg" />
+                <img class="whats-in-mine-image" src="\app\Images\lauren_blue_dress_resized_4.jpg" width="100%" />
             </div>
         </div>
         <div class="recent-blog-posts content-section">
             <span class="recent-blogs-title content-header">Recent Blog Posts</span>
 
             <div id="rec_blogs_container" class='blog-posts content-section'></div>
-
-            <div class="gold-button pointer" id="all_posts_button">
-                <span class="button-text">View All Posts</span>
-            </div>
+            <a class="view-all-link pointer content-section" href="/blog">
+                <div id="view_all_blogs" class="black-button pointer">
+                    <span class="button-text">View All Posts</span>
+                </div>
+            </a>
         </div>
     </div>
     <div class="quote-container">
@@ -62,12 +63,12 @@
             <div id="sub_module_form">
                 <h1 id="sub_module_header">Subscribe to be notified about new blog posts.</h1>
                 <div class="sub-section">
-                    <div id="email_input_box">
+                    <div id="email_input_box" class="input-button-one-line">
                         <p id="email_label">Email</p>
                         <input id="email_sub_input" class="input sub-input" type="text" placeholder="" />
-                    </div>
-                    <div class="black-button pointer blog-sub-button" id="blog_sub_button">
-                        <span class="button-text">Subscribe</span>
+                        <div class="black-button pointer blog-sub-button" id="blog_sub_button">
+                            <span class="button-text">Subscribe</span>
+                        </div>
                     </div>
                 </div>
                 <div class="sub-success-section hidden">
@@ -81,7 +82,8 @@
         <div class='blog-post' data-id="%blog_id%">
             <div class='blog-image-container'>
                 <img src='%image_url%' /><a class='button-link' href='%blog_url%'><div class='gold-button blog-button pointer'><span class='button-text'>Read Post</span></div>
-                </a></div>
+                </a>
+            </div>
             <span class='blog-Date'>%date%</span><h2 class='blog-title'>%title%</h2>
         </div>
     </script>
