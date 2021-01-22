@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="/app/css/font-awesome.css" type="text/css" />
     <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="/app/js/Navigation.js"></script>
     <script type="text/javascript" src="/app/js/WebsiteMaster.js"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -42,9 +41,9 @@
                     <a class="fa fa-instagram social"></a>
                     <a class="fa fa-facebook-square social"></a>
                 </div>
-                <div class="logo">
+                <a href="www.blackgirlgolden.com" class="logo"><div>
                     <span class="logo-text">Black Girl Golden</span>
-                </div>
+                </div></a>
                 <div id="top_nav" class="menu-nav-container">
                     <ul class="menu-nav">
                         <li class="menu-depth-1"><span>Home</span></li>

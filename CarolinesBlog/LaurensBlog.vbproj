@@ -192,17 +192,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Controllers\HomeController.vb" />
-    <Compile Include="BlogPostTemplate.aspx.designer.vb">
+    <Compile Include="app\aspx\BlogPostTemplate.aspx.designer.vb">
       <DependentUpon>BlogPostTemplate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BlogPostTemplate.aspx.vb">
+    <Compile Include="app\aspx\BlogPostTemplate.aspx.vb">
       <DependentUpon>BlogPostTemplate.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="BlogListView.aspx.designer.vb">
+    <Compile Include="app\aspx\BlogListView.aspx.designer.vb">
       <DependentUpon>BlogListView.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BlogListView.aspx.vb">
+    <Compile Include="app\aspx\BlogListView.aspx.vb">
       <DependentUpon>BlogListView.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
@@ -213,10 +213,10 @@
       <DependentUpon>Website.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HomePage.aspx.designer.vb">
+    <Compile Include="app\aspx\HomePage.aspx.designer.vb">
       <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="HomePage.aspx.vb">
+    <Compile Include="app\aspx\HomePage.aspx.vb">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
@@ -237,6 +237,7 @@
     <Content Include="app\css\font-awesome.min.css" />
     <Content Include="app\css\HomePage.css" />
     <Content Include="app\css\WebsiteMaster.css" />
+    <Content Include="app\email_templates\NewBlogPost.html" />
     <Content Include="app\fonts\fontawesome-webfont.svg" />
     <Content Include="app\Images\dark_journal_1_resized.jpg" />
     <Content Include="app\Images\dark_journal_2_resized.jpg" />
@@ -269,7 +270,6 @@
     <Content Include="app\js\BlogMaster.js" />
     <Content Include="app\js\BlogPostTemplate.js" />
     <Content Include="app\js\HomePage.js" />
-    <Content Include="app\js\Navigation.js" />
     <Content Include="app\js\WebsiteMaster.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -290,7 +290,7 @@
     <Content Include="app\fonts\fontawesome-webfont.woff" />
     <Content Include="app\fonts\fontawesome-webfont.woff2" />
     <Content Include="app\fonts\FontAwesome.otf" />
-    <Content Include="HomePage.aspx" />
+    <Content Include="app\aspx\HomePage.aspx" />
     <Content Include="Blog.master" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -310,9 +310,9 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-    <Content Include="BlogPostTemplate.aspx" />
+    <Content Include="app\aspx\BlogPostTemplate.aspx" />
     <Content Include="app\css\Uniform_Styles.css" />
-    <Content Include="BlogListView.aspx" />
+    <Content Include="app\aspx\BlogListView.aspx" />
     <Content Include="Website.Master" />
   </ItemGroup>
   <ItemGroup>
@@ -343,7 +343,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\aspx\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

@@ -26,12 +26,12 @@ Public Class EndpointMaster
 
         For Each row As DataRow In dt.Rows
             Dim post As BlogPost = New BlogPost(row.Item("BLOG_ID"), row.Item("TITLE"), row.Item("TIME_STAMP"), row.Item("POST"), row.Item("BLOG_TYPE"), row.Item("IMAGE_URL"))
-            posts.Add(New JObject(New JProperty("BLOG_ID", row.Item("BLOG_ID").ToString()),
-                New JProperty("TITLE", row.Item("TITLE")),
-                New JProperty("DATE", row.Item("TIME_STAMP").ToString()),
-                New JProperty("BLOG_TEXT", row.Item("POST")),
-                New JProperty("BLOG_TYPE", row.Item("BLOG_TYPE").ToString()),
-                New JProperty("IMAGE_URL", row.Item("IMAGE_URL"))))
+            posts.Add(New JObject(New JProperty("BLOG_ID", post.Get_Blog_ID()),
+                New JProperty("TITLE", post.Get_Title()),
+                New JProperty("DATE", post.Get_Date()),
+                New JProperty("BLOG_TEXT", post.Get_Blog_Text()),
+                New JProperty("BLOG_TYPE", post.Get_Blog_Type()),
+                New JProperty("IMAGE_URL", post.Get_Image_URL())))
         Next
         Dim output As New JObject(New JProperty("POSTS", posts))
         Return output.ToString()
@@ -44,12 +44,12 @@ Public Class EndpointMaster
 
         For Each row As DataRow In dt.Rows
             Dim post As BlogPost = New BlogPost(row.Item("BLOG_ID"), row.Item("TITLE"), row.Item("TIME_STAMP"), row.Item("POST"), row.Item("BLOG_TYPE"), row.Item("IMAGE_URL"))
-            posts.Add(New JObject(New JProperty("BLOG_ID", row.Item("BLOG_ID").ToString()),
-                New JProperty("TITLE", row.Item("TITLE")),
-                New JProperty("DATE", row.Item("TIME_STAMP").ToString()),
-                New JProperty("BLOG_TEXT", row.Item("POST")),
-                New JProperty("BLOG_TYPE", row.Item("BLOG_TYPE").ToString()),
-                New JProperty("IMAGE_URL", row.Item("IMAGE_URL"))))
+            posts.Add(New JObject(New JProperty("BLOG_ID", post.Get_Blog_ID()),
+                New JProperty("TITLE", post.Get_Title()),
+                New JProperty("DATE", post.Get_Date()),
+                New JProperty("BLOG_TEXT", post.Get_Blog_Text()),
+                New JProperty("BLOG_TYPE", post.Get_Blog_Type()),
+                New JProperty("IMAGE_URL", post.Get_Image_URL())))
         Next
         Dim output As New JObject(New JProperty("POSTS", posts))
         Return output.ToString()
@@ -62,12 +62,12 @@ Public Class EndpointMaster
 
         For Each row As DataRow In dt.Rows
             Dim post As BlogPost = New BlogPost(row.Item("BLOG_ID"), row.Item("TITLE"), row.Item("TIME_STAMP"), row.Item("POST"), row.Item("BLOG_TYPE"), row.Item("IMAGE_URL"))
-            posts.Add(New JObject(New JProperty("BLOG_ID", row.Item("BLOG_ID").ToString()),
-                New JProperty("TITLE", row.Item("TITLE")),
-                New JProperty("DATE", row.Item("TIME_STAMP").ToString()),
-                New JProperty("BLOG_TEXT", row.Item("POST")),
-                New JProperty("BLOG_TYPE", row.Item("BLOG_TYPE").ToString()),
-                New JProperty("IMAGE_URL", row.Item("IMAGE_URL"))))
+            posts.Add(New JObject(New JProperty("BLOG_ID", post.Get_Blog_ID()),
+                New JProperty("TITLE", post.Get_Title()),
+                New JProperty("DATE", post.Get_Date()),
+                New JProperty("BLOG_TEXT", post.Get_Blog_Text()),
+                New JProperty("BLOG_TYPE", post.Get_Blog_Type()),
+                New JProperty("IMAGE_URL", post.Get_Image_URL())))
         Next
         Dim output As New JObject(New JProperty("POSTS", posts))
         Return output.ToString()

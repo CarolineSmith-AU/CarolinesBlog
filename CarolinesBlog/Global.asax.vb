@@ -12,20 +12,22 @@ Public Class MvcApplication
     End Sub
 
     Public Shared Sub RegisterRoutes(ByVal routes As RouteCollection)
+        routes.MapPageRoute("Home Page",
+            "", "~/app/aspx/HomePage.aspx")
         routes.MapPageRoute("All Blogs",
-            "blog", "~/BlogListView.aspx")
+            "blog", "~/app/aspx/BlogListView.aspx")
         routes.MapPageRoute("Hair Blog",
-            "hair-blog", "~/BlogListView.aspx")
+            "hair-blog", "~/app/aspx/BlogListView.aspx")
         routes.MapPageRoute("Fashion Blog",
-            "fashion-blog", "~/BlogListView.aspx")
+            "fashion-blog", "~/app/aspx/BlogListView.aspx")
         routes.MapPageRoute("Thoughts Blog",
-            "thoughts-blog", "~/BlogListView.aspx")
+            "thoughts-blog", "~/app/aspx/BlogListView.aspx")
         routes.MapPageRoute("Hair Blog Post",
-            "hair-blog/{id}/{title}", "~/BlogPostTemplate.aspx")
+            "hair-blog/{id}/{title}", "~/app/aspx/BlogPostTemplate.aspx")
         routes.MapPageRoute("Fashion Blog Post",
-            "fashion-blog/{id}/{title}", "~/BlogPostTemplate.aspx")
+            "fashion-blog/{id}/{title}", "~/app/aspx/BlogPostTemplate.aspx")
         routes.MapPageRoute("Thoughts Blog Post",
-            "thoughts-blog/{id}/{title}", "~/BlogPostTemplate.aspx")
+            "thoughts-blog/{id}/{title}", "~/app/aspx/BlogPostTemplate.aspx")
         routes.MapPageRoute("Contact Page",
             "contact", "~/Contact.aspx")
         routes.MapPageRoute("About Page",
