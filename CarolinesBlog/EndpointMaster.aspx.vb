@@ -55,8 +55,8 @@ Public Class EndpointMaster
         Return output.ToString()
     End Function
 
-    <WebMethod()> Public Shared Function Get_Posts_By_Type(ByVal blog_type As Integer, ByVal num_to_get As Integer) As String
-        Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = 1 AND BLOG_TYPE = " & blog_type & " ORDER BY TIME_STAMP DESC LIMIT " & num_to_get.ToString() & ";"
+    <WebMethod()> Public Shared Function Get_Posts_By_Type(ByVal blog_type As String, ByVal num_to_get As Integer) As String
+        Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = 1 AND BLOG_TYPE = '" & blog_type & "' ORDER BY TIME_STAMP DESC LIMIT " & num_to_get.ToString() & ";"
         Dim dt As DataTable = Get_DataTable(query, "blog_posts")
         Dim posts As New JArray
 
@@ -79,26 +79,21 @@ Public Class EndpointMaster
         Dim curr_tags_dt As DataTable = Get_DataTable(get_curr_tags_query, "rel_blog_posts_keywords")
         Dim rec_posts As New JArray
 
-        'First Iteration: For each tag, get all blogs sharing the current tag (excluding the current blog)
+        'Iterate through blog tags
         For Each row1 As DataRow In curr_tags_dt.Rows
-            Dim get_rel_tags_query As String = "Select * FROM rel_blog_posts_keywords WHERE BLOGGER_ID = " & 1 & " And KEY_WORD = '" & row1.Item("KEY_WORD") & "' AND NOT BLOG_ID = " & blog_id & " LIMIT 10"
-            Dim rel_tags_dt As DataTable = Get_DataTable(get_rel_tags_query, "rel_blog_posts_keywords")
-            'Second Iteration: For each matching tag, select the associated post from blog_posts table.
-            For Each row2 As DataRow In rel_tags_dt.Rows
-                Dim get_rel_posts_query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = 1 AND BLOG_ID = " & row2.Item("BLOG_ID")
-                Dim rel_posts_dt As DataTable = Get_DataTable(get_rel_posts_query, "blog_posts")
-                'Third iteration: Add each found related post to the return obj rel_posts
-                For Each row3 As DataRow In rel_posts_dt.Rows
-                    rec_posts.Add(New JObject(New JProperty("BLOG_ID", row3.Item("BLOG_ID").ToString()),
-                        New JProperty("TITLE", row3.Item("TITLE"))))
-                Next
+            Dim tag As String = row1.Item("KEY_WORD")
+            Dim get_rel_blogs_query As String = "Select blog_posts.TITLE, blog_posts.BLOG_TYPE, blog_posts.BLOG_ID from blog_posts INNER JOIN rel_blog_posts_keywords ON rel_blog_posts_keywords.KEY_WORD = '" & tag & "' and blog_posts.BLOG_ID = rel_blog_posts_keywords.BLOG_ID and blog_posts.BLOGGER_ID = " & blogger_id & " and NOT blog_posts.BLOG_ID = " & blog_id & ";"
+            Dim rel_posts_dt As DataTable = Get_DataTable(get_rel_blogs_query, "rel_blog_posts_keywords")
+
+            'Add each found related blog post to 'rec_posts' JArray
+            For Each row2 As DataRow In rel_posts_dt.Rows
+                rec_posts.Add(New JObject(New JProperty("BLOG_ID", row2.Item("BLOG_ID").ToString()),
+                        New JProperty("TITLE", row2.Item("TITLE")), New JProperty("BLOG_TYPE", row2.Item("BLOG_TYPE"))))
             Next
         Next
         Dim output As New JObject(New JProperty("REC_POSTS", rec_posts))
         Return output.ToString()
     End Function
-
-
 
     Public Shared Function Get_DataTable(ByVal query As String, ByVal data_table As String)
         Dim dt As DataTable

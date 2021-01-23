@@ -7,14 +7,10 @@ BlogListView = {
     GetBlogListType: function () {
         var blogType = BlogListView.GetBlogType();
 
-        if (blogType == "blog") {
+        if (blogType == "blog") { //one type of blog or all blog posts by blogger
             BlogListView.GetAllBlogs();
-        } else if (blogType == "hair-blog") {
-            BlogListView.GetBlogsByType(1);
-        } else if (blogType == "fashion-blog") {
-            BlogListView.GetBlogsByType(2);
-        } else {
-            BlogListView.GetBlogsByType(3);
+        }  else {
+            BlogListView.GetBlogsByType(blogType);
         }
     },
     GetBlogType: function () {
@@ -71,7 +67,7 @@ BlogListView = {
             return accumulator + Util.templateHelper(template, {
                 blog_id: currVal.BLOG_ID,
                 image_url: currVal.IMAGE_URL,
-                blog_url: "/" + (currVal.BLOG_TYPE == 1 ? 'hair-blog' : currVal.BLOG_TYPE == 2 ? 'fashion-blog' : 'thoughts-blog') + "/" + currVal.BLOG_ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
+                blog_url: "/" + currVal.BLOG_TYPE + "/" + currVal.BLOG_ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
                 date: currVal.DATE,
                 title: currVal.TITLE,
                 blog_text: currVal.BLOG_TEXT

@@ -59,7 +59,7 @@
     </div>
     <div class="image-container" id="subscribe_module">
         <div class="full-screen-sub-image">
-            <img src="app/Images/dark_journal_1_resized.jpg" />
+            <img src="../Images/dark_journal_1_resized.jpg" />
             <div id="sub_module_form">
                 <h1 id="sub_module_header">Subscribe to be notified about new blog posts.</h1>
                 <div class="sub-section">

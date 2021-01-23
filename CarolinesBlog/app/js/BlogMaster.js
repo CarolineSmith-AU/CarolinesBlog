@@ -9,7 +9,7 @@ BlogMaster = {
     getLoadedBlogTemplate: function () {
         var id = BlogMaster.GetIDFromURL();
 
-        if (id == "") {    
+        if (id == "" || id == undefined || id == null) {    
             BlogMaster.getRecentPosts();
         } else {
             BlogMaster.getRelatedPosts(id);
@@ -65,7 +65,7 @@ BlogMaster = {
             cleanedTitle = cleanedTitle.replace(/[^a-zA-Z0-9 ]/g, "");
             return accumulator + Util.templateHelper(template, {
                 blog_id: currVal.BLOG_ID,
-                blog_url: "/" + (currVal.BLOG_TYPE == 0 ? 'hair-blog' : 'fashion-blog') + "/" + currVal.BLOG_ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
+                blog_url: "/" + currVal.BLOG_TYPE + "/" + currVal.BLOG_ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
                 title: currVal.TITLE
             });
         }, "");
@@ -80,18 +80,15 @@ BlogMaster = {
             cleanedTitle = cleanedTitle.replace(/[^a-zA-Z0-9 ]/g, "");
             return accumulator + Util.templateHelper(template, {
                 blog_id: currVal.BLOG_ID,
-                blog_url: "/" + (currVal.BLOG_TYPE == 1 ? 'hair-blog' : currVal.BLOG_TYPE == 1 ? 'fashion-blog' : 'thoughts-blog') + "/" + currVal.BLOG_ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
+                blog_url: "/" + currVal.BLOG_TYPE + "/" + currVal.BLOG_ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
                 title: currVal.TITLE
             });
         }, "");
         html = "<h2>Recent Posts</h2>" + html;
         $("#posts_popular_section").html(html);
     },
-    GetIDFromURL: function () {
-        var temp = window.location.pathname.substring(1); //Erase first char which is '/'
-        var temp2 = temp.substring(temp.indexOf('/') + 1) //Go to next '/'
-        var id = temp2.substring(0, temp2.indexOf('/'));
-        return id;
+    GetIDFromURL: function () { //change to split function later 
+        var coll = window.location.pathname.split("/");
+        return coll[2];
     }
-
 };

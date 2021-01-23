@@ -33,7 +33,7 @@ HomePage = {
             return accumulator + Util.templateHelper(template, {
                 blog_id: currVal.BLOG_ID,
                 image_url: currVal.IMAGE_URL,
-                blog_url: "/" + (currVal.BLOG_TYPE == 1 ? 'hair-blog' : currVal.BLOG_TYPE == 1 ? 'fashion-blog' : 'thoughts-blog') + "/" + currVal.BLOG_ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
+                blog_url: "/" + currVal.BLOG_TYPE + "/" + currVal.BLOG_ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
                 date: currVal.DATE,
                 title: currVal.TITLE
             });
