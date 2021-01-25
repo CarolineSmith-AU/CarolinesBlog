@@ -2,7 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/app/css/HomePage.css" rel="stylesheet" type="text/css" />
-    <link href="/app/css/Uniform_Styles.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/app/js/HomePage.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -59,13 +58,12 @@
     </div>
     <div class="image-container" id="subscribe_module">
         <div class="full-screen-sub-image">
-            <img src="../Images/dark_journal_1_resized.jpg" />
+            <img src="../app/Images/dark_journal_1_resized.jpg" />
             <div id="sub_module_form">
                 <h1 id="sub_module_header">Subscribe to be notified about new blog posts.</h1>
                 <div class="sub-section">
                     <div id="email_input_box" class="input-button-one-line">
-                        <p id="email_label">Email</p>
-                        <input id="email_sub_input" class="input sub-input" type="text" placeholder="" />
+                        <input id="email_sub_input" class="input sub-input" type="text" placeholder="Email" />
                         <div class="black-button pointer blog-sub-button" id="blog_sub_button">
                             <span class="button-text">Subscribe</span>
                         </div>

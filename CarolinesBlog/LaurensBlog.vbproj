@@ -148,6 +148,13 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="app\aspx\ContactPage.aspx.designer.vb">
+      <DependentUpon>ContactPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\aspx\ContactPage.aspx.vb">
+      <DependentUpon>ContactPage.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
@@ -230,9 +237,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\aspx\ContactPage.aspx" />
     <Content Include="app\css\BlogListView.css" />
     <Content Include="app\css\BlogMaster.css" />
     <Content Include="app\css\BlogPostTemplate.css" />
+    <Content Include="app\css\ContactPage.css" />
     <Content Include="app\css\font-awesome.css" />
     <Content Include="app\css\font-awesome.min.css" />
     <Content Include="app\css\HomePage.css" />
@@ -253,6 +262,10 @@
     <Content Include="app\Images\gold_mine.jpg" />
     <Content Include="app\Images\gold_mine_cropped.jpg" />
     <Content Include="app\Images\gold_mine_square.jpg" />
+    <Content Include="app\Images\iconfinder_Rounded_Facebook_svg_5282541 %281%29.jpg" />
+    <Content Include="app\Images\iconfinder_Rounded_Facebook_svg_5282541.jpg" />
+    <Content Include="app\Images\iconfinder_Rounded_Instagram_svg_5282544 %281%29.jpg" />
+    <Content Include="app\Images\iconfinder_Rounded_Instagram_svg_5282544.jpg" />
     <Content Include="app\Images\journaling_1_square_small.jpg" />
     <Content Include="app\Images\journaling_1_square_smaller.jpg" />
     <Content Include="app\Images\laptop_coffee_resized_1.jpg" />
@@ -269,6 +282,7 @@
     <Content Include="app\js\BlogListView.js" />
     <Content Include="app\js\BlogMaster.js" />
     <Content Include="app\js\BlogPostTemplate.js" />
+    <Content Include="app\js\ContactPage.js" />
     <Content Include="app\js\HomePage.js" />
     <Content Include="app\js\WebsiteMaster.js" />
     <Content Include="Content\bootstrap-theme.css" />

@@ -6,9 +6,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="BlogContent" runat="server">
-    <div id="blog_post_container">
-
-    </div>
+    <div id="blog_post_container"></div>
 
     <script type="text/html" id="blog_post_template">
          <div id="blog_content">

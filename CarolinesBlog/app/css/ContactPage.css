@@ -1,0 +1,40 @@
+﻿.form-row, .button-form-row {
+    display: flex;
+    justify-content: center;
+}
+
+.row-6 {
+    width: 50%;
+}
+
+.row-12 {
+    width: 100%;
+}
+
+#send_message_button {
+    display: flex;
+    justify-content: center;
+    padding: 13px;
+}
+
+#send_message_button:hover {
+    color: #c2a329;
+}
+
+#contact_form .input {
+    margin: 16px 5px;
+    background: #e6e6e6;
+}
+
+#message_input {
+    min-height: 315px;
+}
+
+@media(max-width:600px) {
+    .form-row {
+        display: block;
+    }
+    .row-6 {
+        width: 100%;
+    }
+}

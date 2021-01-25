@@ -9,31 +9,62 @@ Public Class Mail
 
     Private Const blogger_id As Integer = 1
     Private Const Email_From As String = "cleeannsmith@gmail.com"
-    Private Const Email_Password As String = "Cls-311815129145"
+    Private Const Email_Password As String = "38r7Zy0!_~"
+
+    'Social Media Links
+    Private Const Instagram_Link As String = ""
+    Private Const Facebook_Link As String = ""
+    Private Const Twitter_Link As String = ""
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim post As New BlogPost("1", "Test Blog Title", "01/21/2021", "Blog post body.......", 1, "C:\Users\cleea\source\repos\CarolineSmith-AU\CarolinesBlog\CarolinesBlog\app\Images\gardenia_square_2.jpg")
+        Dim post As New BlogPost("1", "Test Blog Title", "01/21/2021", "This is a short snippet of the blog post. The text should not extend the full width of the page, but should wrap to fit content.", 1, "C:\Users\cleea\source\repos\CarolineSmith-AU\CarolinesBlog\CarolinesBlog\app\Images\gardenia_square_2.jpg")
         Email_Send_Blog_Notif(post)
     End Sub
 
+    'Build email for new blog post notification
     <WebMethod()> Public Shared Sub Email_Send_Blog_Notif(ByVal post As BlogPost)
-        Try
-            Dim mailBodyHTML As String = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory & "app\email_templates\NewBlogPost.html")
-            Dim resultHTML As String = String.Format(mailBodyHTML, post.Get_Title(), post.Get_Blog_Text(), "https://localhost:44378/")
-            Dim addrFrom As MailAddress = New MailAddress(Email_From, "Caroline Smith")
-            Dim addrTo As MailAddress = New MailAddress("csmith0097@gmail.com")
-            Dim message As MailMessage = New MailMessage(addrFrom, addrTo)
-            Dim htmlView As AlternateView = AlternateView.CreateAlternateViewFromString(resultHTML, Encoding.UTF8, MediaTypeNames.Text.Html)
-            Dim emailImage As LinkedResource = New LinkedResource(post.Get_Image_URL(), MediaTypeNames.Image.Jpeg)
-            emailImage.ContentId = "imageID"
-            emailImage.ContentType.Name = emailImage.ContentId
-            emailImage.ContentLink = New Uri("cid:" & emailImage.ContentId)
-            htmlView.LinkedResources.Add(emailImage)
-            message.Subject = "New blog post! BlackGirlGolden"
-            message.IsBodyHtml = False
-            message.AlternateViews().Add(htmlView)
-            'message.Body = resultHTML
+        Dim mailBodyHTML As String = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory & "app\email_templates\NewBlogPost.html")
+        Dim resultHTML As String = String.Format(mailBodyHTML, post.Get_Title(), post.Get_Blog_Text(), "https://blackgirlgolden.com")
+        Dim addrFrom As MailAddress = New MailAddress(Email_From, "Caroline Smith")
+        Dim addrTo As MailAddress = New MailAddress("csmith0097@gmail.com")
+        Dim message As MailMessage = New MailMessage(addrFrom, addrTo)
 
+        Dim htmlView As AlternateView = AlternateView.CreateAlternateViewFromString(resultHTML, Encoding.UTF8, "text/html")
+
+        Dim blogImage As LinkedResource = Create_Linked_Resource(post.Get_Image_URL(), "imageID")
+        htmlView.LinkedResources.Add(blogImage)
+        Dim instaImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\CarolinesBlog\CarolinesBlog\app\Images\iconfinder_Rounded_Instagram_svg_5282544 (1).jpg", "instagramID")
+        htmlView.LinkedResources.Add(instaImage)
+        Dim fbImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\CarolinesBlog\CarolinesBlog\app\Images\iconfinder_Rounded_Facebook_svg_5282541 (1).jpg", "facebookID")
+        htmlView.LinkedResources.Add(fbImage)
+
+        message.Subject = "New blog post! BlackGirlGolden"
+        message.AlternateViews.Add(htmlView)
+        message.IsBodyHtml = True
+
+        Send_Mail(message)
+    End Sub
+
+    Public Shared Function Create_Linked_Resource(ByVal imgURL As String, ByVal cid As String)
+        Dim imgExt As String = imgURL.Substring(imgURL.LastIndexOf(".") + 1)
+        Dim resourceType As String = ""
+        Select Case imgExt
+            Case "png"
+                resourceType = "image/jpeg"
+            Case "jpg"
+                resourceType = "image/jpeg"
+            Case Else
+                resourceType = ""
+        End Select
+        Dim resource As LinkedResource = New LinkedResource(imgURL, resourceType)
+        resource.ContentId = cid
+        resource.ContentLink = New Uri("cid:" & resource.ContentId)
+        Return resource
+    End Function
+
+    'Sets up client and sends email
+    Public Shared Sub Send_Mail(ByRef message As MailMessage)
+        Try
             Dim client As SmtpClient = New SmtpClient()
             client.Host = "smtp.gmail.com"
             client.Port = 587

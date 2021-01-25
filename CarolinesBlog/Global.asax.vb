@@ -29,7 +29,7 @@ Public Class MvcApplication
         routes.MapPageRoute("Thoughts Blog Post",
             "thoughts-blog/{id}/{title}", "~/app/aspx/BlogPostTemplate.aspx")
         routes.MapPageRoute("Contact Page",
-            "contact", "~/Contact.aspx")
+            "contact", "~/app/aspx/ContactPage.aspx")
         routes.MapPageRoute("About Page",
             "about", "~/About.aspx")
     End Sub

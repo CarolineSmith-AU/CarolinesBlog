@@ -15,12 +15,17 @@ Public Class EndpointMaster
 
 
     <WebMethod()> Public Shared Sub Subscribe_To_Blog(ByVal email_addr As String)
-        Dim query As String = "INSERT INTO sub_email_list (EMAIL_ADDR, IS_SUBSCRIBED, BLOGGER_ID) VALUES('" & email_addr & "', 1, 1)"
+        Dim query As String = "INSERT INTO sub_email_list (EMAIL_ADDR, IS_SUBSCRIBED, BLOGGER_ID) VALUES('" & email_addr & "', 1, " & blogger_id & ")"
+        Update_SQL_DB(query, "blogdb")
+    End Sub
+
+    <WebMethod()> Public Shared Sub Unsubscribe_To_Blog(ByVal email_addr As String)
+        Dim query As String = "DELETE FROM sub_email_list WHERE EMAIL_ADDR ='" & email_addr & "' AND BLOGGER_ID = " & blogger_id & ";"
         Update_SQL_DB(query, "blogdb")
     End Sub
 
     <WebMethod()> Public Shared Function Get_Recent_Blog_Posts(ByVal num_to_get As Integer) As String
-        Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = 1 ORDER BY TIME_STAMP DESC LIMIT " & num_to_get.ToString() & ";"
+        Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = " & blogger_id & " ORDER BY TIME_STAMP DESC LIMIT " & num_to_get.ToString() & ";"
         Dim dt As DataTable = Get_DataTable(query, "blog_posts")
         Dim posts As New JArray
 
@@ -38,7 +43,7 @@ Public Class EndpointMaster
     End Function
 
     <WebMethod()> Public Shared Function Get_Single_Blog_Post(ByVal blog_id As Integer) As String
-        Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = 1 AND BLOG_ID = " & blog_id & ";"
+        Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = " & blogger_id & " AND BLOG_ID = " & blog_id & ";"
         Dim dt As DataTable = Get_DataTable(query, "blog_posts")
         Dim posts As New JArray
 
@@ -56,7 +61,7 @@ Public Class EndpointMaster
     End Function
 
     <WebMethod()> Public Shared Function Get_Posts_By_Type(ByVal blog_type As String, ByVal num_to_get As Integer) As String
-        Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = 1 AND BLOG_TYPE = '" & blog_type & "' ORDER BY TIME_STAMP DESC LIMIT " & num_to_get.ToString() & ";"
+        Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = " & blogger_id & " AND BLOG_TYPE = '" & blog_type & "' ORDER BY TIME_STAMP DESC LIMIT " & num_to_get.ToString() & ";"
         Dim dt As DataTable = Get_DataTable(query, "blog_posts")
         Dim posts As New JArray
 
@@ -75,7 +80,7 @@ Public Class EndpointMaster
 
     <WebMethod()> Public Shared Function Get_Related_Posts(ByVal blog_id As Integer)
         'Get all tages related to the current blogger and related to blog parameter
-        Dim get_curr_tags_query As String = "Select * FROM rel_blog_posts_keywords WHERE BLOG_ID = " & blog_id & " And BLOGGER_ID = " & 1
+        Dim get_curr_tags_query As String = "Select * FROM rel_blog_posts_keywords WHERE BLOG_ID = " & blog_id & " And BLOGGER_ID = " & blogger_id
         Dim curr_tags_dt As DataTable = Get_DataTable(get_curr_tags_query, "rel_blog_posts_keywords")
         Dim rec_posts As New JArray
 

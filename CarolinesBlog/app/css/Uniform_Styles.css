@@ -11,3 +11,115 @@ p {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.5;
 }
+
+body {
+    background: #000000;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pointer:hover {
+    cursor: pointer;
+}
+
+.content-section {
+    margin: 3rem 9%;
+}
+
+.page-content-header {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+@media(max-width: 1045px) {
+    .content-section {
+        margin: 3rem 3%;
+    }
+}
+
+.side-by-side-module {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #a88e24;
+    padding: 2%;
+}
+
+.content-header {
+    font-size: 48px;
+    position: relative;
+    padding: 10px;
+}
+
+.sub-content-header {
+    font-weight: 400;
+    font-size: 36px;
+}
+
+.black {
+    color: #000000;
+}
+
+.gold {
+    color: #c2a329;
+}
+
+/*************************** Input Forms ***************************/
+.input {
+    padding: 8px 12px;
+    font-family: 'Mukta', sans-serif;
+    font-size: 15px;
+}
+
+/*************************** Gold Button Styling ***************************/
+.gold-button {
+    text-align: center;
+    background-color: #c2a329;
+    width: 130px;
+    padding: 6px;
+    border: 2px solid #c2a329;
+}
+
+    .gold-button:hover {
+        background-color: #000000;
+    }
+
+        .gold-button:hover .button-text {
+            color: #c2a329;
+        }
+
+    .gold-button .button-text {
+        color: #000000;
+    }
+
+/*************************** Black Button Styling ***************************/
+.black-button {
+    text-align: center;
+    background-color: #000000;
+    width: 130px;
+    padding: 6px;
+    border: 2px solid #000000;
+}
+
+    .black-button:hover {
+        background-color: #c2a329;
+    }
+
+        .black-button:hover .button-text {
+            color: #000000;
+        }
+
+    .black-button .button-text {
+        color: #c2a329;
+    }
