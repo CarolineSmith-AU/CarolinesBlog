@@ -246,6 +246,7 @@
     <Content Include="app\css\font-awesome.min.css" />
     <Content Include="app\css\HomePage.css" />
     <Content Include="app\css\WebsiteMaster.css" />
+    <Content Include="app\email_templates\ContactBlogger.html" />
     <Content Include="app\email_templates\NewBlogPost.html" />
     <Content Include="app\fonts\fontawesome-webfont.svg" />
     <Content Include="app\Images\dark_journal_1_resized.jpg" />
@@ -279,6 +280,13 @@
     <Content Include="app\Images\Pink hat8_enlarged_cropped.jpg" />
     <Content Include="app\Images\Pink hat8_large_cropped.jpg" />
     <Content Include="app\Images\tea_square.jpg" />
+    <Content Include="app\Images\Yellow mirror 4.png" />
+    <Content Include="app\Images\Yellow mirror 4_resized.png" />
+    <Content Include="app\Images\Yellow mirror.png" />
+    <Content Include="app\Images\Yellow set 21.png" />
+    <Content Include="app\Images\Yellow set 31.png" />
+    <Content Include="app\Images\Yellow set 41.png" />
+    <Content Include="app\Images\Yellow set 46.png" />
     <Content Include="app\js\BlogListView.js" />
     <Content Include="app\js\BlogMaster.js" />
     <Content Include="app\js\BlogPostTemplate.js" />

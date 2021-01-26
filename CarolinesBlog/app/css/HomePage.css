@@ -61,9 +61,15 @@ body {
     text-align: left;
 }
 
+.whats-in-mine-image {
+    max-width: 435px;
+}
+
 .blog-posts {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2em;
+    grid-row-gap: 50px;
 }
 
 .recent-blogs-title {
@@ -122,12 +128,6 @@ body {
     top: 39%;
 }
 
-.blog-post {
-    margin: 0 1%;
-    width: 29%;
-    padding: 10px;
-}
-
 .blog-title {
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
@@ -184,7 +184,7 @@ body {
 
 /***************************Subscribe Module***************************/
 .full-screen-sub-image {
-    border-top: 4px solid #a88e24;
+    border-top: 4px solid #c2a329;
 }
 
 .full-screen-sub-image img {
@@ -206,7 +206,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: #a88e24;
+    background: #c2a329;
 }
 
 #sub_module_header {
@@ -304,13 +304,8 @@ body {
         padding: 15px;
     }
 
-    .blog-post {
-        width: 73%;
-        margin: 15px;
-    }
-
     .blog-posts {
-        flex-wrap: wrap;
+        grid-template-columns: 1fr;
     }
 
     .recent-blogs-title {

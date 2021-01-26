@@ -36,7 +36,7 @@
             </div>
             <div class="page-header">
                 <div class="social-media-header">
-                    <a class="fa fa-envelope social"></a>
+                    <a class="fa fa-envelope social" href="contact"></a>
                     <a class="fa fa-instagram social" href="https://www.instagram.com/lalalearnsya/" target="_blank"></a>
                     <a class="fa fa-facebook-square social"></a>
                 </div>

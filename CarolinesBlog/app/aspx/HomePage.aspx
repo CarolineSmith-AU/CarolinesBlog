@@ -6,7 +6,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="full-image-header">
-        <img src="\app\Images\Pink hat8_enlarged_cropped.jpg" />
+        <img src="app/Images/Yellow%20set%2031.png" />
+        <%--<img src="../Images/Yellow%20set%2046.png" />--%>
     </div>
     <div class="content-container">
         <div class="page-content-header">
@@ -23,24 +24,26 @@
                 pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
                 deserunt mollit anim id est laborum.
                 </p>
-                <p>
+<%--                <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
                 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
                 irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
                 pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
                 deserunt mollit anim id est laborum.
-                </p>
+                </p>--%>
                 <div class="black-button pointer" id="about_me_button">
                     <span class="button-text">Read About Me</span>
                 </div>
             </div>
             <div class="whats-in-mine-img-cont" id="right">
-                <img class="whats-in-mine-image" src="\app\Images\lauren_blue_dress_resized_4.jpg" width="100%" />
+                <img class="whats-in-mine-image" src="app/Images/Yellow%20mirror%204_resized.png" />
             </div>
         </div>
         <div class="recent-blog-posts content-section">
-            <span class="recent-blogs-title content-header">Recent Blog Posts</span>
+                    <div class="page-content-header">
+            <h1 class="content-header">Latest Blog Posts</h1>
+        </div>
 
             <div id="rec_blogs_container" class='blog-posts content-section'></div>
             <a class="view-all-link pointer content-section" href="/blog">
@@ -58,7 +61,7 @@
     </div>
     <div class="image-container" id="subscribe_module">
         <div class="full-screen-sub-image">
-            <img src="../app/Images/dark_journal_1_resized.jpg" />
+            <img src="app/Images/dark_journal_1_resized.jpg" />
             <div id="sub_module_form">
                 <h1 id="sub_module_header">Subscribe to be notified about new blog posts.</h1>
                 <div class="sub-section">

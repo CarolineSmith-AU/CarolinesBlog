@@ -8,6 +8,7 @@ Public Class Mail
     Inherits System.Web.UI.Page
 
     Private Const blogger_id As Integer = 1
+    Private Const From_Name As String = "BlackGirlGolden"
     Private Const Email_From As String = "cleeannsmith@gmail.com"
     Private Const Email_Password As String = "38r7Zy0!_~"
 
@@ -25,7 +26,7 @@ Public Class Mail
     <WebMethod()> Public Shared Sub Email_Send_Blog_Notif(ByVal post As BlogPost)
         Dim mailBodyHTML As String = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory & "app\email_templates\NewBlogPost.html")
         Dim resultHTML As String = String.Format(mailBodyHTML, post.Get_Title(), post.Get_Blog_Text(), "https://blackgirlgolden.com")
-        Dim addrFrom As MailAddress = New MailAddress(Email_From, "Caroline Smith")
+        Dim addrFrom As MailAddress = New MailAddress(Email_From, From_Name)
         Dim addrTo As MailAddress = New MailAddress("csmith0097@gmail.com")
         Dim message As MailMessage = New MailMessage(addrFrom, addrTo)
 
@@ -41,6 +42,20 @@ Public Class Mail
         message.Subject = "New blog post! BlackGirlGolden"
         message.AlternateViews.Add(htmlView)
         message.IsBodyHtml = True
+
+        Send_Mail(message)
+    End Sub
+
+    <WebMethod> Public Shared Sub Send_Mail_To_Blogger(firstname As String, lastname As String, returnEmail As String, body As String)
+        Dim mailBodyHTML As String = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory & "app\email_templates\ContactBlogger.html")
+        Dim resultHTML As String = String.Format(mailBodyHTML, firstname, firstname & " " & lastname, body)
+        Dim addrFrom As MailAddress = New MailAddress(returnEmail, From_Name)
+        Dim addrTo As MailAddress = New MailAddress("csmith0097@gmail.com")
+        Dim message As MailMessage = New MailMessage(addrFrom, addrTo)
+
+        message.Subject = firstname & " " & lastname & " has messaged you!"
+        message.IsBodyHtml = True
+        message.Body = resultHTML
 
         Send_Mail(message)
     End Sub

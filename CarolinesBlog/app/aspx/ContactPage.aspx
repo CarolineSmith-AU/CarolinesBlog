@@ -7,7 +7,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content-section">
         <div class="page-content-header">
-            <h1 class="content-header">Get in touch with me</h1>
+            <h1 class="content-header contact-header">I'd love to hear from you.</h1>
+            <p class="thanks-message">Thanks for supporting my page! Feel free to let me know your thoughts or reach out about any inquiries you have.</p>
         </div>
         <form id="contact_form">
             <div id="name_row" class="form-row">
@@ -15,7 +16,7 @@
                 <input id="last_name_input" class="input row-6" type="text" placeholder="Last name" />
             </div>
             <div id="email_addr_row" class="form-row">
-                <input id="email_addr_input" class="input row-12" type="text" placeholder="*Email Address" required/>
+                <input id="email_addr_input" class="input row-12" type="text" placeholder="*Your Email Address" required/>
             </div>
             <div id="message_row" class="form-row">
                 <textarea id="message_input" class="input row-12" placeholder="*Message" required></textarea>

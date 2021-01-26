@@ -37,13 +37,13 @@
                 <div class="blog-nav-section" id="posts_topic_section">
                     <h2>Posts by Topic</h2>
                     <a href="hair-blog" class="pointer topic-row">
-                        <div class="topic-text"><span>Hair (10)</span><span class="fa fa-angle-right"></span></div>
+                        <div class="topic-text"><span>Hair</span><span class="fa fa-angle-right"></span></div>
                     </a>
                     <a href="fashion-blog" class="pointer topic-row">
-                        <div class="topic-text"><span>Fashion (10)</span><span class="fa fa-angle-right"></span></div>
+                        <div class="topic-text"><span>Fashion</span><span class="fa fa-angle-right"></span></div>
                     </a>
                     <a href="thoughts-blog" class="pointer topic-row">
-                        <div class="topic-text"><span>Thoughts (10)</span><span class="fa fa-angle-right"></span></div>
+                        <div class="topic-text"><span>Thoughts</span><span class="fa fa-angle-right"></span></div>
                     </a>
                 </div>
 

@@ -30,6 +30,16 @@
     min-height: 315px;
 }
 
+.thanks-message {
+    max-width: 680px;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+.contact-header {
+    margin-bottom: 0;
+}
+
 @media(max-width:600px) {
     .form-row {
         display: block;
