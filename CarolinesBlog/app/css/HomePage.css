@@ -11,7 +11,6 @@ body {
 .content-container {
     /*background-color: #c2a329;*/
     background: #000000;
-    margin: auto;
     min-height: 480px;
     display: flex;
     justify-content: center;
@@ -20,7 +19,7 @@ body {
 
 #about_me_button {
     width: 165px;
-    margin-top: 30px;
+    margin: 30px auto;
 }
 
 /***************************Blog Image With Overlay***************************/
@@ -51,18 +50,30 @@ body {
 }
 
 /***************************Blog content***************************/
-.whats-in-the-mine p {
-    color: #000000;
+.whats-in-the-mine {
+    background-image: url('../Images/Yellow set 42- J.jpg');
+    background-size: cover;
+    min-height: 400px;
+    padding: 200px 0;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 500px) {
+    .whats-in-the-mine {
+        background-position: 33% center;
+    }
 }
 
 .whats-in-mine-text {
-    width: 38%;
-    margin-right: 4%;
-    text-align: left;
+    background: #c2a329;
+    max-width: 650px;
+    margin: auto;
+    padding: 5%;
 }
 
-.whats-in-mine-image {
-    max-width: 435px;
+.whats-in-mine-text p {
+    color: #000000;
 }
 
 .blog-posts {
@@ -154,10 +165,10 @@ body {
 .quote-container {
     text-align: center;
     width: 85%;
-    margin: auto;
     border-top: 2px solid #c2a329;
     border-bottom: 2px solid #c2a329;
     padding: 30px;
+    margin: auto;
 }
 
 .quote {
@@ -207,6 +218,7 @@ body {
     flex-direction: column;
     justify-content: center;
     background: #c2a329;
+    padding: 0 3%;
 }
 
 #sub_module_header {
@@ -279,7 +291,13 @@ body {
 /*Change hover effects of "Read Post" button on blog link images*/
 @media(max-width: 1000px) {
     .blog-button {
-        display: none;
+        opacity: 1;
+        padding: 6px;
+        top: 69%;
+    }
+
+    .blog-image-container:hover .blog-button {
+        top: 69%;
     }
 }
 

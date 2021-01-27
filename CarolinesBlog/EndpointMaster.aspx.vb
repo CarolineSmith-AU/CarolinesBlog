@@ -24,6 +24,18 @@ Public Class EndpointMaster
         Update_SQL_DB(query, "blogdb")
     End Sub
 
+    <WebMethod()> Public Shared Function Get_Subscribers()
+        Dim query As String = "SELECT * FROM sub_email_list WHERE BLOGGER_ID = " & blogger_id
+        Dim dt As DataTable = Get_DataTable(query, "sub_email_list")
+        Dim emails As New JArray
+
+        For Each row As DataRow In dt.Rows
+            emails.Add(New JObject(New JProperty("EMAIL", row.Item("EMAIL_ADDR"))))
+        Next
+        Dim output As New JObject(New JProperty("EMAILS", emails))
+        Return output.ToString()
+    End Function
+
     <WebMethod()> Public Shared Function Get_Recent_Blog_Posts(ByVal num_to_get As Integer) As String
         Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = " & blogger_id & " ORDER BY TIME_STAMP DESC LIMIT " & num_to_get.ToString() & ";"
         Dim dt As DataTable = Get_DataTable(query, "blog_posts")

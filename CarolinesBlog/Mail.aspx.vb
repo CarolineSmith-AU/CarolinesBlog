@@ -3,6 +3,7 @@ Imports System.IO
 Imports System.Web.Services
 Imports MailMessage = System.Net.Mail.MailMessage
 Imports System.Net.Mime
+Imports Newtonsoft.Json.Linq
 
 Public Class Mail
     Inherits System.Web.UI.Page
@@ -26,9 +27,6 @@ Public Class Mail
     <WebMethod()> Public Shared Sub Email_Send_Blog_Notif(ByVal post As BlogPost)
         Dim mailBodyHTML As String = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory & "app\email_templates\NewBlogPost.html")
         Dim resultHTML As String = String.Format(mailBodyHTML, post.Get_Title(), post.Get_Blog_Text(), "https://blackgirlgolden.com")
-        Dim addrFrom As MailAddress = New MailAddress(Email_From, From_Name)
-        Dim addrTo As MailAddress = New MailAddress("csmith0097@gmail.com")
-        Dim message As MailMessage = New MailMessage(addrFrom, addrTo)
 
         Dim htmlView As AlternateView = AlternateView.CreateAlternateViewFromString(resultHTML, Encoding.UTF8, "text/html")
 
@@ -39,11 +37,19 @@ Public Class Mail
         Dim fbImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\CarolinesBlog\CarolinesBlog\app\Images\iconfinder_Rounded_Facebook_svg_5282541 (1).jpg", "facebookID")
         htmlView.LinkedResources.Add(fbImage)
 
-        message.Subject = "New blog post! BlackGirlGolden"
-        message.AlternateViews.Add(htmlView)
-        message.IsBodyHtml = True
+        Dim jsonString As String = EndpointMaster.Get_Subscribers()
+        Dim emailJSON As JToken = JToken.Parse(jsonString)
+        Dim emailArray As JArray = emailJSON.Item("EMAILS")
+        For Each email In emailArray
+            Dim addrFrom As MailAddress = New MailAddress(Email_From, From_Name)
+            Dim addrTo As MailAddress = New MailAddress(email.Value(Of String)("EMAIL").ToString())
+            Dim message As MailMessage = New MailMessage(addrFrom, addrTo)
+            message.Subject = "New blog post! BlackGirlGolden"
+            message.AlternateViews.Add(htmlView)
+            message.IsBodyHtml = True
 
-        Send_Mail(message)
+            Send_Mail(message)
+        Next
     End Sub
 
     <WebMethod> Public Shared Sub Send_Mail_To_Blogger(firstname As String, lastname As String, returnEmail As String, body As String)

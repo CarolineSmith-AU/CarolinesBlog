@@ -21,12 +21,24 @@ a {
     text-decoration: none;
 }
 
+.surround-margin {
+    margin: 40px 6%;
+}
+
+.padding-top-bottom {
+    padding: 50px 0;
+}
+
+.margin-top-bottom {
+    margin: 50px auto;
+}
+
 .pointer:hover {
     cursor: pointer;
 }
 
 .content-section {
-    margin: 3rem 9%;
+    padding: 3rem 9%;
 }
 
 .page-content-header {
@@ -60,6 +72,7 @@ a {
     font-size: 48px;
     position: relative;
     padding: 10px;
+    font-weight: 400;
 }
 
 .sub-content-header {
