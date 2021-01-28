@@ -1,24 +1,15 @@
 ﻿$(document).ready(function () {
-    BlogListView.GetBlogListType();
+    BlogListView.GetAllBlogs();
 });
 BlogListView = {
     blogs: null,
 
-    GetBlogListType: function () {
-        var blogType = BlogListView.GetBlogType();
-
-        if (blogType == "blog") { //one type of blog or all blog posts by blogger
-            BlogListView.GetAllBlogs();
-        }  else {
-            BlogListView.GetBlogsByType(blogType);
-        }
-    },
     GetBlogType: function () {
         var type = window.location.pathname.substring(1); //Erase first char which is '/'
         return type;
     },
     GetBlogsByType: function (blog_type) {
-        var data = { num_to_get: 10, blog_type: blog_type }
+        var data = { blog_type: blog_type }
         var params = JSON.stringify(data);
         $.ajax({
             type: "POST",
@@ -51,7 +42,11 @@ BlogListView = {
             success: function (data) {
                 console.log(data.d);
                 var dataJson = JSON.parse(data.d);
-                BlogListView.blogs = dataJson.POSTS;
+                var posts = [];
+                dataJson.POSTS.forEach(function (item, index) {
+                    posts.push(new Blog_Post(item));
+                });
+                BlogListView.blogs = posts;
                 BlogListView.SetListViewHTML();
             },
             error: function () {
@@ -62,15 +57,15 @@ BlogListView = {
     SetListViewHTML: function () {
         var template = $("#blog_posts_template").html();
         var html = BlogListView.blogs.reduce(function (accumulator, currVal) {
-            var cleanedTitle = currVal.TITLE.replace("&", "and");
+            var cleanedTitle = currVal.Title.replace("&", "and");
             cleanedTitle = cleanedTitle.replace(/[^a-zA-Z0-9 ]/g, "");
             return accumulator + Util.templateHelper(template, {
-                blog_id: currVal.BLOG_ID,
-                image_url: currVal.IMAGE_URL,
-                blog_url: "/" + currVal.BLOG_TYPE + "/" + currVal.BLOG_ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
-                date: currVal.DATE,
-                title: currVal.TITLE,
-                blog_text: currVal.BLOG_TEXT
+                blog_id: currVal.ID,
+                image_url: currVal.Image_URL,
+                blog_url: "/blog/" + currVal.ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
+                date: currVal.Date,
+                title: currVal.Title,
+                blog_text: currVal.Text
             });
         }, "");
 

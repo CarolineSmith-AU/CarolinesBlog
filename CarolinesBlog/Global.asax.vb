@@ -16,18 +16,8 @@ Public Class MvcApplication
             "", "~/app/aspx/HomePage.aspx")
         routes.MapPageRoute("All Blogs",
             "blog", "~/app/aspx/BlogListView.aspx")
-        routes.MapPageRoute("Hair Blog",
-            "hair-blog", "~/app/aspx/BlogListView.aspx")
-        routes.MapPageRoute("Fashion Blog",
-            "fashion-blog", "~/app/aspx/BlogListView.aspx")
-        routes.MapPageRoute("Thoughts Blog",
-            "thoughts-blog", "~/app/aspx/BlogListView.aspx")
-        routes.MapPageRoute("Hair Blog Post",
-            "hair-blog/{id}/{title}", "~/app/aspx/BlogPostTemplate.aspx")
-        routes.MapPageRoute("Fashion Blog Post",
-            "fashion-blog/{id}/{title}", "~/app/aspx/BlogPostTemplate.aspx")
-        routes.MapPageRoute("Thoughts Blog Post",
-            "thoughts-blog/{id}/{title}", "~/app/aspx/BlogPostTemplate.aspx")
+        routes.MapPageRoute("Blog Post",
+            "blog/{id}/{title}", "~/app/aspx/BlogPostTemplate.aspx")
         routes.MapPageRoute("Contact Page",
             "contact", "~/app/aspx/ContactPage.aspx")
         routes.MapPageRoute("About Page",

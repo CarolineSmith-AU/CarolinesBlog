@@ -72,13 +72,15 @@ Public Class EndpointMaster
         Return output.ToString()
     End Function
 
-    <WebMethod()> Public Shared Function Get_Posts_By_Type(ByVal blog_type As String, ByVal num_to_get As Integer) As String
-        Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = " & blogger_id & " AND BLOG_TYPE = '" & blog_type & "' ORDER BY TIME_STAMP DESC LIMIT " & num_to_get.ToString() & ";"
+    <WebMethod()> Public Shared Function Get_Posts_By_Type(ByVal blog_type As String) As String
+        Dim query As String = "Select * from (Select blog_posts.BLOGGER_ID, blog_posts.BLOG_ID, blog_posts.TITLE, blog_posts.TIME_STAMP, blog_posts.POST, blog_posts.IMAGE_URL, blog_posts.BLOG_TYPE, blog_types.TYPE_NAME
+	                           from blog_posts INNER JOIN blog_types on blog_posts.BLOGGER_ID = blog_types.BLOGGER_ID and blog_posts.BLOG_TYPE = blog_types.TYPE_INT)
+                               AS b where b.BLOG_TYPE = " & blog_type & " and b.BLOGGER_ID = " & blogger_id & ";"
         Dim dt As DataTable = Get_DataTable(query, "blog_posts")
         Dim posts As New JArray
 
         For Each row As DataRow In dt.Rows
-            Dim post As BlogPost = New BlogPost(row.Item("BLOG_ID"), row.Item("TITLE"), row.Item("TIME_STAMP"), row.Item("POST"), row.Item("BLOG_TYPE"), row.Item("IMAGE_URL"))
+            Dim post As BlogPost = New BlogPost(row.Item("BLOG_ID"), row.Item("TITLE"), row.Item("TIME_STAMP"), row.Item("POST"), row.Item("TYPE_NAME"), row.Item("IMAGE_URL"))
             posts.Add(New JObject(New JProperty("BLOG_ID", post.Get_Blog_ID()),
                 New JProperty("TITLE", post.Get_Title()),
                 New JProperty("DATE", post.Get_Date()),
@@ -90,7 +92,8 @@ Public Class EndpointMaster
         Return output.ToString()
     End Function
 
-    <WebMethod()> Public Shared Function Get_Related_Posts(ByVal blog_id As Integer)
+    'Fix
+    <WebMethod()> Public Shared Function Get_Related_Posts_By_Tags(ByVal blog_id As Integer)
         'Get all tages related to the current blogger and related to blog parameter
         Dim get_curr_tags_query As String = "Select * FROM rel_blog_posts_keywords WHERE BLOG_ID = " & blog_id & " And BLOGGER_ID = " & blogger_id
         Dim curr_tags_dt As DataTable = Get_DataTable(get_curr_tags_query, "rel_blog_posts_keywords")
@@ -99,7 +102,10 @@ Public Class EndpointMaster
         'Iterate through blog tags
         For Each row1 As DataRow In curr_tags_dt.Rows
             Dim tag As String = row1.Item("KEY_WORD")
-            Dim get_rel_blogs_query As String = "Select blog_posts.TITLE, blog_posts.BLOG_TYPE, blog_posts.BLOG_ID from blog_posts INNER JOIN rel_blog_posts_keywords ON rel_blog_posts_keywords.KEY_WORD = '" & tag & "' and blog_posts.BLOG_ID = rel_blog_posts_keywords.BLOG_ID and blog_posts.BLOGGER_ID = " & blogger_id & " and NOT blog_posts.BLOG_ID = " & blog_id & ";"
+            Dim get_rel_blogs_query As String = "Select * from (Select blog_posts.BLOGGER_ID, blog_posts.TITLE, blog_posts.BLOG_TYPE, blog_posts.BLOG_ID from blog_posts
+	                                            INNER JOIN rel_blog_posts_keywords ON rel_blog_posts_keywords.KEY_WORD = '" & tag & "' and
+	                                            blog_posts.BLOG_ID = rel_blog_posts_keywords.BLOG_ID)
+                                                As rb where rb.BLOGGER_ID = " & blogger_id & " and NOT rb.BLOG_ID = " & blog_id & ";"
             Dim rel_posts_dt As DataTable = Get_DataTable(get_rel_blogs_query, "rel_blog_posts_keywords")
 
             'Add each found related blog post to 'rec_posts' JArray
@@ -108,7 +114,7 @@ Public Class EndpointMaster
                         New JProperty("TITLE", row2.Item("TITLE")), New JProperty("BLOG_TYPE", row2.Item("BLOG_TYPE"))))
             Next
         Next
-        Dim output As New JObject(New JProperty("REC_POSTS", rec_posts))
+        Dim output As New JObject(New JProperty("POSTS", rec_posts))
         Return output.ToString()
     End Function
 

@@ -13,6 +13,7 @@
     <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="/app/js/WebsiteMaster.js"></script>
+    <script type="text/javascript" src="/app/js/BlogObjects.js"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -23,15 +24,15 @@
                 <span id="side_nav_close" class="x-out">X</span>
                 <ul class="menu-nav">
                     <li class="menu-depth-1"><a href="/"><span>Home</span></a></li>
-                    <li class="menu-depth-1"><a href="about"><span>About</span></a></li>
-                    <li class="menu-depth-1"><span>Blog</span>
-                        <ul class="menu-sub-nav-1">
+                    <li class="menu-depth-1"><a href="/about"><span>About</span></a></li>
+                    <li class="menu-depth-1"><a href="/blog"><span>Blog</span></a>
+<%--                        <ul class="menu-sub-nav-1">
                             <li class="menu-depth-2"><a href="hair-blog"><span>Hair</span></a></li>
                             <li class="menu-depth-2"><a href="fashion-blog"><span>Fashion</span></a></li>
                             <li class="menu-depth-2"><a href="thoughts-blog"><span>Thoughts</span></a></li>
-                        </ul>
+                        </ul>--%>
                     </li>
-                    <li class="menu-depth-1"><a href="contact"><span>Contact</span></a></li>
+                    <li class="menu-depth-1"><a href="/contact"><span>Contact</span></a></li>
                 </ul>
             </div>
             <div class="page-header">
@@ -46,15 +47,15 @@
                 <div id="top_nav" class="menu-nav-container">
                     <ul class="menu-nav">
                         <li class="menu-depth-1"><a href="/"><span>Home</span></a></li>
-                        <li class="menu-depth-1"><a href="about"><span>About</span></a></li>
-                        <li class="menu-depth-1"><span>Blog</span>
-                            <ul class="menu-sub-nav-1">
+                        <li class="menu-depth-1"><a href="/about"><span>About</span></a></li>
+                        <li class="menu-depth-1"><a href="/blog"><span>Blog</span></a>
+<%--                            <ul class="menu-sub-nav-1">
                                 <li class="menu-depth-2"><a href="hair-blog"><span>Hair</span></a></li>
                                 <li class="menu-depth-2"><a href="fashion-blog"><span>Fashion</span></a></li>
                                 <li class="menu-depth-2"><a href="thoughts-blog"><span>Thoughts</span></a></li>
-                            </ul>
+                            </ul>--%>
                         </li>
-                        <li class="menu-depth-1"><a href="contact"><span>Contact</span></a></li>
+                        <li class="menu-depth-1"><a href="/contact"><span>Contact</span></a></li>
                     </ul>
                 </div>
                 <i id="side_nav_hamburger" class="fa fa-bars"></i>

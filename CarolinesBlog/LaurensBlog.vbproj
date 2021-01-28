@@ -293,6 +293,7 @@
     <Content Include="app\Images\Yellow set 48- J.jpg" />
     <Content Include="app\js\BlogListView.js" />
     <Content Include="app\js\BlogMaster.js" />
+    <Content Include="app\js\BlogObjects.js" />
     <Content Include="app\js\BlogPostTemplate.js" />
     <Content Include="app\js\ContactPage.js" />
     <Content Include="app\js\HomePage.js" />
