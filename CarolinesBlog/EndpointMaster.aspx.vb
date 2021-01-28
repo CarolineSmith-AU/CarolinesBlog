@@ -2,6 +2,7 @@
 Imports System.Web.Services
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
+Imports System.Web.SessionState
 
 Public Class EndpointMaster
     Inherits System.Web.UI.Page
