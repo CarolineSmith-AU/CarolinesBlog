@@ -142,10 +142,12 @@ body {
 .blog-title {
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
 }
 
 .blog-date {
     font-weight: 100;
+    color: #b0b0b0;
 }
 
 .blog-description {
@@ -289,7 +291,7 @@ body {
 }
 
 /*Change hover effects of "Read Post" button on blog link images*/
-@media(max-width: 1000px) {
+/*@media(max-width: 1000px) {
     .blog-button {
         opacity: 1;
         padding: 6px;
@@ -299,7 +301,7 @@ body {
     .blog-image-container:hover .blog-button {
         top: 69%;
     }
-}
+}*/
 
 
 @media(max-width: 1020px) and (min-width: 610) {

@@ -73,10 +73,18 @@ Public Class EndpointMaster
         Return output.ToString()
     End Function
 
-    <WebMethod()> Public Shared Function Get_Posts_By_Type(ByVal blog_type As String) As String
+    <WebMethod()> Public Shared Function Get_Posts_By_Type(ByVal blog_id As String, ByVal num_to_get As Integer) As String
+        Dim get_blog_type As String = "select BLOG_TYPE from blog_posts where BLOG_ID = " & blog_id & " and BLOGGER_ID = " & blogger_id & ";"
+        Dim type_dt As DataTable = Get_DataTable(get_blog_type, "blog_posts")
+        Dim type As Integer
+
+        For Each row As DataRow In type_dt.Rows
+            type = row.Item("BLOG_TYPE")
+        Next
+
         Dim query As String = "Select * from (Select blog_posts.BLOGGER_ID, blog_posts.BLOG_ID, blog_posts.TITLE, blog_posts.TIME_STAMP, blog_posts.POST, blog_posts.IMAGE_URL, blog_posts.BLOG_TYPE, blog_types.TYPE_NAME
 	                           from blog_posts INNER JOIN blog_types on blog_posts.BLOGGER_ID = blog_types.BLOGGER_ID and blog_posts.BLOG_TYPE = blog_types.TYPE_INT)
-                               AS b where b.BLOG_TYPE = " & blog_type & " and b.BLOGGER_ID = " & blogger_id & ";"
+                               AS b where b.BLOG_TYPE = " & type & " and b.BLOGGER_ID = " & blogger_id & " ORDER BY TIME_STAMP DESC LIMIT 3;"
         Dim dt As DataTable = Get_DataTable(query, "blog_posts")
         Dim posts As New JArray
 

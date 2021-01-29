@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="full-image-header">
-        <img src="app/Images/Yellow%20set%2031-%20J.jpg" />
+        <img src="/app/Images/Yellow%20set%2031-%20J.jpg" />
     </div>
     <div class="content-container">
         <div class="page-content-header">
@@ -49,7 +49,7 @@
     </div>
     <div class="image-container margin-top-bottom" id="subscribe_module">
         <div class="full-screen-sub-image">
-            <img src="app/Images/dark_journal_1_resized.jpg" />
+            <img src="/app/Images/dark_journal_1_resized.jpg" />
             <div id="sub_module_form">
                 <h1 id="sub_module_header">Subscribe to be notified about new blog posts.</h1>
                 <div class="sub-section">
@@ -73,7 +73,7 @@
                 <div class='blog-image-container'>
                     <img src='%image_url%' /><div class='gold-button blog-button pointer'><span class='button-text'>Read Post</span></div>
                 </div>
-                <span class='blog-Date'>%date%</span><h2 class='blog-title'>%title%</h2>
+                <span class='blog-date'>%date%</span><h2 class='blog-title'>%title%</h2>
             </div>
         </a>
     </script>

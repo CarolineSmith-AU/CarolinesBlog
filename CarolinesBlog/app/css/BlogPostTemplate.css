@@ -5,16 +5,27 @@
     margin-bottom: 5px;
 }
 
+.blog-content {
+    text-align: center;
+}
+
+.full-blog-post {
+    text-align: left;
+}
+
 .blog-post-date span {
-    font-weight: 300;
+    font-weight: 100;
     font-size: 19px;
 }
 
 .blog-post-header {
     font-weight: 400;
     font-size: 36px;
+    max-width: 580px;
+    margin: 20px auto;
 }
 
 .blog-post-picture {
     margin-bottom: 20px;
+    max-width: 500px;
 }

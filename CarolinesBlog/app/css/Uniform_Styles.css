@@ -39,6 +39,8 @@ a {
 
 .content-section {
     padding: 3rem 9%;
+    max-width: 900px;
+    margin: auto;
 }
 
 .page-content-header {
@@ -55,7 +57,7 @@ a {
 
 @media(max-width: 1045px) {
     .content-section {
-        margin: 3rem 3%;
+        
     }
 }
 

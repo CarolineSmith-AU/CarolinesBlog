@@ -10,17 +10,15 @@
     <asp:Literal ID="asp_blog_container" runat="server">
     </asp:Literal>
 
-    <div id="blog_list_view_container">
-
-    </div>
+    <div id="blog_list_view_container" class="blog-posts"></div>
 
     <script type="text/html" id="blog_posts_template">
-        <a href="%blog_url%">
-            <div id="blog_content">
-                <h1 class="blog-post-header">%title%</h1>
-                <div class="blog-post-date"><span>%date%</span></div>
-                <img class="blog-post-picture" src="%image_url%" width="100%" height: "auto";/>
-                <p>%blog_text%</p>
+        <a href="%blog_url%" class='blog-post'>
+            <div data-id="%blog_id%">
+                <div class='blog-image-container'>
+                    <img src='%image_url%' /><div class='gold-button blog-button pointer'><span class='button-text'>Read Post</span></div>
+                </div>
+                <span class='blog-date'>%date%</span><h2 class='blog-title'>%title%</h2>
             </div>
         </a>
     </script>
