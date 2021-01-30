@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/app/css/HomePage.css" rel="stylesheet" type="text/css" />
+    <link href="/app/css/BlogListView.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/app/js/HomePage.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -28,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <div class="recent-blog-posts surround-margin padding-top-bottom">
+        <div class="recent-blog-posts surround-margin padding-top-bottom content-section">
             <div class="page-content-header">
                 <h1 class="content-header">Read the Latest Posts</h1>
             </div>
@@ -41,7 +42,7 @@
             </a>
         </div>
     </div>
-    <div class="quote-container surround-margin padding-top-bottom">
+    <div class="quote-container surround-margin padding-top-bottom content-section">
         <div class="quote">
             <span class="quote-text">“If there's a book that you want to read, but it hasn't been written yet, then you must write it.”</span>
             <span class="quotee">- Toni Morrison</span>

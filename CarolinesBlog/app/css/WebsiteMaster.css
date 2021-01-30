@@ -40,7 +40,7 @@
 }
 
 .logo {
-    text-align: center;
+    text-align: left;
     padding: 20px;
     display: inline-block;
 }
@@ -57,9 +57,10 @@
     align-items: baseline;
 }
 
-.menu-nav-container {
+#top_nav {
     display: inline-block;
-    width: 45%;
+    text-align: center;
+    width: 50%;
 }
 
 #top_nav .menu-nav {
@@ -161,8 +162,9 @@ ul {
 
 .social-media-header {
     position: absolute;
-    top: 36%;
-    right: 4%;
+    right: 0;
+    top: 50px;
+    margin-right: 20px;
 }
 
     .social-media-header .social {

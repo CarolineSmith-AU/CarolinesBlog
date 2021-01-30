@@ -10,7 +10,7 @@
     <asp:Literal ID="asp_blog_container" runat="server">
     </asp:Literal>
 
-    <div id="blog_list_view_container" class="blog-posts"></div>
+    <div id="blog_list_view_container" class="blog-posts content-section"></div>
 
     <script type="text/html" id="blog_posts_template">
         <a href="%blog_url%" class='blog-post'>

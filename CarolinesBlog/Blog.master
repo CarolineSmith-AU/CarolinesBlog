@@ -15,15 +15,26 @@
             </asp:ContentPlaceHolder>
         </div>
 
-        <div class="blog-rel-content-section">
+        <div class="blog-rel-content-section content-section">
             <div id="blog_rel_content">
-                <div class='blog-rel-section' id='rel_posts_section'></div>
+                <div class="page-content-header">
+                    <h1 class="content-header">More Posts Like This One</h1>
+                </div>
+                <div class='blog-posts' id='rel_posts_section'></div>
             </div>
         </div>
     </div>
 
     <script type="text/html" id="blog_rel_posts_template">
-        <a class='topic-row' data-id=%blog_id%  href='%blog_url%'><div class='topic-text'><span>%title%</span></div></a>
+        <a href="%blog_url%" class='blog-post'>
+            <div data-id="%blog_id%">
+                <div class='blog-image-container'>
+                    <img src='%image_url%' /><div class='gold-button blog-button pointer'><span class='button-text'>Read Post</span></div>
+                </div>
+                <span class="blog-type-text">%blog_type% </span><span class='blog-date'>| %date%</span>
+                <h2 class='blog-title'>%title%</h2>
+            </div>
+        </a>
     </script>
 
 </asp:Content>

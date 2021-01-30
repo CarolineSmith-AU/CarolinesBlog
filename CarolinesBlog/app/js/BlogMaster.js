@@ -28,7 +28,11 @@ BlogMaster = {
             success: function (data) {
                 console.log(data.d);
                 var dataJson = JSON.parse(data.d);
-                BlogMaster.blogs = dataJson.POSTS;
+                var posts = [];
+                dataJson.POSTS.forEach(function (item, index) {
+                    posts.push(new Blog_Post(item));
+                });
+                BlogMaster.blogs = posts;
                 BlogMaster.SetRelPostsHTML();
             },
             error: function () {
@@ -44,11 +48,13 @@ BlogMaster = {
             cleanedTitle = cleanedTitle.replace(/[^a-zA-Z0-9 ]/g, "");
             return accumulator + Util.templateHelper(template, {
                 blog_id: currVal.ID,
+                image_url: currVal.Image_URL,
                 blog_url: "/blog/" + currVal.ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
+                date: currVal.Date,
+                blog_type: currVal.Type_Name,
                 title: currVal.Title
             });
         }, "");
-        html = "<h2>Related Posts</h2>" + html;
         $("#rel_posts_section").html(html);
     },
 

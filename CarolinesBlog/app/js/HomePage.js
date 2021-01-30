@@ -17,7 +17,11 @@ HomePage = {
             success: function (data) {
                 console.log(data.d);
                 var dataJson = JSON.parse(data.d);
-                HomePage.blogs = dataJson.POSTS;
+                var posts = [];
+                dataJson.POSTS.forEach(function (item, index) {
+                    posts.push(new Blog_Post(item));
+                });
+                HomePage.blogs = posts;
                 HomePage.SetRecentBlogsHTML();
             },
             error: function () {
@@ -28,14 +32,14 @@ HomePage = {
     SetRecentBlogsHTML: function () {
         var template = $("#rec_blog_template").html();
         var html = HomePage.blogs.reduce(function (accumulator, currVal) {
-            var cleanedTitle = currVal.TITLE.replace("&", "and");
+            var cleanedTitle = currVal.Title.replace("&", "and");
             cleanedTitle = cleanedTitle.replace(/[^a-zA-Z0-9 ]/g, "");
             return accumulator + Util.templateHelper(template, {
-                blog_id: currVal.BLOG_ID,
-                image_url: currVal.IMAGE_URL,
-                blog_url: "/blog/" + currVal.BLOG_ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
-                date: currVal.DATE,
-                title: currVal.TITLE
+                blog_id: currVal.ID,
+                image_url: currVal.Image_URL,
+                blog_url: "/blog/" + currVal.ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
+                date: currVal.Date,
+                title: currVal.Title
             });
         }, "");
 

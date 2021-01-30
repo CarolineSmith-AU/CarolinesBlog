@@ -84,7 +84,7 @@ Public Class EndpointMaster
 
         Dim query As String = "Select * from (Select blog_posts.BLOGGER_ID, blog_posts.BLOG_ID, blog_posts.TITLE, blog_posts.TIME_STAMP, blog_posts.POST, blog_posts.IMAGE_URL, blog_posts.BLOG_TYPE, blog_types.TYPE_NAME
 	                           from blog_posts INNER JOIN blog_types on blog_posts.BLOGGER_ID = blog_types.BLOGGER_ID and blog_posts.BLOG_TYPE = blog_types.TYPE_INT)
-                               AS b where b.BLOG_TYPE = " & type & " and b.BLOGGER_ID = " & blogger_id & " ORDER BY TIME_STAMP DESC LIMIT 3;"
+                               AS b where b.BLOG_TYPE = " & type & " and b.BLOGGER_ID = " & blogger_id & " ORDER BY TIME_STAMP DESC LIMIT " & num_to_get & ";"
         Dim dt As DataTable = Get_DataTable(query, "blog_posts")
         Dim posts As New JArray
 
@@ -94,7 +94,7 @@ Public Class EndpointMaster
                 New JProperty("TITLE", post.Get_Title()),
                 New JProperty("DATE", post.Get_Date()),
                 New JProperty("BLOG_TEXT", post.Get_Blog_Text()),
-                New JProperty("BLOG_TYPE", post.Get_Blog_Type()),
+                New JProperty("TYPE_NAME", post.Get_Blog_Type()),
                 New JProperty("IMAGE_URL", post.Get_Image_URL())))
         Next
         Dim output As New JObject(New JProperty("POSTS", posts))
@@ -106,7 +106,7 @@ Public Class EndpointMaster
         'Get all tages related to the current blogger and related to blog parameter
         Dim get_curr_tags_query As String = "Select * FROM rel_blog_posts_keywords WHERE BLOG_ID = " & blog_id & " And BLOGGER_ID = " & blogger_id
         Dim curr_tags_dt As DataTable = Get_DataTable(get_curr_tags_query, "rel_blog_posts_keywords")
-        Dim rec_posts As New JArray
+        Dim posts As New JArray
 
         'Iterate through blog tags
         For Each row1 As DataRow In curr_tags_dt.Rows
@@ -119,11 +119,16 @@ Public Class EndpointMaster
 
             'Add each found related blog post to 'rec_posts' JArray
             For Each row2 As DataRow In rel_posts_dt.Rows
-                rec_posts.Add(New JObject(New JProperty("BLOG_ID", row2.Item("BLOG_ID").ToString()),
-                        New JProperty("TITLE", row2.Item("TITLE")), New JProperty("BLOG_TYPE", row2.Item("BLOG_TYPE"))))
+                Dim post As BlogPost = New BlogPost(row2.Item("BLOG_ID"), row2.Item("TITLE"), row2.Item("TIME_STAMP"), row2.Item("POST"), row2.Item("TYPE_NAME"), row2.Item("IMAGE_URL"))
+                posts.Add(New JObject(New JProperty("BLOG_ID", post.Get_Blog_ID()),
+                    New JProperty("TITLE", post.Get_Title()),
+                    New JProperty("DATE", post.Get_Date()),
+                    New JProperty("BLOG_TEXT", post.Get_Blog_Text()),
+                    New JProperty("TYPE_NAME", post.Get_Blog_Type()),
+                    New JProperty("IMAGE_URL", post.Get_Image_URL())))
             Next
         Next
-        Dim output As New JObject(New JProperty("POSTS", rec_posts))
+        Dim output As New JObject(New JProperty("POSTS", posts))
         Return output.ToString()
     End Function
 

@@ -2,7 +2,7 @@
 }
 
 .blog-post-date {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .blog-content {
@@ -16,6 +16,7 @@
 .blog-post-date span {
     font-weight: 100;
     font-size: 19px;
+    color: #b0b0b0;
 }
 
 .blog-post-header {
