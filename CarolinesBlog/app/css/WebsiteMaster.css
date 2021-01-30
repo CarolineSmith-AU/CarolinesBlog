@@ -337,22 +337,3 @@ ul {
     #side_nav_hamburger:hover {
         cursor: pointer;
     }
-
-@media (max-width: 740px) {
-    .side-by-side-module {
-        flex-direction: column-reverse;
-        padding: 7%;
-    }
-
-    #left, #right {
-        width: 100%;
-    }
-
-    .whats-in-mine-text {
-        text-align: center !important;
-    }
-
-    #about_me_button {
-        margin: auto;
-    }
-}

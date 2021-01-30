@@ -17,9 +17,7 @@
 
         <div class="blog-rel-content-section content-section">
             <div id="blog_rel_content">
-                <div class="page-content-header">
-                    <h1 class="content-header">More Posts Like This One</h1>
-                </div>
+                <h1 class="content-header">More Posts Like This One</h1>
                 <div class='blog-posts' id='rel_posts_section'></div>
             </div>
         </div>

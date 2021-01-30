@@ -104,8 +104,8 @@ Public Class EndpointMaster
     'Fix
     <WebMethod()> Public Shared Function Get_Related_Posts_By_Tags(ByVal blog_id As Integer)
         'Get all tages related to the current blogger and related to blog parameter
-        Dim get_curr_tags_query As String = "Select * FROM rel_blog_posts_keywords WHERE BLOG_ID = " & blog_id & " And BLOGGER_ID = " & blogger_id
-        Dim curr_tags_dt As DataTable = Get_DataTable(get_curr_tags_query, "rel_blog_posts_keywords")
+        'Dim get_curr_tags_query As String = "Select * FROM rel_blog_posts_keywords WHERE BLOG_ID = " & blog_id & " And BLOGGER_ID = " & blogger_id
+        Dim curr_tags_dt As DataTable = Get_Tags(blog_id)
         Dim posts As New JArray
 
         'Iterate through blog tags
@@ -119,17 +119,31 @@ Public Class EndpointMaster
 
             'Add each found related blog post to 'rec_posts' JArray
             For Each row2 As DataRow In rel_posts_dt.Rows
-                Dim post As BlogPost = New BlogPost(row2.Item("BLOG_ID"), row2.Item("TITLE"), row2.Item("TIME_STAMP"), row2.Item("POST"), row2.Item("TYPE_NAME"), row2.Item("IMAGE_URL"))
+                Dim tags_dt As DataTable = Get_Tags(row2.Item("BLOG_ID"))
+                Dim tags_array As ArrayList = New ArrayList
+
+                'Get tags of current post
+                For Each row3 As DataRow In tags_dt.Rows
+                    tags_array.Add(row3.Item("KEY_WORD"))
+                Next
+
+                Dim post As BlogPost = New BlogPost(row2.Item("BLOG_ID"), row2.Item("TITLE"), row2.Item("TIME_STAMP"), row2.Item("POST"), row2.Item("TYPE_NAME"), row2.Item("IMAGE_URL"), tags_array)
                 posts.Add(New JObject(New JProperty("BLOG_ID", post.Get_Blog_ID()),
                     New JProperty("TITLE", post.Get_Title()),
                     New JProperty("DATE", post.Get_Date()),
                     New JProperty("BLOG_TEXT", post.Get_Blog_Text()),
                     New JProperty("TYPE_NAME", post.Get_Blog_Type()),
-                    New JProperty("IMAGE_URL", post.Get_Image_URL())))
+                    New JProperty("IMAGE_URL", post.Get_Image_URL()),
+                    New JProperty("TAGS", post.Get_Tags())))
             Next
         Next
         Dim output As New JObject(New JProperty("POSTS", posts))
         Return output.ToString()
+    End Function
+
+    Public Shared Function Get_Tags(ByVal blog_id As Integer)
+        Dim get_curr_tags_query As String = "Select * FROM rel_blog_posts_keywords WHERE BLOG_ID = " & blog_id & " And BLOGGER_ID = " & blogger_id
+        Return Get_DataTable(get_curr_tags_query, "rel_blog_posts_keywords")
     End Function
 
     Public Shared Function Get_DataTable(ByVal query As String, ByVal data_table As String)

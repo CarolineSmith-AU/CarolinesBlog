@@ -17,6 +17,11 @@ body {
     margin: 0;
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
+
 a {
     text-decoration: none;
 }
@@ -32,10 +37,6 @@ a {
     padding: 50px 20px;
 }
 
-.page-content-header {
-    text-align: center;
-}
-
 .hidden {
     display: none;
 }
@@ -44,26 +45,35 @@ a {
     display: block;
 }
 
-@media(max-width: 1045px) {
-    .content-section {
-        
-    }
-}
-
+/*************************** START: Side by Side Module ***************************/
 .side-by-side-module {
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #c2a329;
     padding: 6%;
 }
+
+.side-by-side-module .column {
+    width: 50%;
+}
+@media (max-width: 740px) {
+    .side-by-side-module {
+        flex-direction: column-reverse;
+    }
+
+    .side-by-side-module .column {
+    width: 100%;
+}
+}
+/*************************** END: Side by Side Module ***************************/
 
 .content-header {
     font-size: 36px;
     position: relative;
     padding: 10px;
     font-weight: 400;
+    text-align: center;
 }
 
 .sub-content-header {

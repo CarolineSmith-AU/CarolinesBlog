@@ -4,25 +4,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap');
 
-body {
-
-}
-
-.content-container {
-    /*background-color: #c2a329;*/
-    background: #000000;
-    min-height: 480px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
 #about_me_button {
     width: 165px;
     margin: 30px auto;
 }
 
-/***************************Blog Image With Overlay***************************/
+/***************************START: Blog Image With Overlay***************************/
 .image-container {
     position: relative;
     z-index: 5;
@@ -48,13 +35,29 @@ body {
 .image-container .overlay-text {
     font-size: 45px;
 }
+/***************************END: Blog Image With Overlay***************************/
 
-/***************************Blog content***************************/
+/***************************START: Subscribe Side-by-Side Module***************************/
+.sbs-header {
+    margin-bottom: 0;
+}
+.sbs-subscribe-form {
+    padding: 5%;
+}
+
+#sbs_email_sub_input {
+    width: 85%;
+}
+
+#sbs_blog_sub_button {
+    margin: 20px auto;
+}
+/***************************START: What's in the mine?***************************/
 .whats-in-the-mine {
     background-image: url('../Images/Yellow set 42- J.jpg');
     background-size: cover;
     min-height: 400px;
-    padding: 250px 0;
+    padding: 300px 15px;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
@@ -107,6 +110,7 @@ body {
     margin-top: 10px;
     font-style: normal;
 }
+/***************************END: What's in the mine?***************************/
 
 .view-all-text {
     text-decoration: underline !important;
@@ -117,7 +121,7 @@ body {
     margin: 45px auto;
 }
 
-/***************************Subscribe Module***************************/
+/***************************START: Subscribe Module with Background and Overlay***************************/
 .full-screen-sub-image {
     border-top: 4px solid #c2a329;
 }
@@ -150,6 +154,7 @@ body {
     padding: 10px;
     font-size: 40px;
     position: relative;
+    margin-bottom: 0;
 }
 
 #sub_module_header:after {
@@ -197,40 +202,36 @@ body {
     align-items: center;
     justify-content: center;
 }
-/***************************Mobile Views***************************/
-@media (max-width: 805px) {
+@media (max-width: 600px) {
+    #subscribe_module {
+        height: 300px;
+    }
+}
+@media (max-width: 500px) {
+    #email_sub_input {
+        position: relative;
+    }
+
+    #blog_sub_button {
+        position: initial;
+        margin-top: 5px;
+    }
     #sub_module_header {
         font-size: 22px;
     }
 
     .sub-section {
-        padding-top: 0;
-    }
-
-    .blog-title {
-        font-size: 15px;
+        padding-left: 10px;
+        margin-top: 20px;
     }
 }
-
-/*Change hover effects of "Read Post" button on blog link images*/
-/*@media(max-width: 1000px) {
-    .blog-button {
-        opacity: 1;
-        padding: 6px;
-        top: 69%;
-    }
-
-    .blog-image-container:hover .blog-button {
-        top: 69%;
-    }
-}*/
-
 
 @media(max-width: 1020px) and (min-width: 610) {
     #sub_module_form {
         width: 52%;
     }
 }
+
 @media (max-width: 710px) {
     #sub_module_header {
         width: 100%
@@ -245,12 +246,5 @@ body {
         justify-content: center;
         padding: 15px;
     }
-
-    .blog-posts {
-        grid-template-columns: 1fr;
-    }
-
-    .recent-blogs-title {
-        text-align: center;
-    }
 }
+/***************************END: Subscribe Module with Background and Overlay***************************/

@@ -87,6 +87,21 @@
     }
 }
 
+@media (max-width: 710px) {
+    .blog-posts {
+        grid-template-columns: 1fr;
+    }
+
+        .blog-posts .recent-blogs-title {
+            text-align: center;
+        }
+}
+
+@media (max-width: 805px) {
+    .blog-title {
+        font-size: 15px;
+    }
+}
 /*Change hover effects of "Read Post" button on blog link images*/
 /*@media(max-width: 1000px) {
     .blog-button {
