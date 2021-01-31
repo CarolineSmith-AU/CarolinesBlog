@@ -12,15 +12,41 @@ BlogMaster = {
         if (id == "" || id == undefined || id == null) {    
             return;
         } else {
-            BlogMaster.GetBlogsByType(id);
+            BlogMaster.GetBlogsByTags(id);
         }
     },
-    GetBlogsByType: function (blog_id) {
+    //GetBlogsByType: function (blog_id) {
+    //    var data = { blog_id: blog_id, num_to_get: 3 }
+    //    var params = JSON.stringify(data);
+    //    $.ajax({
+    //        type: "POST",
+    //        url: "/EndpointMaster.aspx/Get_Posts_By_Type",
+    //        contentType: "application/json; charset=utf-8",
+    //        dataType: "json",
+    //        data: params,
+    //        cache: false,
+    //        success: function (data) {
+    //            console.log(data.d);
+    //            var dataJson = JSON.parse(data.d);
+    //            var posts = [];
+    //            dataJson.POSTS.forEach(function (item, index) {
+    //                posts.push(new Blog_Post(item));
+    //            });
+    //            BlogMaster.blogs = posts;
+    //            BlogMaster.SetRelPostsHTML();
+    //        },
+    //        error: function () {
+    //            console.log("Ajax call failed");
+    //        }
+    //    });
+    //},
+
+    GetBlogsByTags: function (blog_id) {
         var data = { blog_id: blog_id, num_to_get: 3 }
         var params = JSON.stringify(data);
         $.ajax({
             type: "POST",
-            url: "/EndpointMaster.aspx/Get_Posts_By_Type",
+            url: "/EndpointMaster.aspx/Get_Related_Posts_By_Tags",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: params,
@@ -33,7 +59,9 @@ BlogMaster = {
                     posts.push(new Blog_Post(item));
                 });
                 BlogMaster.blogs = posts;
-                BlogMaster.SetRelPostsHTML();
+                if (BlogMaster.blogs.length != 0) {
+                    BlogMaster.SetRelPostsHTML();
+                }
             },
             error: function () {
                 console.log("Ajax call failed");
@@ -46,15 +74,20 @@ BlogMaster = {
         var html = BlogMaster.blogs.reduce(function (accumulator, currVal) {
             var cleanedTitle = currVal.Title.replace("&", "and");
             cleanedTitle = cleanedTitle.replace(/[^a-zA-Z0-9 ]/g, "");
+            var tagsString = currVal.Tags.reduce(function (acc, curr) {
+                return acc + curr + " | ";
+            }, "");
+            tagsString = tagsString.substring(0, tagsString.length - 2);
             return accumulator + Util.templateHelper(template, {
                 blog_id: currVal.ID,
                 image_url: currVal.Image_URL,
                 blog_url: "/blog/" + currVal.ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
                 date: currVal.Date,
-                blog_type: currVal.Type_Name,
+                blog_type: tagsString,
                 title: currVal.Title
             });
         }, "");
+        $("#related_posts_title").html("More Posts Like This One");
         $("#rel_posts_section").html(html);
     },
 

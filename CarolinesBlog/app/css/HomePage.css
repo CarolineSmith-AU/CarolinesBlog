@@ -52,6 +52,12 @@
 #sbs_blog_sub_button {
     margin: 20px auto;
 }
+
+@media (max-width: 740px) {
+    .sbs-subscribe-form img {
+        /*display: none;*/
+    }
+}
 /***************************START: What's in the mine?***************************/
 .whats-in-the-mine {
     background-image: url('../Images/Yellow set 42- J.jpg');

@@ -12,7 +12,7 @@
     </div>
     <div id="sbs-subscribe" class="side-by-side-module content-section">
         <div class="column">
-            <img src="/app/Images/Yellow mirror 4.png" />
+            <img src="/app/Images/Journal 3- J.jpg" />
         </div>
         <div class="column sbs-subscribe-form">
             <h1 class="content-header sbs-header">A Lifestyle and Self-Love Blog</h1>
@@ -48,7 +48,7 @@
                 <strong>I pray this message</strong> finds you actively mining for your gold, extracting what you need, molding what you want, and refining who you are.
                     <br />
                 <br />
-                Oh, and do yourself a favor…play <strong>“Black Gold”</strong> by Esperanza Spalding and Algebra Blessett or <strong>“Golden”</strong> by Jill Scott and get your whole, entire life….
+                Oh, and do yourself a favor…play “Black Gold” by Esperanza Spalding and Algebra Blessett or “Golden” by Jill Scott and get your whole, entire life….
                     <br />
                 <br />
                 Stay golden…

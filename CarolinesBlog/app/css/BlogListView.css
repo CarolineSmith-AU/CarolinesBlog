@@ -67,6 +67,7 @@
 .blog-posts .blog-type-text {
     font-weight: bold;
     font-size: 15px;
+    display: block;
 }
 
 .blog-posts .blog-date {

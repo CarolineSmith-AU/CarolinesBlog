@@ -16,8 +16,8 @@
         </div>
 
         <div class="blog-rel-content-section content-section">
+            <h1 id="related_posts_title" class='content-header'></h1>
             <div id="blog_rel_content">
-                <h1 class="content-header">More Posts Like This One</h1>
                 <div class='blog-posts' id='rel_posts_section'></div>
             </div>
         </div>
@@ -29,7 +29,8 @@
                 <div class='blog-image-container'>
                     <img src='%image_url%' /><div class='gold-button blog-button pointer'><span class='button-text'>Read Post</span></div>
                 </div>
-                <span class="blog-type-text">%blog_type% </span><span class='blog-date'>| %date%</span>
+                <span class="blog-type-text">%blog_type% </span>
+                <span class='blog-date'>%date%</span>
                 <h2 class='blog-title'>%title%</h2>
             </div>
         </a>
