@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/app/css/ContactPage.css" rel="stylesheet" type="text/css" />
+    <link href="/app/css/Form.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/app/js/ContactPage.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -22,7 +23,7 @@
                 <textarea id="message_input" class="input row-12" placeholder="*Message" required></textarea>
             </div>
             <div class="button-form-row">
-                <input id="send_message_button" class="gold-button pointer" type="submit" value="Send">
+                <input id="send_message_button" class="gold-button pointer" type="submit" value="Send" />
             </div>
         </form>
     </div>

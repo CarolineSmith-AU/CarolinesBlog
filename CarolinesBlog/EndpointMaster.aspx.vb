@@ -43,13 +43,15 @@ Public Class EndpointMaster
         Dim posts As New JArray
 
         For Each row As DataRow In dt.Rows
-            Dim post As BlogPost = New BlogPost(row.Item("BLOG_ID"), row.Item("TITLE"), row.Item("TIME_STAMP"), row.Item("POST"), row.Item("BLOG_TYPE"), row.Item("IMAGE_URL"))
+            Dim tags_array As ArrayList = Get_Tags(row.Item("BLOG_ID"))
+            Dim post As BlogPost = New BlogPost(row.Item("BLOG_ID"), row.Item("TITLE"), row.Item("TIME_STAMP"), row.Item("POST"), row.Item("BLOG_TYPE"), row.Item("IMAGE_URL"), tags_array)
             posts.Add(New JObject(New JProperty("BLOG_ID", post.Get_Blog_ID()),
                 New JProperty("TITLE", post.Get_Title()),
                 New JProperty("DATE", post.Get_Date()),
                 New JProperty("BLOG_TEXT", post.Get_Blog_Text()),
                 New JProperty("BLOG_TYPE", post.Get_Blog_Type()),
-                New JProperty("IMAGE_URL", post.Get_Image_URL())))
+                New JProperty("IMAGE_URL", post.Get_Image_URL()),
+                New JProperty("TAGS", post.Get_Tags())))
         Next
         Dim output As New JObject(New JProperty("POSTS", posts))
         Return output.ToString()
@@ -119,13 +121,7 @@ Public Class EndpointMaster
 
             'Add each found related blog post to 'rec_posts' JArray
             For Each row2 As DataRow In rel_posts_dt.Rows
-                Dim tags_dt As DataTable = Get_Tags(row2.Item("BLOG_ID"))
-                Dim tags_array As ArrayList = New ArrayList
-
-                'Get tags of current post
-                For Each row3 As DataRow In tags_dt.Rows
-                    tags_array.Add(row3.Item("KEY_WORD"))
-                Next
+                Dim tags_array As ArrayList = Get_Tags(row2.Item("BLOG_ID"))
 
                 Dim post As BlogPost = New BlogPost(row2.Item("BLOG_ID"), row2.Item("TITLE"), row2.Item("TIME_STAMP"), row2.Item("POST"), "", row2.Item("IMAGE_URL"), tags_array)
                 posts.Add(New JObject(New JProperty("BLOG_ID", post.Get_Blog_ID()),
@@ -143,8 +139,31 @@ Public Class EndpointMaster
 
     Public Shared Function Get_Tags(ByVal blog_id As Integer)
         Dim get_curr_tags_query As String = "Select * FROM rel_blog_posts_keywords WHERE BLOG_ID = " & blog_id & " And BLOGGER_ID = " & blogger_id
-        Return Get_DataTable(get_curr_tags_query, "rel_blog_posts_keywords")
+        Dim tags_dt As DataTable = Get_DataTable(get_curr_tags_query, "rel_blog_posts_keywords")
+        Dim tags_array As ArrayList = New ArrayList
+
+        'Get tags of current post
+        For Each row3 As DataRow In tags_dt.Rows
+            tags_array.Add(row3.Item("KEY_WORD"))
+        Next
+        Return tags_array
     End Function
+
+    <WebMethod()>
+    Public Shared Sub Add_Post(ByVal password As String, blog_title As String, blog_image As String, blog_tags As String, blog_type As Integer, blog_post As String)
+        If (password.Equals("hU8f6Dww")) Then
+            Dim add_query As String = "Insert Into blog_posts (TITLE, TIME_STAMP, POST, IMAGE_URL, BLOGGER_ID, BLOG_TYPE) Values('" & blog_title & "', curdate(), '" & blog_post & "', '" & blog_image & "', " & blogger_id & ", " & blog_type & ");"
+            Dim newID As Integer = Update_SQL_DB(add_query, "blog_posts")
+
+            Dim tags_array As Array = blog_tags.Split(",")
+            For Each tag In tags_array
+                Dim tag_query As String = "Insert Into rel_blog_posts_keywords (BLOG_ID, KEY_WORD, BLOGGER_ID) Values(" & newID & ", '" & tag & "', " & blogger_id & ");"
+                Update_SQL_DB(tag_query, "rel_blog_posts_keywords")
+            Next
+        Else
+            Return
+        End If
+    End Sub
 
     Public Shared Function Get_DataTable(ByVal query As String, ByVal data_table As String)
         Dim dt As DataTable
@@ -170,7 +189,8 @@ Public Class EndpointMaster
         Return Nothing
     End Function
 
-    Public Shared Sub Update_SQL_DB(ByVal query As String, ByVal data_table As String)
+    Public Shared Function Update_SQL_DB(ByVal query As String, ByVal data_table As String)
+        Dim newID
         Dim connstring As String = "server=aws-blogdb.cs5jheun794a.us-east-2.rds.amazonaws.com;
             userid=admin;
             password=hU8f6Dww;
@@ -178,9 +198,10 @@ Public Class EndpointMaster
         Dim conn As New MySqlConnection(connstring)
         Try
             conn.Open()
-            Dim da As New MySqlDataAdapter(query, CType(conn, MySqlConnection))
-            Dim ds As New DataSet()
-            da.Fill(ds, data_table)
+            Dim cmd As MySqlCommand = New MySqlCommand(query, conn)
+            cmd.ExecuteScalar()
+            newID = cmd.LastInsertedId
+            Return newID
         Catch ex As Exception
             Console.WriteLine("Error: {0}", ex.ToString())
         Finally
@@ -188,5 +209,6 @@ Public Class EndpointMaster
                 conn.Close()
             End If
         End Try
-    End Sub
+        Return Nothing
+    End Function
 End Class

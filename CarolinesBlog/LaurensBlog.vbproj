@@ -148,6 +148,20 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="app\aspx\About.aspx.designer.vb">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\aspx\About.aspx.vb">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="app\aspx\AddBlogPost.aspx.designer.vb">
+      <DependentUpon>AddBlogPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\aspx\AddBlogPost.aspx.vb">
+      <DependentUpon>AddBlogPost.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="app\aspx\ContactPage.aspx.designer.vb">
       <DependentUpon>ContactPage.aspx</DependentUpon>
     </Compile>
@@ -237,13 +251,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\aspx\About.aspx" />
+    <Content Include="app\aspx\AddBlogPost.aspx" />
     <Content Include="app\aspx\ContactPage.aspx" />
+    <Content Include="app\css\About.css" />
     <Content Include="app\css\BlogListView.css" />
     <Content Include="app\css\BlogMaster.css" />
     <Content Include="app\css\BlogPostTemplate.css" />
     <Content Include="app\css\ContactPage.css" />
     <Content Include="app\css\font-awesome.css" />
     <Content Include="app\css\font-awesome.min.css" />
+    <Content Include="app\css\Form.css" />
     <Content Include="app\css\HomePage.css" />
     <Content Include="app\css\WebsiteMaster.css" />
     <Content Include="app\email_templates\ContactBlogger.html" />
@@ -293,6 +311,7 @@
     <Content Include="app\Images\Yellow set 43- J.jpg" />
     <Content Include="app\Images\Yellow set 46- J.jpg" />
     <Content Include="app\Images\Yellow set 48- J.jpg" />
+    <Content Include="app\js\AddBlogPost.js" />
     <Content Include="app\js\BlogListView.js" />
     <Content Include="app\js\BlogMaster.js" />
     <Content Include="app\js\BlogObjects.js" />

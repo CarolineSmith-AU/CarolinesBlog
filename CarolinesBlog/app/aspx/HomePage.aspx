@@ -16,7 +16,7 @@
         </div>
         <div class="column sbs-subscribe-form">
             <h1 class="content-header sbs-header">A Lifestyle and Self-Love Blog</h1>
-            <p class="sbs-paragraph">Sign up to be notified about new blog posts and content! Stay up-to-date about the latest news and events.</p>
+            <p class="sbs-paragraph">Sign up to be notified about new blog posts and new content! Stay up-to-date about what's new with the BLACKGIRLGOLDEN.</p>
 
             <div class="sub-section">
                 <input id="sbs_email_sub_input" class="input sub-input" type="text" placeholder="Email" />
@@ -34,22 +34,22 @@
             <h1 class="sub-content-header black">What's in the mine?</h1>
             <p>
                 <strong>I still believe that people read for themselves.</strong> I still believe that people write for their souls. Firmly rooted on that belief, this is a space for the things I call valuable.
-                    <br />
-                <br />
-                <strong>My mine.</strong>
                 <br />
                 <br />
-                <strong>There are many ways to extract gold from the Earth;</strong> the two most used involve breaking through rock and separation through water. But no one finds the gold without the prowess of the prospector; the person willing to do the work, pursue the process, and determine the places where valuable things lie. We break through the rock to allow ourselves to be vulnerable enough to learn… we sift through the streams to determine what’s important enough to keep.
-                    <br />
+                My mine.
                 <br />
-                <strong>If you are a prospector,</strong> I hope this may serve as a valuable little piece of Earth for you. Finding your gold is your life’s work. 
-                    <br />
                 <br />
-                <strong>I pray this message</strong> finds you actively mining for your gold, extracting what you need, molding what you want, and refining who you are.
-                    <br />
+                There are many ways to extract gold from the Earth; the two most used involve breaking through rock and separation through water. But no one finds the gold without the prowess of the prospector; the person willing to do the work, pursue the process, and determine the places where valuable things lie. We break through the rock to allow ourselves to be vulnerable enough to learn… we sift through the streams to determine what’s important enough to keep.
+                <br />
+                <br />
+                If you are a prospector, I hope this may serve as a valuable little piece of Earth for you. Finding your gold is your life’s work. 
+                <br />
+                <br />
+                I pray this message finds you actively mining for your gold, extracting what you need, molding what you want, and refining who you are.
+                <br />
                 <br />
                 Oh, and do yourself a favor…play “Black Gold” by Esperanza Spalding and Algebra Blessett or “Golden” by Jill Scott and get your whole, entire life….
-                    <br />
+                <br />
                 <br />
                 Stay golden…
             </p>
@@ -102,6 +102,7 @@
                 <div class='blog-image-container'>
                     <img src='%image_url%' /><div class='gold-button blog-button pointer'><span class='button-text'>Read Post</span></div>
                 </div>
+                <span class="blog-type-text">%blog_type% </span>
                 <span class='blog-date'>%date%</span><h2 class='blog-title'>%title%</h2>
             </div>
         </a>

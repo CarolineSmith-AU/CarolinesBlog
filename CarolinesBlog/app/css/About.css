@@ -1,0 +1,30 @@
+﻿/***************************START: About***************************/
+.about {
+    background-image: url('../Images/Yellow set 41.png');
+    background-size: cover;
+    min-height: 400px;
+    padding: 40px 15px 300px 15px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.about-text {
+    background: #c2a329;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: 5%;
+    padding: 5%;
+}
+
+    .about-text p {
+        color: #000000;
+    }
+
+    @media (max-width: 790px) {
+        .about {
+            background-position: 24% center;
+        }
+    }
+/***************************END: About***************************/
+

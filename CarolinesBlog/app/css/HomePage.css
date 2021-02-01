@@ -58,6 +58,7 @@
         /*display: none;*/
     }
 }
+
 /***************************START: What's in the mine?***************************/
 .whats-in-the-mine {
     background-image: url('../Images/Yellow set 42- J.jpg');
@@ -84,6 +85,7 @@
 .whats-in-mine-text p {
     color: #000000;
 }
+/***************************END: What's in the mine?***************************/
 
 #all_posts_button {
     margin: auto;
@@ -116,7 +118,6 @@
     margin-top: 10px;
     font-style: normal;
 }
-/***************************END: What's in the mine?***************************/
 
 .view-all-text {
     text-decoration: underline !important;

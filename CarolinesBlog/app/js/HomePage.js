@@ -34,11 +34,16 @@ HomePage = {
         var html = HomePage.blogs.reduce(function (accumulator, currVal) {
             var cleanedTitle = currVal.Title.replace("&", "and");
             cleanedTitle = cleanedTitle.replace(/[^a-zA-Z0-9 ]/g, "");
+            var tagsString = currVal.Tags.reduce(function (acc, curr) {
+                return acc + curr + " | ";
+            }, "");
+            tagsString = tagsString.substring(0, tagsString.length - 2);
             return accumulator + Util.templateHelper(template, {
                 blog_id: currVal.ID,
                 image_url: currVal.Image_URL,
                 blog_url: "/blog/" + currVal.ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
                 date: currVal.Date,
+                blog_type: tagsString,
                 title: currVal.Title
             });
         }, "");
