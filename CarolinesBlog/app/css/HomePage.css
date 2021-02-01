@@ -9,6 +9,18 @@
     margin: 30px auto;
 }
 
+#subscribe_module .sub-success-section {
+    background: #000000;
+    padding: 8px;
+    color: #c2a329;
+}
+
+#sbs-subscribe .sub-success-section {
+    background: #c2a329;
+    padding: 8px;
+    color: #000000;
+}
+
 /***************************START: Blog Image With Overlay***************************/
 .image-container {
     position: relative;

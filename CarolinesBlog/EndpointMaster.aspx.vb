@@ -107,12 +107,11 @@ Public Class EndpointMaster
     <WebMethod()> Public Shared Function Get_Related_Posts_By_Tags(ByVal blog_id As Integer, ByVal num_to_get As Integer)
         'Get all tages related to the current blogger and related to blog parameter
         'Dim get_curr_tags_query As String = "Select * FROM rel_blog_posts_keywords WHERE BLOG_ID = " & blog_id & " And BLOGGER_ID = " & blogger_id
-        Dim curr_tags_dt As DataTable = Get_Tags(blog_id)
+        Dim tags_array As ArrayList = Get_Tags(blog_id)
         Dim posts As New JArray
 
         'Iterate through blog tags
-        For Each row1 As DataRow In curr_tags_dt.Rows
-            Dim tag As String = row1.Item("KEY_WORD")
+        For Each tag As String In tags_array
             Dim get_rel_blogs_query As String = "Select * from (Select blog_posts.BLOGGER_ID, blog_posts.IMAGE_URL, blog_posts.TIME_STAMP, blog_posts.TITLE, blog_posts.POST, blog_posts.BLOG_TYPE, blog_posts.BLOG_ID from blog_posts
 	                                            INNER JOIN rel_blog_posts_keywords ON rel_blog_posts_keywords.KEY_WORD = '" & tag & "' and
 	                                            blog_posts.BLOG_ID = rel_blog_posts_keywords.BLOG_ID)
@@ -121,9 +120,9 @@ Public Class EndpointMaster
 
             'Add each found related blog post to 'rec_posts' JArray
             For Each row2 As DataRow In rel_posts_dt.Rows
-                Dim tags_array As ArrayList = Get_Tags(row2.Item("BLOG_ID"))
+                Dim tags_array_2 As ArrayList = Get_Tags(row2.Item("BLOG_ID"))
 
-                Dim post As BlogPost = New BlogPost(row2.Item("BLOG_ID"), row2.Item("TITLE"), row2.Item("TIME_STAMP"), row2.Item("POST"), "", row2.Item("IMAGE_URL"), tags_array)
+                Dim post As BlogPost = New BlogPost(row2.Item("BLOG_ID"), row2.Item("TITLE"), row2.Item("TIME_STAMP"), row2.Item("POST"), "", row2.Item("IMAGE_URL"), tags_array_2)
                 posts.Add(New JObject(New JProperty("BLOG_ID", post.Get_Blog_ID()),
                     New JProperty("TITLE", post.Get_Title()),
                     New JProperty("DATE", post.Get_Date()),

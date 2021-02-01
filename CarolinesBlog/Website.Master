@@ -58,7 +58,7 @@
             <div class="social-media-header">
                 <a class="fa fa-envelope social" href="contact"></a>
                 <a class="fa fa-instagram social" href="https://www.instagram.com/lalalearnsya/" target="_blank"></a>
-                <a class="fa fa-facebook-square social"></a>
+                <%--<a class="fa fa-facebook-square social"></a>--%>
             </div>
             <i id="side_nav_hamburger" class="fa fa-bars"></i>
         </div>
@@ -68,9 +68,11 @@
             <div class="social-media-footer">
                 <a id="footer_email" class="fa fa-envelope social" href="/contact"></a>
                 <a id="footer_instagram" class="fa fa-instagram social" href="https://www.instagram.com/lalalearnsya/" target="_blank"></a>
-                <a id="footer_facebook" class="fa fa-facebook-square social"></a>
+                <%--<a id="footer_facebook" class="fa fa-facebook-square social"></a>--%>
             </div>
+            <div class="blaq-aesthetics"><p>Website Designed by <a href="https://www.instagram.com/blaqaesthetics/">Blaq Aesthetics</a></p></div>
         </div>
     </div>
+
 </body>
 </html>

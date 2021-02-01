@@ -10,8 +10,10 @@ Public Class Mail
 
     Private Const blogger_id As Integer = 1
     Private Const From_Name As String = "BlackGirlGolden"
-    Private Const Email_From As String = "cleeannsmith@gmail.com"
-    Private Const Email_Password As String = "38r7Zy0!_~"
+    'Private Const Email_From As String = "cleeannsmith@gmail.com"
+    'Private Const Email_Password As String = "38r7Zy0!_~"
+    Private Const Email_From As String = "blackgirlgolden@gmail.com"
+    Private Const Email_Password As String = "beebop11"
 
     'Social Media Links
     Private Const Instagram_Link As String = ""
@@ -56,7 +58,7 @@ Public Class Mail
         Dim mailBodyHTML As String = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory & "app\email_templates\ContactBlogger.html")
         Dim resultHTML As String = String.Format(mailBodyHTML, firstname, firstname & " " & lastname, body)
         Dim addrFrom As MailAddress = New MailAddress(returnEmail, From_Name)
-        Dim addrTo As MailAddress = New MailAddress("csmith0097@gmail.com")
+        Dim addrTo As MailAddress = New MailAddress(Email_From)
         Dim message As MailMessage = New MailMessage(addrFrom, addrTo)
 
         message.Subject = firstname & " " & lastname & " has messaged you!"
