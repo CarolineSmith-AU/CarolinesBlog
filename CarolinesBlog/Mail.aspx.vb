@@ -21,13 +21,13 @@ Public Class Mail
     Private Const Twitter_Link As String = ""
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim post As New BlogPost("1", "Test Blog Title", "01/21/2021", "This is a short snippet of the blog post. The text should not extend the full width of the page, but should wrap to fit content.", 1, "C:\Users\cleea\source\repos\CarolineSmith-AU\CarolinesBlog\CarolinesBlog\app\Images\gardenia_square_2.jpg")
-        Email_Send_Blog_Notif(post)
+
     End Sub
 
     'Build email for new blog post notification
     <WebMethod()> Public Shared Sub Email_Send_Blog_Notif(ByVal post As BlogPost)
         Dim mailBodyHTML As String = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory & "app\email_templates\NewBlogPost.html")
+        'Dim blogURL As String = "https://blackgirlgolden.com/blog/" & post.Get_Blog_ID.ToString() & "/" & post.Get_Title().Replace()
         Dim resultHTML As String = String.Format(mailBodyHTML, post.Get_Title(), post.Get_Blog_Text(), "https://blackgirlgolden.com")
 
         Dim htmlView As AlternateView = AlternateView.CreateAlternateViewFromString(resultHTML, Encoding.UTF8, "text/html")
@@ -56,8 +56,8 @@ Public Class Mail
 
     <WebMethod> Public Shared Sub Send_Mail_To_Blogger(firstname As String, lastname As String, returnEmail As String, body As String)
         Dim mailBodyHTML As String = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory & "app\email_templates\ContactBlogger.html")
-        Dim resultHTML As String = String.Format(mailBodyHTML, firstname, firstname & " " & lastname, body)
-        Dim addrFrom As MailAddress = New MailAddress(returnEmail, From_Name)
+        Dim resultHTML As String = String.Format(mailBodyHTML, firstname, firstname & " " & lastname, body, firstname, returnEmail)
+        Dim addrFrom As MailAddress = New MailAddress(returnEmail, firstname)
         Dim addrTo As MailAddress = New MailAddress(Email_From)
         Dim message As MailMessage = New MailMessage(addrFrom, addrTo)
 

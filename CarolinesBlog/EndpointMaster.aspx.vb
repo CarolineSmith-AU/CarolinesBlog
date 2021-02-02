@@ -159,6 +159,8 @@ Public Class EndpointMaster
                 Dim tag_query As String = "Insert Into rel_blog_posts_keywords (BLOG_ID, KEY_WORD, BLOGGER_ID) Values(" & newID & ", '" & tag & "', " & blogger_id & ");"
                 Update_SQL_DB(tag_query, "rel_blog_posts_keywords")
             Next
+            Dim post As New BlogPost(newID, blog_title, "", blog_post, blogger_id, blog_image)
+            Mail.Email_Send_Blog_Notif(post)
         Else
             Return
         End If
