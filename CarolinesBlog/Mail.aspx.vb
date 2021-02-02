@@ -34,9 +34,9 @@ Public Class Mail
 
         Dim blogImage As LinkedResource = Create_Linked_Resource(post.Get_Image_URL(), "imageID")
         htmlView.LinkedResources.Add(blogImage)
-        Dim instaImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\CarolinesBlog\CarolinesBlog\app\Images\iconfinder_Rounded_Instagram_svg_5282544 (1).jpg", "instagramID")
+        Dim instaImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\VintageBlogTemp\CarolinesBlog\app\Images\instagram_black.jpg", "instagramID")
         htmlView.LinkedResources.Add(instaImage)
-        Dim fbImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\CarolinesBlog\CarolinesBlog\app\Images\iconfinder_Rounded_Facebook_svg_5282541 (1).jpg", "facebookID")
+        Dim fbImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\VintageBlogTemp\CarolinesBlog\app\Images\facebook_black.jpg", "facebookID")
         htmlView.LinkedResources.Add(fbImage)
 
         Dim jsonString As String = EndpointMaster.Get_Subscribers()

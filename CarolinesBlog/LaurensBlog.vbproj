@@ -269,12 +269,15 @@
     <Content Include="app\fonts\fontawesome-webfont.svg" />
     <Content Include="app\Images\Basil Rathbone.jpg" />
     <Content Include="app\Images\Biden_Bible.jpg" />
+    <Content Include="app\Images\biden_swear.jpg" />
+    <Content Include="app\Images\biden_swear.png" />
     <Content Include="app\Images\Bridgerton.jpg" />
     <Content Include="app\Images\Charlotte 1.jpg" />
     <Content Include="app\Images\Charlotte 2.jpg" />
     <Content Include="app\Images\dark_journal_1_resized.jpg" />
     <Content Include="app\Images\DSCN0002 %282%29.JPG" />
     <Content Include="app\Images\DSCN0002.JPG" />
+    <Content Include="app\Images\facebook_black.jpg" />
     <Content Include="app\Images\floral_gold_pattern.jpg" />
     <Content Include="app\Images\gardenia_square.jpg" />
     <Content Include="app\Images\gardenia_square_2.jpg" />
@@ -283,10 +286,7 @@
     <Content Include="app\Images\gold_mine_cropped.jpg" />
     <Content Include="app\Images\gold_mine_square.jpg" />
     <Content Include="app\Images\Hair_Collage.jpg" />
-    <Content Include="app\Images\iconfinder_Rounded_Facebook_svg_5282541 %281%29.jpg" />
-    <Content Include="app\Images\iconfinder_Rounded_Facebook_svg_5282541.jpg" />
-    <Content Include="app\Images\iconfinder_Rounded_Instagram_svg_5282544 %281%29.jpg" />
-    <Content Include="app\Images\iconfinder_Rounded_Instagram_svg_5282544.jpg" />
+    <Content Include="app\Images\instagram_black.jpg" />
     <Content Include="app\Images\Journal 3- J.jpg" />
     <Content Include="app\Images\Journal 4- J.jpg" />
     <Content Include="app\Images\journaling_1_square_small.jpg" />

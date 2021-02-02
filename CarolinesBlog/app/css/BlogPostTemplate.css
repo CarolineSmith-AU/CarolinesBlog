@@ -10,7 +10,15 @@
 }
 
 .full-blog-post {
+    text-align: center;
+}
+
+.full-blog-post p {
     text-align: left;
+}
+
+.full-blog-post a {
+    color: #4da6ff;
 }
 
 .blog-post-date span {
