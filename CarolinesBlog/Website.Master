@@ -70,9 +70,10 @@
                 <a id="footer_instagram" class="fa fa-instagram social" href="https://www.instagram.com/lalalearnsya/" target="_blank"></a>
                 <%--<a id="footer_facebook" class="fa fa-facebook-square social"></a>--%>
             </div>
-            <div class="blaq-aesthetics"><p>Website Designed by <a href="https://www.instagram.com/blaqaesthetics/">Blaq Aesthetics</a></p></div>
+            <div class="blaq-aesthetics">
+                <p>Website Designed by <a href="https://www.instagram.com/blaqaesthetics/">Blaq Aesthetics</a></p>
+            </div>
         </div>
     </div>
-
 </body>
 </html>

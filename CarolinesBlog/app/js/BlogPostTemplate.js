@@ -2,7 +2,7 @@
     BlogPostTemplate.GetRecentBlogs();
 });
 BlogPostTemplate = {
-    blogs: null,
+    blog: null,
 
     GetRecentBlogs: function () {
         var id = BlogMaster.GetIDFromURL();
@@ -18,7 +18,7 @@ BlogPostTemplate = {
             success: function (data) {
                 console.log(data.d);
                 var dataJson = JSON.parse(data.d);
-                BlogPostTemplate.blogs = dataJson.POSTS;
+                BlogPostTemplate.blog = new Blog_Post(dataJson.POSTS[0]);
                 BlogPostTemplate.SetPostViewHTML();
             },
             error: function () {
@@ -28,17 +28,13 @@ BlogPostTemplate = {
     },
     SetPostViewHTML: function () {
         var template = $("#blog_post_template").html();
-        var html = BlogPostTemplate.blogs.reduce(function (accumulator, currVal) {
-            var cleanedTitle = currVal.TITLE.replace("&", "and");
-            cleanedTitle = cleanedTitle.replace(/[^a-zA-Z0-9 ]/g, "");
-            return accumulator + Util.templateHelper(template, {
-                blog_id: currVal.BLOG_ID,
-                image_url: "../../" + currVal.IMAGE_URL,
-                date: currVal.DATE,
-                title: currVal.TITLE,
-                blog_text: currVal.BLOG_TEXT
-            });
-        }, "");
+        var html = Util.templateHelper(template, {
+            blog_id: BlogPostTemplate.blog.ID,
+            image_url: "../../" + BlogPostTemplate.blog.Image_URL,
+            date: BlogPostTemplate.blog.Date,
+            title: BlogPostTemplate.blog.Title,
+            blog_text: BlogPostTemplate.blog.Text
+        });
 
         $("#blog_post_container").html(html);
     },

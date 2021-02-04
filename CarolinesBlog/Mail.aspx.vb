@@ -32,7 +32,7 @@ Public Class Mail
 
         Dim htmlView As AlternateView = AlternateView.CreateAlternateViewFromString(resultHTML, Encoding.UTF8, "text/html")
 
-        Dim blogImage As LinkedResource = Create_Linked_Resource(post.Get_Image_URL(), "imageID")
+        Dim blogImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\VintageBlogTemp\CarolinesBlog" & post.Get_Image_URL().Replace("/", "\"), "imageID")
         htmlView.LinkedResources.Add(blogImage)
         Dim instaImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\VintageBlogTemp\CarolinesBlog\app\Images\instagram_black.jpg", "instagramID")
         htmlView.LinkedResources.Add(instaImage)

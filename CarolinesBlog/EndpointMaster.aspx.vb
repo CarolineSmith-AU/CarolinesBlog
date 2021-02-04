@@ -69,7 +69,8 @@ Public Class EndpointMaster
                 New JProperty("DATE", post.Get_Date()),
                 New JProperty("BLOG_TEXT", post.Get_Blog_Text()),
                 New JProperty("BLOG_TYPE", post.Get_Blog_Type()),
-                New JProperty("IMAGE_URL", post.Get_Image_URL())))
+                New JProperty("IMAGE_URL", post.Get_Image_URL()),
+                New JProperty("TAGS", Get_Tags(post.Get_Blog_ID()))))
         Next
         Dim output As New JObject(New JProperty("POSTS", posts))
         Return output.ToString()
@@ -106,7 +107,6 @@ Public Class EndpointMaster
     'Fix
     <WebMethod()> Public Shared Function Get_Related_Posts_By_Tags(ByVal blog_id As Integer, ByVal num_to_get As Integer)
         'Get all tages related to the current blogger and related to blog parameter
-        'Dim get_curr_tags_query As String = "Select * FROM rel_blog_posts_keywords WHERE BLOG_ID = " & blog_id & " And BLOGGER_ID = " & blogger_id
         Dim tags_array As ArrayList = Get_Tags(blog_id)
         Dim posts As New JArray
 
@@ -161,6 +161,25 @@ Public Class EndpointMaster
             Next
             Dim post As New BlogPost(newID, blog_title, "", blog_post, blogger_id, blog_image)
             Mail.Email_Send_Blog_Notif(post)
+        Else
+            Return
+        End If
+    End Sub
+
+    <WebMethod()>
+    Public Shared Sub Update_Post(ByVal password As String, blog_title As String, blog_image As String, blog_tags As String, blog_type As Integer, blog_post As String, blog_id As Integer)
+        If (password.Equals("hU8f6Dww")) Then
+            Dim update_query As String = "Update blog_posts Set TITLE = '" & blog_title & "', POST = '" & blog_post & "', IMAGE_URL = '" & blog_image & "', BLOG_TYPE = " & blog_type & " Where BLOG_ID = " & blog_id & " and BLOGGER_ID = " & blogger_id & ";"
+            Update_SQL_DB(update_query, "blog_posts")
+
+            Dim delete_tags As String = "Delete from rel_blog_posts_keywords where BLOG_ID = " & blog_id & " and BLOGGER_ID = " & blogger_id & ";"
+            Update_SQL_DB(delete_tags, "blog_posts")
+
+            Dim tags_array As Array = blog_tags.Split(",")
+            For Each tag In tags_array
+                Dim tag_query As String = "Insert Into rel_blog_posts_keywords (BLOG_ID, KEY_WORD, BLOGGER_ID) Values(" & blog_id & ", '" & tag & "', " & blogger_id & ");"
+                Update_SQL_DB(tag_query, "rel_blog_posts_keywords")
+            Next
         Else
             Return
         End If

@@ -169,6 +169,13 @@
       <DependentUpon>ContactPage.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="app\aspx\UpdateBlogPost.aspx.designer.vb">
+      <DependentUpon>UpdateBlogPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\aspx\UpdateBlogPost.aspx.vb">
+      <DependentUpon>UpdateBlogPost.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
@@ -254,6 +261,7 @@
     <Content Include="app\aspx\About.aspx" />
     <Content Include="app\aspx\AddBlogPost.aspx" />
     <Content Include="app\aspx\ContactPage.aspx" />
+    <Content Include="app\aspx\UpdateBlogPost.aspx" />
     <Content Include="app\css\About.css" />
     <Content Include="app\css\BlogListView.css" />
     <Content Include="app\css\BlogMaster.css" />
@@ -332,6 +340,7 @@
     <Content Include="app\js\BlogPostTemplate.js" />
     <Content Include="app\js\ContactPage.js" />
     <Content Include="app\js\HomePage.js" />
+    <Content Include="app\js\UpdateBlogPost.js" />
     <Content Include="app\js\WebsiteMaster.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

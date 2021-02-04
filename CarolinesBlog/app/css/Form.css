@@ -11,7 +11,7 @@
     width: 100%;
 }
 
-form .input {
+form .input, .input {
     margin: 16px 5px;
     background: #e6e6e6;
 }

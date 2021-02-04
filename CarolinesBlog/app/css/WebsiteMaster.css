@@ -343,3 +343,75 @@ ul {
     #side_nav_hamburger:hover {
         cursor: pointer;
     }
+
+/***************************************Modal Styling******************************************/
+.modal.open {
+    background: rgba(0,0,0,0.8);
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    display: flex;
+    /*align-items: center;*/
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+/*.modal.closed {
+    display: none;
+}*/
+
+.modal.closed .modal-content {
+    max-height: 0;
+    transition: all 0.5s ease;
+}
+
+.modal-content {
+    position: absolute;
+    z-index: 2;
+    background: white;
+    /*min-width: 40%;*/
+    width: 100%;
+    /*padding: 23px;*/
+    max-height: 200px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.modal-close {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.modal-input {
+    padding: 10px;
+    width: 90%;
+    margin: 1%;
+}
+
+.modal-title {
+    /*margin-bottom: 5%;*/
+    margin: 1%;
+}
+
+.modal-title-text {
+    margin: 0;
+}
+
+.modal-button {
+    width: 80px;
+    cursor: pointer;
+}
+
+.modal-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
