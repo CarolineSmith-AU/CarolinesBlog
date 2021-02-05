@@ -33,7 +33,7 @@ Contact = {
             var params = JSON.stringify(data);
             $.ajax({
                 type: "POST",
-                url: "/Mail.aspx/Send_Mail_To_Blogger",
+                url: "/app/vb/Mail.aspx/Send_Mail_To_Blogger",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 data: params,

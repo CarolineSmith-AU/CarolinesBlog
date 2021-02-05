@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Website.Master" CodeBehind="ContactPage.aspx.vb" Inherits="CarolinesBlog.ContactPage" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="/app/master_pages/Website.Master" CodeBehind="ContactPage.aspx.vb" Inherits="CarolinesBlog.ContactPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/app/css/ContactPage.css" rel="stylesheet" type="text/css" />

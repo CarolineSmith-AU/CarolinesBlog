@@ -20,7 +20,7 @@ BlogMaster = {
     //    var params = JSON.stringify(data);
     //    $.ajax({
     //        type: "POST",
-    //        url: "/EndpointMaster.aspx/Get_Posts_By_Type",
+    //        url: "/app/vb/EndpointMaster.aspx/Get_Posts_By_Type",
     //        contentType: "application/json; charset=utf-8",
     //        dataType: "json",
     //        data: params,
@@ -46,7 +46,7 @@ BlogMaster = {
         var params = JSON.stringify(data);
         $.ajax({
             type: "POST",
-            url: "/EndpointMaster.aspx/Get_Related_Posts_By_Tags",
+            url: "/app/vb/EndpointMaster.aspx/Get_Related_Posts_By_Tags",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: params,

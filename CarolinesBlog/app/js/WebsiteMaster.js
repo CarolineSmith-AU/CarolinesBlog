@@ -31,7 +31,7 @@ Subscribe = {
             $.ajax({
                 type: "POST",
                 action: "Subscribe_To_Blog",
-                url: "/EndpointMaster.aspx/Subscribe_To_Blog",
+                url: "/app/vb/EndpointMaster.aspx/Subscribe_To_Blog",
                 data: params,
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -62,7 +62,7 @@ Subscribe = {
             var params = JSON.stringify(data);
             $.ajax({
                 type: "POST",
-                url: "/EndpointMaster.aspx/Unsubscribe_From_Blog",
+                url: "/app/vb/EndpointMaster.aspx/Unsubscribe_From_Blog",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 data: params,

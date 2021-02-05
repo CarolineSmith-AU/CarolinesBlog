@@ -18,7 +18,7 @@ getPost = function (id) {
     var params = JSON.stringify(data);
     $.ajax({
         type: "POST",
-        url: "/EndpointMaster.aspx/Get_Single_Blog_Post",
+        url: "/app/vb/EndpointMaster.aspx/Get_Single_Blog_Post",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: params,
@@ -46,7 +46,7 @@ updatePost = function (id) {
     var params = JSON.stringify(data);
     $.ajax({
         type: "POST",
-        url: "/EndpointMaster.aspx/Update_Post",
+        url: "/app/vb/EndpointMaster.aspx/Update_Post",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: params,

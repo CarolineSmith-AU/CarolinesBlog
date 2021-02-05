@@ -186,28 +186,28 @@
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
-    <Compile Include="Blog.master.designer.vb">
+    <Compile Include="app\master_pages\Blog.master.designer.vb">
       <DependentUpon>Blog.master</DependentUpon>
     </Compile>
-    <Compile Include="Blog.master.vb">
+    <Compile Include="app\master_pages\Blog.master.vb">
       <DependentUpon>Blog.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BlogPost.vb" />
-    <Compile Include="EndpointMaster.aspx.designer.vb">
+    <Compile Include="app\vb\BlogPost.vb" />
+    <Compile Include="app\vb\EndpointMaster.aspx.designer.vb">
       <DependentUpon>EndpointMaster.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EndpointMaster.aspx.vb">
+    <Compile Include="app\vb\EndpointMaster.aspx.vb">
       <DependentUpon>EndpointMaster.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mail.aspx.designer.vb">
+    <Compile Include="app\vb\Mail.aspx.designer.vb">
       <DependentUpon>Mail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Mail.aspx.vb">
+    <Compile Include="app\vb\Mail.aspx.vb">
       <DependentUpon>Mail.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
@@ -241,10 +241,10 @@
       <DependentUpon>BlogListView.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Website.Master.designer.vb">
+    <Compile Include="app\master_pages\Website.Master.designer.vb">
       <DependentUpon>Website.Master</DependentUpon>
     </Compile>
-    <Compile Include="Website.Master.vb">
+    <Compile Include="app\master_pages\Website.Master.vb">
       <DependentUpon>Website.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -355,7 +355,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="EndpointMaster.aspx" />
+    <Content Include="app\vb\EndpointMaster.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -371,7 +371,7 @@
     <Content Include="app\fonts\fontawesome-webfont.woff2" />
     <Content Include="app\fonts\FontAwesome.otf" />
     <Content Include="app\aspx\HomePage.aspx" />
-    <Content Include="Blog.master" />
+    <Content Include="app\master_pages\Blog.master" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -383,7 +383,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Mail.aspx" />
+    <Content Include="app\vb\Mail.aspx" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -393,7 +393,7 @@
     <Content Include="app\aspx\BlogPostTemplate.aspx" />
     <Content Include="app\css\Uniform_Styles.css" />
     <Content Include="app\aspx\BlogListView.aspx" />
-    <Content Include="Website.Master" />
+    <Content Include="app\master_pages\Website.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

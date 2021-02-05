@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Blog.master" CodeBehind="BlogPostTemplate.aspx.vb" Inherits="CarolinesBlog.BlogPostTemplate" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="/app/master_pages/Blog.Master" CodeBehind="BlogPostTemplate.aspx.vb" Inherits="CarolinesBlog.BlogPostTemplate" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/app/css/BlogPostTemplate.css" rel="stylesheet" type="text/css" />

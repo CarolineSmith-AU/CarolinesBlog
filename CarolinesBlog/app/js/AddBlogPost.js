@@ -16,7 +16,7 @@ addPost = function () {
     var params = JSON.stringify(data);
     $.ajax({
         type: "POST",
-        url: "/EndpointMaster.aspx/Add_Post",
+        url: "/app/vb/EndpointMaster.aspx/Add_Post",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: params,

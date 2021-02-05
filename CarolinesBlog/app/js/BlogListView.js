@@ -13,7 +13,7 @@ BlogListView = {
         var params = JSON.stringify(data);
         $.ajax({
             type: "POST",
-            url: "/EndpointMaster.aspx/Get_Recent_Blog_Posts",
+            url: "/app/vb/EndpointMaster.aspx/Get_Recent_Blog_Posts",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: params,
