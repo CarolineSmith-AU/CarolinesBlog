@@ -6,7 +6,7 @@
     Private blog_type As String
     Private image_url As String
     Private tags As ArrayList
-    Private rel_url As String
+    Private blog_url As String
 
     Public Sub New(blog_id As String, title As String, date_stamp As String, blog_text As String, blog_type As String, image_url As String, Optional ByVal tags As ArrayList = Nothing)
         Me.blog_id = blog_id
@@ -16,13 +16,21 @@
         Me.blog_type = blog_type
         Me.image_url = image_url
         Me.tags = tags
-        Me.rel_url = Me.Build_Url()
+        Me.blog_url = Me.Build_Url()
     End Sub
 
     Private Function Build_Url() As String
-        'Return "https://blackgirlgolden.com/blog/" & Me.blog_id.ToString() & "/" & Me.title.Replace(" ", "-")
-        Return "https://localhost:44378/blog/" & Me.blog_id.ToString() & "/" & Me.title.Replace(" ", "-")
+        Return "https://blackgirlgolden.com/blog/" & Me.blog_id.ToString() & "/" & Me.title.Replace(" ", "-")
+        'Return "https://localhost:44378/blog/" & Me.blog_id.ToString() & "/" & Me.title.Replace(" ", "-")
     End Function
+
+    Public Function Get_Blog_URL() As String
+        Return Me.blog_url
+    End Function
+
+    Public Sub Set_Blog_URL(blog_url As String)
+        Me.blog_url = blog_url
+    End Sub
 
     Public Function Get_Blog_ID() As Integer
         Return Me.blog_id

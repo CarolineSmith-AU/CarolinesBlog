@@ -27,16 +27,16 @@ Public Class Mail
     'Build email for new blog post notification
     <WebMethod()> Public Shared Sub Email_Send_Blog_Notif(ByVal post As BlogPost)
         Dim mailBodyHTML As String = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory & "app\email_templates\NewBlogPost.html")
-        'Dim blogURL As String = "https://blackgirlgolden.com/blog/" & post.Get_Blog_ID.ToString() & "/" & post.Get_Title().Replace()
-        Dim resultHTML As String = String.Format(mailBodyHTML, post.Get_Title(), post.Get_Blog_Text(), "https://blackgirlgolden.com")
+        'Dim resultHTML As String = String.Format(mailBodyHTML, post.Get_Title(), post.Get_Blog_Text(), post.Get_Blog_URL(), "https://localhost:44378/unsubscribe")
+        Dim resultHTML As String = String.Format(mailBodyHTML, post.Get_Title(), post.Get_Blog_Text(), post.Get_Blog_URL(), "https://blackgirlgolden.com/unsubscribe")
 
         Dim htmlView As AlternateView = AlternateView.CreateAlternateViewFromString(resultHTML, Encoding.UTF8, "text/html")
 
-        Dim blogImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\VintageBlogTemp\CarolinesBlog" & post.Get_Image_URL().Replace("/", "\"), "imageID")
+        Dim blogImage As LinkedResource = Create_Linked_Resource(AppDomain.CurrentDomain.BaseDirectory & post.Get_Image_URL().Replace("/", "\").Remove(0, 1), "imageID")
         htmlView.LinkedResources.Add(blogImage)
-        Dim instaImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\VintageBlogTemp\CarolinesBlog\app\Images\instagram_black.jpg", "instagramID")
+        Dim instaImage As LinkedResource = Create_Linked_Resource(AppDomain.CurrentDomain.BaseDirectory & "app\Images\instagram_black.jpg", "instagramID")
         htmlView.LinkedResources.Add(instaImage)
-        Dim fbImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\VintageBlogTemp\CarolinesBlog\app\Images\facebook_black.jpg", "facebookID")
+        Dim fbImage As LinkedResource = Create_Linked_Resource(AppDomain.CurrentDomain.BaseDirectory & "app\Images\facebook_black.jpg", "facebookID")
         htmlView.LinkedResources.Add(fbImage)
 
         Dim jsonString As String = EndpointMaster.Get_Subscribers()

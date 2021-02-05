@@ -1,10 +1,21 @@
 ﻿$(document).ready(function () {
     Contact.sendMail();
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('email') != "" & urlParams.get('email') != undefined) {
+        Modal.OpenModal({
+            title: "Email Sent Successfully",
+            templateName: "/app/aspx/SuccessMessage.html",
+            message: "Thanks for contacting me! I look forward to reading what's on your mind.",
+            searchSite: function (searchInput) {
+                console.log("Searching merchandise.");
+            }
+        });
+    }
 });
 Contact = {
     sendMail: function () {
-        $(document).on("click", "#send_message_button", function () {
-            Contact.checkInput()
+        $(document).on("click", "#send_message_button", function (e) {
+            Contact.checkInput(e)
         });
     },
 
@@ -30,7 +41,6 @@ Contact = {
                 success: function (data) {
                     console.log(data.d);
                     var dataJson = JSON.parse(data.d);
-
                 },
                 error: function () {
                     console.log("Ajax call failed");

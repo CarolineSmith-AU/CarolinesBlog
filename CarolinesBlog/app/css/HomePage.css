@@ -15,9 +15,16 @@
     color: #c2a329;
 }
 
+.sub-success-section p {
+    margin: 0;
+}
+
 #sbs-subscribe .sub-success-section {
     background: #c2a329;
     padding: 8px;
+}
+
+#sbs-subscribe .sub-success-section p {
     color: #000000;
 }
 

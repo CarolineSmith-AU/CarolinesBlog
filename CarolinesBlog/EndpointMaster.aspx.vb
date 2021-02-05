@@ -20,7 +20,7 @@ Public Class EndpointMaster
         Update_SQL_DB(query, "blogdb")
     End Sub
 
-    <WebMethod()> Public Shared Sub Unsubscribe_To_Blog(ByVal email_addr As String)
+    <WebMethod()> Public Shared Sub Unsubscribe_From_Blog(ByVal email_addr As String)
         Dim query As String = "DELETE FROM sub_email_list WHERE EMAIL_ADDR ='" & email_addr & "' AND BLOGGER_ID = " & blogger_id & ";"
         Update_SQL_DB(query, "blogdb")
     End Sub

@@ -169,6 +169,13 @@
       <DependentUpon>ContactPage.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="app\aspx\Unsubscribe.aspx.designer.vb">
+      <DependentUpon>Unsubscribe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\aspx\Unsubscribe.aspx.vb">
+      <DependentUpon>Unsubscribe.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="app\aspx\UpdateBlogPost.aspx.designer.vb">
       <DependentUpon>UpdateBlogPost.aspx</DependentUpon>
     </Compile>
@@ -261,6 +268,8 @@
     <Content Include="app\aspx\About.aspx" />
     <Content Include="app\aspx\AddBlogPost.aspx" />
     <Content Include="app\aspx\ContactPage.aspx" />
+    <Content Include="app\aspx\SuccessMessage.html" />
+    <Content Include="app\aspx\Unsubscribe.aspx" />
     <Content Include="app\aspx\UpdateBlogPost.aspx" />
     <Content Include="app\css\About.css" />
     <Content Include="app\css\BlogListView.css" />

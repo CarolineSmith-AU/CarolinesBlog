@@ -16,13 +16,23 @@ form .input, .input {
     background: #e6e6e6;
 }
 
+.form-subtext {
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-header {
+    margin-bottom: 0;
+}
+
 textarea {
     min-height: 315px;
 }
 
 @media(max-width:600px) {
     .form-row {
-        display: block;
+        flex-direction: column;
+        align-items: center;
     }
 
     .row-6 {
