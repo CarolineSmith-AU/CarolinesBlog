@@ -20,7 +20,8 @@
     End Sub
 
     Private Function Build_Url() As String
-        Return "https://blackgirlgolden.com/blog/" & Me.blog_id.ToString() & "/" & Me.title.Replace(" ", "-")
+        Dim cleanedTitle As String = Regex.Replace(Me.title, "[ ](?=[ ])|[^-_,A-Za-z0-9 ]+", "").ToLower()
+        Return "https://blackgirlgolden.com/blog/" & Me.blog_id.ToString() & "/" & cleanedTitle.Replace(" ", "-")
         'Return "https://localhost:44378/blog/" & Me.blog_id.ToString() & "/" & Me.title.Replace(" ", "-")
     End Function
 
