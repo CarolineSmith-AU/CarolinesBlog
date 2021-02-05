@@ -21,6 +21,8 @@ Public Class MvcApplication
         routes.MapPageRoute("Contact Page",
             "contact", "~/app/aspx/ContactPage.aspx")
         routes.MapPageRoute("About Page",
-            "about", "~/About.aspx")
+            "about", "~/app/aspx/About.aspx")
+        routes.MapPageRoute("Unsubscribe Page",
+            "unsubscribe", "~/app/aspx/Unsubscribe.aspx")
     End Sub
 End Class

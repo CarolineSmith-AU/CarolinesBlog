@@ -10,8 +10,10 @@ Public Class Mail
 
     Private Const blogger_id As Integer = 1
     Private Const From_Name As String = "BlackGirlGolden"
-    Private Const Email_From As String = "cleeannsmith@gmail.com"
-    Private Const Email_Password As String = "38r7Zy0!_~"
+    'Private Const Email_From As String = "cleeannsmith@gmail.com"
+    'Private Const Email_Password As String = "38r7Zy0!_~"
+    Private Const Email_From As String = "blackgirlgolden@gmail.com"
+    Private Const Email_Password As String = "beebop11"
 
     'Social Media Links
     Private Const Instagram_Link As String = ""
@@ -19,22 +21,22 @@ Public Class Mail
     Private Const Twitter_Link As String = ""
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim post As New BlogPost("1", "Test Blog Title", "01/21/2021", "This is a short snippet of the blog post. The text should not extend the full width of the page, but should wrap to fit content.", 1, "C:\Users\cleea\source\repos\CarolineSmith-AU\CarolinesBlog\CarolinesBlog\app\Images\gardenia_square_2.jpg")
-        Email_Send_Blog_Notif(post)
+
     End Sub
 
     'Build email for new blog post notification
     <WebMethod()> Public Shared Sub Email_Send_Blog_Notif(ByVal post As BlogPost)
         Dim mailBodyHTML As String = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory & "app\email_templates\NewBlogPost.html")
-        Dim resultHTML As String = String.Format(mailBodyHTML, post.Get_Title(), post.Get_Blog_Text(), "https://blackgirlgolden.com")
+        'Dim resultHTML As String = String.Format(mailBodyHTML, post.Get_Title(), post.Get_Blog_Text(), post.Get_Blog_URL(), "https://localhost:44378/unsubscribe")
+        Dim resultHTML As String = String.Format(mailBodyHTML, post.Get_Title(), post.Get_Blog_Text(), post.Get_Blog_URL(), "https://blackgirlgolden.com/unsubscribe")
 
         Dim htmlView As AlternateView = AlternateView.CreateAlternateViewFromString(resultHTML, Encoding.UTF8, "text/html")
 
-        Dim blogImage As LinkedResource = Create_Linked_Resource(post.Get_Image_URL(), "imageID")
+        Dim blogImage As LinkedResource = Create_Linked_Resource(AppDomain.CurrentDomain.BaseDirectory & post.Get_Image_URL().Replace("/", "\").Remove(0, 1), "imageID")
         htmlView.LinkedResources.Add(blogImage)
-        Dim instaImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\CarolinesBlog\CarolinesBlog\app\Images\iconfinder_Rounded_Instagram_svg_5282544 (1).jpg", "instagramID")
+        Dim instaImage As LinkedResource = Create_Linked_Resource(AppDomain.CurrentDomain.BaseDirectory & "app\Images\instagram_black.jpg", "instagramID")
         htmlView.LinkedResources.Add(instaImage)
-        Dim fbImage As LinkedResource = Create_Linked_Resource("C:\Users\cleea\source\repos\CarolineSmith-AU\CarolinesBlog\CarolinesBlog\app\Images\iconfinder_Rounded_Facebook_svg_5282541 (1).jpg", "facebookID")
+        Dim fbImage As LinkedResource = Create_Linked_Resource(AppDomain.CurrentDomain.BaseDirectory & "app\Images\facebook_black.jpg", "facebookID")
         htmlView.LinkedResources.Add(fbImage)
 
         Dim jsonString As String = EndpointMaster.Get_Subscribers()
@@ -54,9 +56,9 @@ Public Class Mail
 
     <WebMethod> Public Shared Sub Send_Mail_To_Blogger(firstname As String, lastname As String, returnEmail As String, body As String)
         Dim mailBodyHTML As String = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory & "app\email_templates\ContactBlogger.html")
-        Dim resultHTML As String = String.Format(mailBodyHTML, firstname, firstname & " " & lastname, body)
-        Dim addrFrom As MailAddress = New MailAddress(returnEmail, From_Name)
-        Dim addrTo As MailAddress = New MailAddress("csmith0097@gmail.com")
+        Dim resultHTML As String = String.Format(mailBodyHTML, firstname, firstname & " " & lastname, body, firstname, returnEmail)
+        Dim addrFrom As MailAddress = New MailAddress(returnEmail, firstname)
+        Dim addrTo As MailAddress = New MailAddress(Email_From)
         Dim message As MailMessage = New MailMessage(addrFrom, addrTo)
 
         message.Subject = firstname & " " & lastname & " has messaged you!"

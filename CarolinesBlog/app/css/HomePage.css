@@ -4,25 +4,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap');
 
-body {
-
-}
-
-.content-container {
-    /*background-color: #c2a329;*/
-    background: #000000;
-    min-height: 480px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
 #about_me_button {
     width: 165px;
     margin: 30px auto;
 }
 
-/***************************Blog Image With Overlay***************************/
+#subscribe_module .sub-success-section {
+    background: #000000;
+    padding: 8px;
+    color: #c2a329;
+}
+
+.sub-success-section p {
+    margin: 0;
+}
+
+#sbs-subscribe .sub-success-section {
+    background: #c2a329;
+    padding: 8px;
+}
+
+#sbs-subscribe .sub-success-section p {
+    color: #000000;
+}
+
+/***************************START: Blog Image With Overlay***************************/
 .image-container {
     position: relative;
     z-index: 5;
@@ -48,13 +54,36 @@ body {
 .image-container .overlay-text {
     font-size: 45px;
 }
+/***************************END: Blog Image With Overlay***************************/
 
-/***************************Blog content***************************/
+/***************************START: Subscribe Side-by-Side Module***************************/
+.sbs-header {
+    margin-bottom: 0;
+}
+.sbs-subscribe-form {
+    padding: 5%;
+}
+
+#sbs_email_sub_input {
+    width: 85%;
+}
+
+#sbs_blog_sub_button {
+    margin: 20px auto;
+}
+
+@media (max-width: 740px) {
+    .sbs-subscribe-form img {
+        /*display: none;*/
+    }
+}
+
+/***************************START: What's in the mine?***************************/
 .whats-in-the-mine {
     background-image: url('../Images/Yellow set 42- J.jpg');
     background-size: cover;
     min-height: 400px;
-    padding: 200px 0;
+    padding: 300px 15px;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
@@ -75,82 +104,7 @@ body {
 .whats-in-mine-text p {
     color: #000000;
 }
-
-.blog-posts {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 2em;
-    grid-row-gap: 50px;
-}
-
-.recent-blogs-title {
-    display: block;
-    margin-bottom: 10px;
-    margin-left: 3%;
-}
-
-.recent-blogs-title::after {
-    width: 0 !important;
-}
-
-.recent-blog-posts img {
-    width: 100%;
-    height: auto;
-    z-index: 2;
-}
-
-.blog-image-container:after {
-    content: "";
-    background-color: rgba(0, 0, 0, 0.65);
-    transition: all 0.35s ease;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 3;
-}
-
-.blog-image-container:hover:after {
-    opacity: .8;
-}
-
-.blog-image-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.blog-button {
-    position: absolute;
-    z-index: 11;
-    top: 50%;
-    opacity: 0;
-    transition: all 0.35s ease;
-    padding: 0;
-}
-
-.blog-image-container:hover .blog-button {
-    opacity: 1;
-    padding: 6px;
-    top: 39%;
-}
-
-.blog-title {
-    font-size: 18px;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.blog-date {
-    font-weight: 100;
-}
-
-.blog-description {
-    font-size: 13px;
-}
+/***************************END: What's in the mine?***************************/
 
 #all_posts_button {
     margin: auto;
@@ -190,10 +144,10 @@ body {
 
 #view_all_blogs {
     border: 2px solid #c2a329;
-    margin: auto;
+    margin: 45px auto;
 }
 
-/***************************Subscribe Module***************************/
+/***************************START: Subscribe Module with Background and Overlay***************************/
 .full-screen-sub-image {
     border-top: 4px solid #c2a329;
 }
@@ -226,6 +180,7 @@ body {
     padding: 10px;
     font-size: 40px;
     position: relative;
+    margin-bottom: 0;
 }
 
 #sub_module_header:after {
@@ -273,40 +228,36 @@ body {
     align-items: center;
     justify-content: center;
 }
-/***************************Mobile Views***************************/
-@media (max-width: 805px) {
+@media (max-width: 600px) {
+    #subscribe_module {
+        height: 300px;
+    }
+}
+@media (max-width: 500px) {
+    #email_sub_input {
+        position: relative;
+    }
+
+    #blog_sub_button {
+        position: initial;
+        margin-top: 5px;
+    }
     #sub_module_header {
         font-size: 22px;
     }
 
     .sub-section {
-        padding-top: 0;
-    }
-
-    .blog-title {
-        font-size: 15px;
+        padding-left: 10px;
+        margin-top: 20px;
     }
 }
-
-/*Change hover effects of "Read Post" button on blog link images*/
-@media(max-width: 1000px) {
-    .blog-button {
-        opacity: 1;
-        padding: 6px;
-        top: 69%;
-    }
-
-    .blog-image-container:hover .blog-button {
-        top: 69%;
-    }
-}
-
 
 @media(max-width: 1020px) and (min-width: 610) {
     #sub_module_form {
         width: 52%;
     }
 }
+
 @media (max-width: 710px) {
     #sub_module_header {
         width: 100%
@@ -321,12 +272,5 @@ body {
         justify-content: center;
         padding: 15px;
     }
-
-    .blog-posts {
-        grid-template-columns: 1fr;
-    }
-
-    .recent-blogs-title {
-        text-align: center;
-    }
 }
+/***************************END: Subscribe Module with Background and Overlay***************************/

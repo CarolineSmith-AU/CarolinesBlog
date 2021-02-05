@@ -1,0 +1,41 @@
+﻿.form-row, .button-form-row {
+    display: flex;
+    justify-content: center;
+}
+
+.row-6 {
+    width: 50%;
+}
+
+.row-12 {
+    width: 100%;
+}
+
+form .input, .input {
+    margin: 16px 5px;
+    background: #e6e6e6;
+}
+
+.form-subtext {
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-header {
+    margin-bottom: 0;
+}
+
+textarea {
+    min-height: 315px;
+}
+
+@media(max-width:600px) {
+    .form-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .row-6 {
+        width: 100%;
+    }
+}

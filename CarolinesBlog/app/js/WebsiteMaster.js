@@ -1,6 +1,18 @@
 ﻿$(document).ready(function () {
     Subscribe.setListeners();
     Navigation.setEventListeners();
+
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('email') != "" & urlParams.get('email') != undefined) {
+        Modal.OpenModal({
+            title: "You have successfully unsubscribed.",
+            templateName: "/app/aspx/SuccessMessage.html",
+            message: "Sorry to see you go! You're always welcome back.",
+            searchSite: function (searchInput) {
+                console.log("Searching merchandise.");
+            }
+        });
+    }
 });
 
 Subscribe = {
@@ -33,6 +45,36 @@ Subscribe = {
                 }
             });
         });
+
+        $(document).on("click", "#unsub_button", function () {
+            Subscribe.unsub();
+        });
+    },
+
+    unsub: function () {
+        const email = $("#email_input").val();
+
+        if (email == "" || email == undefined) {
+            return;
+        } else {
+            console.log("clicked");
+            var data = { email_addr: email };
+            var params = JSON.stringify(data);
+            $.ajax({
+                type: "POST",
+                url: "/EndpointMaster.aspx/Unsubscribe_From_Blog",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: params,
+                cache: false,
+                success: function () {
+
+                },
+                error: function () {
+                    console.log("Ajax call failed");
+                }
+            });
+        }
     }
 };
 
@@ -51,6 +93,42 @@ Navigation = {
         $("#side_nav_container").removeClass("slide-open");
     });
 }
+};
+
+Modal = {
+    OpenModal: function (options) {
+        var html = "<div class='modal-title'><i class='fa fa-check-circle-o' ></i><h3 class='modal-title-text'>" + options.title + "</h3></div><span class='modal-close modal-x-out'>X</span>";
+        $.ajax(options.templateName, {
+            success: function (response) {
+                //html = html + response + "<div class='modal-button-container'><div class='modal-button modal-close'><span class='modal-button-text'>Close</span></div></div>";
+                html = html + Util.templateHelper(response, {
+                    message: options.message
+                });
+                $("#modal_content").html(html);
+                Modal.SetCloseModalListener(options);
+            }
+        });
+        $("#modal_container").removeClass("closed");
+        $("#modal_container").addClass("open");
+    },
+
+    SetCloseModalListener: function (options) {
+        $(document).on("click", ".modal-close", function () {
+            $("#modal_container").removeClass("open");
+            $("#modal_container").addClass("closed");
+        });
+
+        //$("#modal_container").closest(".modal").click(function () {
+        //    $("#modal_content").html("");
+        //    $("#modal_container").removeClass("open");
+        //    $("#modal_container").addClass("closed");
+        //});
+
+        $(document).on("click", "#" + options.searchSite.name, function () {
+            console.log("Search button has been clicked!");
+            options.searchSite($("#search_input").val());
+        });
+    }
 };
 
 Util = {

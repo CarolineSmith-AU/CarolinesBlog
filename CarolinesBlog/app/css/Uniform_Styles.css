@@ -17,20 +17,13 @@ body {
     margin: 0;
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
+
 a {
     text-decoration: none;
-}
-
-.surround-margin {
-    margin: 40px 6%;
-}
-
-.padding-top-bottom {
-    padding: 50px 0;
-}
-
-.margin-top-bottom {
-    margin: 50px auto;
 }
 
 .pointer:hover {
@@ -38,11 +31,10 @@ a {
 }
 
 .content-section {
-    padding: 3rem 9%;
-}
-
-.page-content-header {
-    text-align: center;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px 20px;
 }
 
 .hidden {
@@ -53,26 +45,35 @@ a {
     display: block;
 }
 
-@media(max-width: 1045px) {
-    .content-section {
-        margin: 3rem 3%;
-    }
-}
-
+/*************************** START: Side by Side Module ***************************/
 .side-by-side-module {
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #c2a329;
     padding: 6%;
 }
 
+.side-by-side-module .column {
+    width: 50%;
+}
+@media (max-width: 740px) {
+    .side-by-side-module {
+        flex-direction: column-reverse;
+    }
+
+    .side-by-side-module .column {
+        width: 100%;
+    }
+}
+/*************************** END: Side by Side Module ***************************/
+
 .content-header {
-    font-size: 48px;
+    font-size: 36px;
     position: relative;
     padding: 10px;
     font-weight: 400;
+    text-align: center;
 }
 
 .sub-content-header {
@@ -115,6 +116,10 @@ a {
     .gold-button .button-text {
         color: #000000;
     }
+
+input.gold-button:hover {
+    color: #c2a329;
+}
 
 /*************************** Black Button Styling ***************************/
 .black-button {

@@ -148,11 +148,39 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="app\aspx\About.aspx.designer.vb">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\aspx\About.aspx.vb">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="app\aspx\AddBlogPost.aspx.designer.vb">
+      <DependentUpon>AddBlogPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\aspx\AddBlogPost.aspx.vb">
+      <DependentUpon>AddBlogPost.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="app\aspx\ContactPage.aspx.designer.vb">
       <DependentUpon>ContactPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="app\aspx\ContactPage.aspx.vb">
       <DependentUpon>ContactPage.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="app\aspx\Unsubscribe.aspx.designer.vb">
+      <DependentUpon>Unsubscribe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\aspx\Unsubscribe.aspx.vb">
+      <DependentUpon>Unsubscribe.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="app\aspx\UpdateBlogPost.aspx.designer.vb">
+      <DependentUpon>UpdateBlogPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\aspx\UpdateBlogPost.aspx.vb">
+      <DependentUpon>UpdateBlogPost.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="App_Start\BundleConfig.vb" />
@@ -237,23 +265,38 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\aspx\About.aspx" />
+    <Content Include="app\aspx\AddBlogPost.aspx" />
     <Content Include="app\aspx\ContactPage.aspx" />
+    <Content Include="app\aspx\SuccessMessage.html" />
+    <Content Include="app\aspx\Unsubscribe.aspx" />
+    <Content Include="app\aspx\UpdateBlogPost.aspx" />
+    <Content Include="app\css\About.css" />
     <Content Include="app\css\BlogListView.css" />
     <Content Include="app\css\BlogMaster.css" />
     <Content Include="app\css\BlogPostTemplate.css" />
     <Content Include="app\css\ContactPage.css" />
     <Content Include="app\css\font-awesome.css" />
     <Content Include="app\css\font-awesome.min.css" />
+    <Content Include="app\css\Form.css" />
     <Content Include="app\css\HomePage.css" />
     <Content Include="app\css\WebsiteMaster.css" />
     <Content Include="app\email_templates\ContactBlogger.html" />
     <Content Include="app\email_templates\NewBlogPost.html" />
     <Content Include="app\fonts\fontawesome-webfont.svg" />
+    <Content Include="app\Images\Basil Rathbone.jpg" />
+    <Content Include="app\Images\Biden_Bible.jpg" />
+    <Content Include="app\Images\biden_swear.jpg" />
+    <Content Include="app\Images\biden_swear.png" />
+    <Content Include="app\Images\Bridgerton.jpg" />
+    <Content Include="app\Images\Charlotte 1.jpg" />
+    <Content Include="app\Images\Charlotte 2.jpg" />
     <Content Include="app\Images\dark_journal_1_resized.jpg" />
-    <Content Include="app\Images\dark_journal_2_resized.jpg" />
-    <Content Include="app\Images\dark_journal_4.jpg" />
+    <Content Include="app\Images\Date night 1.jpg" />
+    <Content Include="app\Images\Date night 2.jpg" />
     <Content Include="app\Images\DSCN0002 %282%29.JPG" />
     <Content Include="app\Images\DSCN0002.JPG" />
+    <Content Include="app\Images\facebook_black.jpg" />
     <Content Include="app\Images\floral_gold_pattern.jpg" />
     <Content Include="app\Images\gardenia_square.jpg" />
     <Content Include="app\Images\gardenia_square_2.jpg" />
@@ -261,12 +304,13 @@
     <Content Include="app\Images\gold_mine.jpg" />
     <Content Include="app\Images\gold_mine_cropped.jpg" />
     <Content Include="app\Images\gold_mine_square.jpg" />
-    <Content Include="app\Images\iconfinder_Rounded_Facebook_svg_5282541 %281%29.jpg" />
-    <Content Include="app\Images\iconfinder_Rounded_Facebook_svg_5282541.jpg" />
-    <Content Include="app\Images\iconfinder_Rounded_Instagram_svg_5282544 %281%29.jpg" />
-    <Content Include="app\Images\iconfinder_Rounded_Instagram_svg_5282544.jpg" />
+    <Content Include="app\Images\Hair_Collage.jpg" />
+    <Content Include="app\Images\instagram_black.jpg" />
+    <Content Include="app\Images\Journal 3- J.jpg" />
+    <Content Include="app\Images\Journal 4- J.jpg" />
     <Content Include="app\Images\journaling_1_square_small.jpg" />
     <Content Include="app\Images\journaling_1_square_smaller.jpg" />
+    <Content Include="app\Images\Kilwa.jpg" />
     <Content Include="app\Images\laptop_coffee_resized_1.jpg" />
     <Content Include="app\Images\laptop_coffee_square.jpg" />
     <Content Include="app\Images\lauren_blue_dress.jpg" />
@@ -275,8 +319,14 @@
     <Content Include="app\Images\lauren_blue_dress_resized_4.jpg" />
     <Content Include="app\Images\luxury-gold-pattern.jpg" />
     <Content Include="app\Images\mug_square.jpg" />
+    <Content Include="app\Images\Nora_Quote.jpg" />
+    <Content Include="app\Images\Painting 3- J.jpg" />
+    <Content Include="app\Images\Painting 4- J.jpg" />
+    <Content Include="app\Images\Painting_1.jpg" />
+    <Content Include="app\Images\Painting_2.jpg" />
     <Content Include="app\Images\Pink hat8_enlarged_cropped.jpg" />
     <Content Include="app\Images\Pink hat8_large_cropped.jpg" />
+    <Content Include="app\Images\Queen-Nandi.jpg" />
     <Content Include="app\Images\tea_square.jpg" />
     <Content Include="app\Images\Yellow mirror 4.png" />
     <Content Include="app\Images\Yellow mirror.png" />
@@ -291,12 +341,15 @@
     <Content Include="app\Images\Yellow set 43- J.jpg" />
     <Content Include="app\Images\Yellow set 46- J.jpg" />
     <Content Include="app\Images\Yellow set 48- J.jpg" />
+    <Content Include="app\Images\Young Woman with Servant.jpg" />
+    <Content Include="app\js\AddBlogPost.js" />
     <Content Include="app\js\BlogListView.js" />
     <Content Include="app\js\BlogMaster.js" />
     <Content Include="app\js\BlogObjects.js" />
     <Content Include="app\js\BlogPostTemplate.js" />
     <Content Include="app\js\ContactPage.js" />
     <Content Include="app\js\HomePage.js" />
+    <Content Include="app\js\UpdateBlogPost.js" />
     <Content Include="app\js\WebsiteMaster.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

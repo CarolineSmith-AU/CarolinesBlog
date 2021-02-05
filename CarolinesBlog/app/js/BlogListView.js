@@ -8,27 +8,6 @@ BlogListView = {
         var type = window.location.pathname.substring(1); //Erase first char which is '/'
         return type;
     },
-    GetBlogsByType: function (blog_type) {
-        var data = { blog_type: blog_type }
-        var params = JSON.stringify(data);
-        $.ajax({
-            type: "POST",
-            url: "/EndpointMaster.aspx/Get_Posts_By_Type",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            data: params,
-            cache: false,
-            success: function (data) {
-                console.log(data.d);
-                var dataJson = JSON.parse(data.d);
-                BlogListView.blogs = dataJson.POSTS;
-                BlogListView.SetListViewHTML();
-            },
-            error: function () {
-                console.log("Ajax call failed");
-            }
-        });
-    },
     GetAllBlogs: function () {
         var data = { num_to_get: 10 }
         var params = JSON.stringify(data);
@@ -59,13 +38,17 @@ BlogListView = {
         var html = BlogListView.blogs.reduce(function (accumulator, currVal) {
             var cleanedTitle = currVal.Title.replace("&", "and");
             cleanedTitle = cleanedTitle.replace(/[^a-zA-Z0-9 ]/g, "");
+            var tagsString = currVal.Tags.reduce(function (acc, curr) {
+                return acc + curr + " | ";
+            }, "");
+            tagsString = tagsString.substring(0, tagsString.length - 2);
             return accumulator + Util.templateHelper(template, {
                 blog_id: currVal.ID,
                 image_url: currVal.Image_URL,
                 blog_url: "/blog/" + currVal.ID + "/" + cleanedTitle.replace(/\s+/g, "-").toLowerCase(),
                 date: currVal.Date,
-                title: currVal.Title,
-                blog_text: currVal.Text
+                blog_type: tagsString,
+                title: currVal.Title
             });
         }, "");
 

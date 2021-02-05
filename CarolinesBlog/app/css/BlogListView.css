@@ -1,2 +1,117 @@
-﻿body {
+﻿.blog-posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 6%;
+    grid-row-gap: 50px;
 }
+
+.blog-posts img {
+    width: 100%;
+    height: auto;
+    z-index: 2;
+}
+
+.blog-posts .blog-image-container:after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.65);
+    transition: all 0.35s ease;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 3;
+}
+
+.blog-posts .blog-image-container:hover:after {
+    opacity: .8;
+}
+
+.blog-posts .blog-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.blog-posts .blog-button {
+    position: absolute;
+    z-index: 11;
+    top: 50%;
+    opacity: 0;
+    transition: all 0.35s ease;
+    padding: 0;
+}
+
+.blog-posts .blog-image-container:hover .blog-button {
+    opacity: 1;
+    padding: 6px;
+    top: 39%;
+}
+
+.blog-posts .blog-title {
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.blog-posts .blog-date, .blog-posts .blog-type-text {
+    color: #b0b0b0;
+    font-size: 14px;
+    font-family: 'Mukta', sans-serif;
+}
+
+.blog-posts .blog-type-text {
+    font-weight: bold;
+    font-size: 15px;
+    display: block;
+}
+
+.blog-posts .blog-date {
+    font-weight: 100;
+}
+
+.blog-posts .blog-description {
+    font-size: 13px;
+}
+
+@media (max-width: 710px) {
+    .blog-posts {
+        grid-template-columns: 1fr;
+    }
+
+    .recent-blogs-title {
+        text-align: center;
+    }
+}
+
+@media (max-width: 710px) {
+    .blog-posts {
+        grid-template-columns: 1fr;
+    }
+
+        .blog-posts .recent-blogs-title {
+            text-align: center;
+        }
+}
+
+@media (max-width: 805px) {
+    .blog-title {
+        font-size: 15px;
+    }
+}
+/*Change hover effects of "Read Post" button on blog link images*/
+/*@media(max-width: 1000px) {
+    .blog-button {
+        opacity: 1;
+        padding: 6px;
+        top: 69%;
+    }
+
+    .blog-image-container:hover .blog-button {
+        top: 69%;
+    }
+}*/
