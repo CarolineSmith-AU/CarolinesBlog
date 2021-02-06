@@ -248,10 +248,10 @@
       <DependentUpon>Website.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="app\aspx\HomePage.aspx.designer.vb">
+    <Compile Include="HomePage.aspx.designer.vb">
       <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="app\aspx\HomePage.aspx.vb">
+    <Compile Include="HomePage.aspx.vb">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
@@ -370,7 +370,7 @@
     <Content Include="app\fonts\fontawesome-webfont.woff" />
     <Content Include="app\fonts\fontawesome-webfont.woff2" />
     <Content Include="app\fonts\FontAwesome.otf" />
-    <Content Include="app\aspx\HomePage.aspx" />
+    <Content Include="HomePage.aspx" />
     <Content Include="app\master_pages\Blog.master" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

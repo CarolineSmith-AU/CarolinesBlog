@@ -13,7 +13,7 @@ Public Class MvcApplication
 
     Public Shared Sub RegisterRoutes(ByVal routes As RouteCollection)
         routes.MapPageRoute("Home Page",
-            "", "~/app/aspx/HomePage.aspx")
+            "", "~/HomePage.aspx")
         routes.MapPageRoute("All Blogs",
             "blog", "~/app/aspx/BlogListView.aspx")
         routes.MapPageRoute("Blog Post",
