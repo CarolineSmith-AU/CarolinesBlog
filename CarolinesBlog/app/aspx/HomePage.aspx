@@ -12,10 +12,10 @@
     </div>
     <div class="sbs-subscribe side-by-side-module content-section">
         <div class="column">
-            <img src="app/Images/Yellow%20mirror.png" />
+            <img src="/app/Images/Yellow%20mirror%204.png" />
         </div>
         <div class="column sbs-subscribe-form">
-            <h1 class="content-header sbs-header">Essays on Commentary, Culture, and Care.</h1>
+            <h1 class="content-header sbs-header">Commentary on Culture, Care, and Consciousness.</h1>
             <p class="sbs-paragraph">Sign up to be notified about new blog posts and new content! Stay up-to-date about what's new with the BLACKGIRLGOLDEN.</p>
 
             <div class="sub-section">
