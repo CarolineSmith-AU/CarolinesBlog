@@ -16,10 +16,6 @@
 });
 
 Subscribe = {
-    showSuccessMessage: function () {
-        $(".sub-section").addClass("hidden");
-        $(".sub-success-section").addClass("show");
-    },
     setListeners: function () {
         $(document).on("click", ".blog-sub-button", function () {
             console.log("Subscribe button clicked!");
@@ -38,7 +34,15 @@ Subscribe = {
                 cache: false,
                 success: function (data) {
                     console.log(data);
-                    Subscribe.showSuccessMessage();
+                    $(".sub-input").val("");
+                    Modal.OpenModal({
+                        title: "You have successfully subscribed!",
+                        templateName: "/app/aspx/SuccessMessage.html",
+                        message: "Thanks for subscribing! Check your inbox for new content notifications.",
+                        searchSite: function (searchInput) {
+                            console.log("Searching merchandise.");
+                        }
+                    });
                 },
                 error: function () {
                     console.log("Ajax call failed");

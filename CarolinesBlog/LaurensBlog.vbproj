@@ -306,6 +306,7 @@
     <Content Include="app\Images\gold_mine_square.jpg" />
     <Content Include="app\Images\Hair_Collage.jpg" />
     <Content Include="app\Images\instagram_black.jpg" />
+    <Content Include="app\Images\Journal 1- J.jpg" />
     <Content Include="app\Images\Journal 3- J.jpg" />
     <Content Include="app\Images\Journal 4- J.jpg" />
     <Content Include="app\Images\journaling_1_square_small.jpg" />
@@ -376,6 +377,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\PublishProfiles\IISProfile.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

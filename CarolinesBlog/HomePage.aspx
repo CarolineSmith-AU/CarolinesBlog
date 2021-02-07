@@ -10,22 +10,19 @@
     <div class="full-image-header">
         <img src="/app/Images/Yellow%20set%2031-%20J.jpg" />
     </div>
-    <div id="sbs-subscribe" class="side-by-side-module content-section">
+    <div class="sbs-subscribe side-by-side-module content-section">
         <div class="column">
-            <img src="/app/Images/Journal 3- J.jpg" />
+            <img src="app/Images/Yellow%20mirror.png" />
         </div>
         <div class="column sbs-subscribe-form">
-            <h1 class="content-header sbs-header">A Lifestyle and Self-Love Blog</h1>
+            <h1 class="content-header sbs-header">Essays on Commentary, Culture, and Care.</h1>
             <p class="sbs-paragraph">Sign up to be notified about new blog posts and new content! Stay up-to-date about what's new with the BLACKGIRLGOLDEN.</p>
 
             <div class="sub-section">
-                <input id="sbs_email_sub_input" class="input sub-input" type="text" placeholder="Email" />
-                <div class="gold-button pointer blog-sub-button" id="sbs_blog_sub_button">
+                <input class="input sub-input" type="text" placeholder="Email" />
+                <div class="gold-button pointer blog-sub-button">
                     <span class="button-text">Subscribe</span>
                 </div>
-            </div>
-            <div class="sub-success-section hidden">
-                <p>You have successfully subscribed!</p>
             </div>
         </div>
     </div>
@@ -76,23 +73,21 @@
             <span class="quotee">- Toni Morrison</span>
         </div>
     </div>
-    <div class="image-container margin-top-bottom" id="subscribe_module">
-        <div class="full-screen-sub-image">
-            <img src="/app/Images/dark_journal_1_resized.jpg" />
-            <div id="sub_module_form">
-                <h1 id="sub_module_header">Subscribe to be notified about new blog posts.</h1>
-                <div class="sub-section">
-                    <div id="email_input_box" class="input-button-one-line">
-                        <input id="email_sub_input" class="input sub-input" type="text" placeholder="Email" />
-                        <div class="black-button pointer blog-sub-button" id="blog_sub_button">
-                            <span class="button-text">Subscribe</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="sub-success-section hidden">
-                    <p>You have successfully subscribed!</p>
+
+    <div id="sbs-subscribe-bottom" class="sbs-subscribe side-by-side-module content-section">
+        <div class="column sbs-subscribe-form">
+            <h1 class="content-header sbs-header">Sign up to be notified about new blog posts.</h1>
+            <p class="sbs-paragraph">Sign up to be notified about new blog posts and new content! Stay up-to-date about what's new with the BLACKGIRLGOLDEN.</p>
+
+            <div class="sub-section">
+                <input class="input sub-input" type="text" placeholder="Email" />
+                <div class="black-button pointer blog-sub-button">
+                    <span class="button-text">Subscribe</span>
                 </div>
             </div>
+        </div>
+        <div class="column">
+            <img src="/app/Images/Journal 1- J.jpg" />
         </div>
     </div>
 

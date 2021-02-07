@@ -6,9 +6,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="about padding-top-bottom">
-        <div class="about-text">
+        <div class="about-text-container">
             <h1 class="sub-content-header black">About Me</h1>
-            <p>
+            <p class="about-text">
                 Quiet as it’s kept…
                 <br />
                 <br />
@@ -39,6 +39,21 @@
                 <br />
                 …you might find something here for you. Welcome to the mine! Don’t forget to take some gold with you before you go, subscribe to my e-mail list, and follow my social media handles!
             </p>
+            <div id="about_sub_container">
+                <div class="sub-section">
+                    <div id="email_input_box" class="input-button-one-line">
+                        <input id="email_sub_input" class="input sub-input" type="text" placeholder="Email" />
+                        <div class="black-button pointer blog-sub-button" id="blog_sub_button">
+                            <span class="button-text">Subscribe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="black-social-media">
+                <a id="footer_email" class="fa fa-envelope social" href="/contact"></a>
+                <a id="footer_instagram" class="fa fa-instagram social" href="https://www.instagram.com/lalalearnsya/" target="_blank"></a>
+                <%--<a id="footer_facebook" class="fa fa-facebook-square social"></a>--%>
+            </div>
         </div>
     </div>
 </asp:Content>

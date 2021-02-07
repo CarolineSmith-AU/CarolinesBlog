@@ -173,10 +173,6 @@ ul {
     margin-right: 20px;
 }
 
-    .social-media-header .social {
-        padding: 5px;
-    }
-
 /***************************Side Navigation Bar Styling ***************************/
 @media(max-width: 830px) {
     #top_nav {
