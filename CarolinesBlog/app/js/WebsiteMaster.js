@@ -1,4 +1,7 @@
 ﻿$(document).ready(function () {
+    if (location.protocol !== "https:") {
+        location.replace(window.location.href.replace("http:", "https:"));
+    }
     Subscribe.setListeners();
     Navigation.setEventListeners();
 
