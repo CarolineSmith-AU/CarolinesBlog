@@ -23,8 +23,11 @@
 
     @media (max-width: 500px) {
         .about {
-            background-position: 24% center;
-            background-attachment: initial;
+            padding: 0;
+        }
+
+        .about-text-container {
+            margin: 0;
         }
     }
 

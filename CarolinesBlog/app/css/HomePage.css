@@ -93,8 +93,7 @@
 
 @media (max-width: 500px) {
     .whats-in-the-mine {
-        background-position: 35% center;
-        background-attachment: initial;
+        padding: 0;
     }
 }
 
