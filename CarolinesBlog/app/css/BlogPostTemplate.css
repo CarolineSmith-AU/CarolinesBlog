@@ -17,6 +17,13 @@
     text-align: left;
 }
 
+.full-blog-post .images-sbs {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    flex-wrap: wrap;
+}
+
 .full-blog-post a {
     color: #4da6ff;
 }
