@@ -101,10 +101,7 @@
 @media (max-width: 600px) {
     .whats-in-the-mine {
         padding: 0;
-    }
-
-    .whats-in-mine-text {
-        background: rgb(194, 163, 41);
+        background-position: 35% center;
     }
 }
 
