@@ -32,8 +32,6 @@
 
 .blog-posts .blog-image-container {
     position: relative;
-    display: flex;
-    justify-content: center;
 }
 
 .blog-posts .blog-button {
@@ -43,6 +41,10 @@
     opacity: 0;
     transition: all 0.35s ease;
     padding: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .blog-posts .blog-image-container:hover .blog-button {

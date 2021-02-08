@@ -13,7 +13,8 @@
         <a href="%blog_url%" class='blog-post'>
             <div data-id="%blog_id%">
                 <div class='blog-image-container'>
-                    <img src='%image_url%' /><div class='gold-button blog-button pointer'><span class='button-text'>Read Post</span></div>
+                    <img src='%image_url%' />
+                    <div class='gold-button blog-button pointer'><span class='button-text'>Read Post</span></div>
                 </div>
                 <span class="blog-type-text">%blog_type% </span>
                 <span class='blog-date'>%date%</span><h2 class='blog-title'>%title%</h2>

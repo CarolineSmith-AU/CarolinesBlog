@@ -21,9 +21,10 @@
         color: #000000;
     }
 
-    @media (max-width: 790px) {
+    @media (max-width: 500px) {
         .about {
             background-position: 24% center;
+            background-attachment: initial;
         }
     }
 
