@@ -17,6 +17,10 @@
     text-align: left;
 }
 
+.full-blog-post ol li {
+    padding-right: 10px;
+}
+
 .full-blog-post .images-sbs {
     display: flex; 
     align-items: center; 
