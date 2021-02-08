@@ -10,7 +10,7 @@
 }
 
 .about-text-container {
-    background: #c2a329;
+    background: rgb(194, 163, 41, 0.85);
     max-width: 440px;
     margin-left: auto;
     margin-right: 5%;
@@ -21,13 +21,21 @@
         color: #000000;
     }
 
-    @media (max-width: 500px) {
+@media (min-width: 600px) and (max-width: 1024px) {
+    .about {
+        background-attachment: initial;
+        background-position: 35% center;
+    }
+}
+
+    @media (max-width: 600px) {
         .about {
             padding: 0;
         }
 
         .about-text-container {
             margin: 0;
+            background: rgb(194, 163, 41);
         }
     }
 

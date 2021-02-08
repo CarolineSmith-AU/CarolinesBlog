@@ -83,7 +83,7 @@
 }
 /***************************START: What's in the mine?***************************/
 .whats-in-the-mine {
-    background-image: url('../Images/Yellow set 42- J.jpg');
+    background-image: url('/app/Images/Yellow set 42.jpg');
     background-size: cover;
     min-height: 400px;
     padding: 300px 15px;
@@ -91,14 +91,25 @@
     background-repeat: no-repeat;
 }
 
-@media (max-width: 500px) {
+@media (min-width: 600px) and (max-width: 1024px) {
+    .whats-in-the-mine {
+        background-attachment: initial;
+        background-position: 35% center;
+    }
+}
+
+@media (max-width: 600px) {
     .whats-in-the-mine {
         padding: 0;
+    }
+
+    .whats-in-mine-text {
+        background: rgb(194, 163, 41);
     }
 }
 
 .whats-in-mine-text {
-    background: #c2a329;
+    background: rgb(194, 163, 41, 0.85);
     max-width: 650px;
     margin: auto;
     padding: 5%;
