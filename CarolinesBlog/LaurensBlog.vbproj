@@ -284,10 +284,12 @@
     <Content Include="app\email_templates\ContactBlogger.html" />
     <Content Include="app\email_templates\NewBlogPost.html" />
     <Content Include="app\fonts\fontawesome-webfont.svg" />
+    <Content Include="app\Images\50-50 %282%29.jpg" />
     <Content Include="app\Images\Basil Rathbone.jpg" />
     <Content Include="app\Images\Biden_Bible.jpg" />
     <Content Include="app\Images\biden_swear.jpg" />
     <Content Include="app\Images\biden_swear.png" />
+    <Content Include="app\Images\Black-Couple-Arguing-About-Money.jpg" />
     <Content Include="app\Images\Bridgerton.jpg" />
     <Content Include="app\Images\Charlotte 1.jpg" />
     <Content Include="app\Images\Charlotte 2.jpg" />
@@ -305,6 +307,8 @@
     <Content Include="app\Images\gold_mine_cropped.jpg" />
     <Content Include="app\Images\gold_mine_square.jpg" />
     <Content Include="app\Images\Hair_Collage.jpg" />
+    <Content Include="app\Images\Homemaker.jpg" />
+    <Content Include="app\Images\Independent.gif" />
     <Content Include="app\Images\instagram_black.jpg" />
     <Content Include="app\Images\Journal 1- J.jpg" />
     <Content Include="app\Images\Journal 3- J.jpg" />
@@ -319,6 +323,7 @@
     <Content Include="app\Images\lauren_blue_dress_resized_3.jpg" />
     <Content Include="app\Images\lauren_blue_dress_resized_4.jpg" />
     <Content Include="app\Images\luxury-gold-pattern.jpg" />
+    <Content Include="app\Images\Matthew Cherry Hair Love.png" />
     <Content Include="app\Images\mug_square.jpg" />
     <Content Include="app\Images\Nora_Quote.jpg" />
     <Content Include="app\Images\Painting 3- J.jpg" />

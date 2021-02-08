@@ -113,7 +113,7 @@ Public Class EndpointMaster
         'Iterate through blog tags
         For Each tag As String In tags_array
             Dim get_rel_blogs_query As String = "Select * from (Select blog_posts.BLOGGER_ID, blog_posts.IMAGE_URL, blog_posts.TIME_STAMP, blog_posts.TITLE, blog_posts.POST, blog_posts.BLOG_TYPE, blog_posts.BLOG_ID from blog_posts
-	                                            INNER JOIN rel_blog_posts_keywords ON rel_blog_posts_keywords.KEY_WORD = '" & tag & "' and
+	                                            INNER JOIN rel_blog_posts_keywords ON rel_blog_posts_keywords.KEY_WORD Like '%" & tag & "%' and
 	                                            blog_posts.BLOG_ID = rel_blog_posts_keywords.BLOG_ID)
                                                 As rb where rb.BLOGGER_ID = " & blogger_id & " and NOT rb.BLOG_ID = " & blog_id & " ORDER BY rb.TIME_STAMP DESC LIMIT " & num_to_get & ";"
             Dim rel_posts_dt As DataTable = Get_DataTable(get_rel_blogs_query, "rel_blog_posts_keywords")

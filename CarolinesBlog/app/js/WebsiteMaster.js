@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    if (location.protocol !== "https:") {
+    if (location.protocol !== "https:" && location.href.includes("blackgirlgolden")) {
         location.replace(window.location.href.replace("http:", "https:"));
     }
     Subscribe.setListeners();
