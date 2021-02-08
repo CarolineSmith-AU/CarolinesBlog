@@ -123,13 +123,15 @@ Public Class EndpointMaster
                 Dim tags_array_2 As ArrayList = Get_Tags(row2.Item("BLOG_ID"))
 
                 Dim post As BlogPost = New BlogPost(row2.Item("BLOG_ID"), row2.Item("TITLE"), row2.Item("TIME_STAMP"), row2.Item("POST"), "", row2.Item("IMAGE_URL"), tags_array_2)
-                posts.Add(New JObject(New JProperty("BLOG_ID", post.Get_Blog_ID()),
+                Dim jObj As JObject = New JObject(New JProperty("BLOG_ID", post.Get_Blog_ID()),
                     New JProperty("TITLE", post.Get_Title()),
                     New JProperty("DATE", post.Get_Date()),
                     New JProperty("BLOG_TEXT", post.Get_Blog_Text()),
                     New JProperty("TYPE_NAME", post.Get_Blog_Type()),
                     New JProperty("IMAGE_URL", post.Get_Image_URL()),
-                    New JProperty("TAGS", post.Get_Tags())))
+                    New JProperty("TAGS", post.Get_Tags()))
+                posts.Add(jObj)
+
             Next
         Next
         Dim output As New JObject(New JProperty("POSTS", posts))

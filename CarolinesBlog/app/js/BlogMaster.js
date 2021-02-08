@@ -56,7 +56,11 @@ BlogMaster = {
                 var dataJson = JSON.parse(data.d);
                 var posts = [];
                 dataJson.POSTS.forEach(function (item, index) {
-                    posts.push(new Blog_Post(item));
+                    if (posts.find(function (post) {
+                        return post.ID == item.BLOG_ID;
+                    }) == undefined) {
+                        posts.push(new Blog_Post(item));
+                    }
                 });
                 BlogMaster.blogs = posts;
                 if (BlogMaster.blogs.length != 0) {
