@@ -36,8 +36,8 @@ Public Class Mail
         htmlView.LinkedResources.Add(blogImage)
         Dim instaImage As LinkedResource = Create_Linked_Resource(AppDomain.CurrentDomain.BaseDirectory & "app\Images\instagram_black.jpg", "instagramID")
         htmlView.LinkedResources.Add(instaImage)
-        Dim fbImage As LinkedResource = Create_Linked_Resource(AppDomain.CurrentDomain.BaseDirectory & "app\Images\facebook_black.jpg", "facebookID")
-        htmlView.LinkedResources.Add(fbImage)
+        'Dim fbImage As LinkedResource = Create_Linked_Resource(AppDomain.CurrentDomain.BaseDirectory & "app\Images\facebook_black.jpg", "facebookID")
+        'htmlView.LinkedResources.Add(fbImage)
 
         Dim jsonString As String = EndpointMaster.Get_Subscribers()
         Dim emailJSON As JToken = JToken.Parse(jsonString)

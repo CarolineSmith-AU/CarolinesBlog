@@ -9,7 +9,7 @@ BlogListView = {
         return type;
     },
     GetAllBlogs: function () {
-        var data = { num_to_get: 10 }
+        var data = { num_to_get: -1 }
         var params = JSON.stringify(data);
         $.ajax({
             type: "POST",

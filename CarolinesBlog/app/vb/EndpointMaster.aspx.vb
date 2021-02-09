@@ -3,6 +3,7 @@ Imports System.Web.Services
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 Imports System.Web.SessionState
+Imports System.IO
 
 Public Class EndpointMaster
     Inherits System.Web.UI.Page
@@ -16,8 +17,14 @@ Public Class EndpointMaster
 
 
     <WebMethod()> Public Shared Sub Subscribe_To_Blog(ByVal email_addr As String)
-        Dim query As String = "INSERT INTO sub_email_list (EMAIL_ADDR, IS_SUBSCRIBED, BLOGGER_ID) VALUES('" & email_addr & "', 1, " & blogger_id & ")"
-        Update_SQL_DB(query, "blogdb")
+        Dim query2 As String = "SELECT * FROM sub_email_list WHERE EMAIL_ADDR = '" & email_addr & "' and BLOGGER_ID = " & blogger_id
+        Dim dt As DataTable = Get_DataTable(query2, "blogdb")
+        If dt.Rows.Count = 0 Then
+            Dim query As String = "INSERT INTO sub_email_list (EMAIL_ADDR, IS_SUBSCRIBED, BLOGGER_ID) VALUES('" & email_addr & "', 1, " & blogger_id & ")"
+            Update_SQL_DB(query, "blogdb")
+        Else
+            Return
+        End If
     End Sub
 
     <WebMethod()> Public Shared Sub Unsubscribe_From_Blog(ByVal email_addr As String)
@@ -37,8 +44,35 @@ Public Class EndpointMaster
         Return output.ToString()
     End Function
 
+    Public Shared Function Get_Image_URLs()
+        Dim images As Array = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory & "app\Images")
+        Dim cleaned_urls As ArrayList = New ArrayList
+        For Each image As String In images
+            cleaned_urls.Add(image.Substring(image.IndexOf("\app")).Replace("\", "/"))
+        Next
+        Return cleaned_urls
+    End Function
+
+    <WebMethod()>
+    Public Shared Function Get_Blog_Data()
+        Dim blog_type_query As String = "SELECT * FROM blog_types WHERE BLOGGER_ID = " & blogger_id
+        Dim dt As DataTable = Get_DataTable(blog_type_query, "blog_types")
+        Dim types As New JArray
+
+        For Each row As DataRow In dt.Rows
+            types.Add(New JObject(New JProperty("BLOG_TYPE_INT", row.Item("TYPE_INT")),
+                New JProperty("BLOG_TYPE_NAME", row.Item("TYPE_NAME"))))
+        Next
+
+        Dim images As ArrayList = Get_Image_URLs()
+
+        Dim output As New JObject(New JProperty("TYPES", types),
+            New JProperty("IMAGES", images))
+        Return output.ToString()
+    End Function
+
     <WebMethod()> Public Shared Function Get_Recent_Blog_Posts(ByVal num_to_get As Integer) As String
-        Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = " & blogger_id & " ORDER BY TIME_STAMP DESC LIMIT " & num_to_get.ToString() & ";"
+        Dim query As String = "SELECT * FROM blog_posts WHERE BLOGGER_ID = " & blogger_id & " ORDER BY TIME_STAMP DESC" & If(num_to_get = -1, "", " LIMIT " & num_to_get.ToString() & ";")
         Dim dt As DataTable = Get_DataTable(query, "blog_posts")
         Dim posts As New JArray
 
@@ -87,7 +121,7 @@ Public Class EndpointMaster
 
         Dim query As String = "Select * from (Select blog_posts.BLOGGER_ID, blog_posts.BLOG_ID, blog_posts.TITLE, blog_posts.TIME_STAMP, blog_posts.POST, blog_posts.IMAGE_URL, blog_posts.BLOG_TYPE, blog_types.TYPE_NAME
 	                           from blog_posts INNER JOIN blog_types on blog_posts.BLOGGER_ID = blog_types.BLOGGER_ID and blog_posts.BLOG_TYPE = blog_types.TYPE_INT)
-                               AS b where b.BLOG_TYPE = " & type & " and b.BLOGGER_ID = " & blogger_id & "and NOT b.BLOG_ID = " & blog_id & " ORDER BY TIME_STAMP DESC LIMIT " & num_to_get & ";"
+                               AS b where b.BLOG_TYPE = " & type & " and b.BLOGGER_ID = " & blogger_id & "and NOT b.BLOG_ID = " & blog_id & " ORDER BY TIME_STAMP DESC" & If(num_to_get = -1, "", " LIMIT " & num_to_get.ToString() & ";")
         Dim dt As DataTable = Get_DataTable(query, "blog_posts")
         Dim posts As New JArray
 
@@ -115,7 +149,7 @@ Public Class EndpointMaster
             Dim get_rel_blogs_query As String = "Select * from (Select blog_posts.BLOGGER_ID, blog_posts.IMAGE_URL, blog_posts.TIME_STAMP, blog_posts.TITLE, blog_posts.POST, blog_posts.BLOG_TYPE, blog_posts.BLOG_ID from blog_posts
 	                                            INNER JOIN rel_blog_posts_keywords ON rel_blog_posts_keywords.KEY_WORD Like '%" & tag & "%' and
 	                                            blog_posts.BLOG_ID = rel_blog_posts_keywords.BLOG_ID)
-                                                As rb where rb.BLOGGER_ID = " & blogger_id & " and NOT rb.BLOG_ID = " & blog_id & " ORDER BY rb.TIME_STAMP DESC LIMIT " & num_to_get & ";"
+                                                As rb where rb.BLOGGER_ID = " & blogger_id & " and NOT rb.BLOG_ID = " & blog_id & " ORDER BY rb.TIME_STAMP DESC" & If(num_to_get = -1, "", " LIMIT " & num_to_get.ToString() & ";")
             Dim rel_posts_dt As DataTable = Get_DataTable(get_rel_blogs_query, "rel_blog_posts_keywords")
 
             'Add each found related blog post to 'rec_posts' JArray
@@ -193,6 +227,14 @@ Public Class EndpointMaster
             userid=admin;
             password=hU8f6Dww;
             database=blogdb"
+
+        '*****************Use below connection string for testing on local************************
+        'Dim connstring As String = "host=localhost;
+        '    port=3306;
+        '    userid=root;
+        '    password=hU8f6Dw;
+        '    database=blogdb"
+        '*****************************************************************************************
         Dim conn As New MySqlConnection(connstring)
         Try
             conn.Open()
@@ -217,6 +259,15 @@ Public Class EndpointMaster
             userid=admin;
             password=hU8f6Dww;
             database=blogdb"
+
+        '*****************Use below connection string for testing on local************************
+        'Dim connstring As String = "host=localhost;
+        '    port=3306;
+        '    userid=root;
+        '    password=hU8f6Dw;
+        '    database=blogdb"
+        '*****************************************************************************************
+
         Dim conn As New MySqlConnection(connstring)
         Try
             conn.Open()

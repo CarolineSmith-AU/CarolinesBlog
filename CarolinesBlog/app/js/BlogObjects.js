@@ -15,5 +15,13 @@ class Blogger_Data {
     constructor(obj) {
         this.ID = obj.BLOGGER_ID;
         this.Blog_Types = obj.BLOG_TYPES;
+        this.Images = obj.IMAGES;
+    }
+}
+
+class Blog_Type {
+    constructor(obj) {
+        this.Type = obj.BLOG_TYPE_INT;
+        this.Name = obj.BLOG_TYPE_NAME;
     }
 }

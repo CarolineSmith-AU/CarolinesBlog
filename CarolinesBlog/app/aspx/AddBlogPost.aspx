@@ -12,6 +12,7 @@
     <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="/app/js/AddBlogPost.js"></script>
+    <script type="text/javascript" src="/app/js/BlogObjects.js"></script>
 </head>
 <body>
     <div class="content-section">
@@ -29,10 +30,14 @@
                 <input id="blog_tags_input" class="input row-12" type="text" placeholder="*3-4 Tags (i.e. tag1,tag2,tag3,tag4)" required />
             </div>
             <div id="blog_type" class="form-row">
-                <input id="blog_type_input" class="input row-12" type="text" placeholder="*Blog Type (integer corresponding to type)" required />
+                <select id="blog_type_select" class="input row-12" type="text">
+                    <option value="select-type" disabled selected>Select Blog Type</option>
+                </select>
             </div>
             <div id="blog_image" class="form-row">
-                <input id="blog_image_input" class="input row-12" type="text" placeholder="*Image URL" required />
+                <select id="images_select" class="input row-12" type="text">
+                    <option value="select-image" disabled selected>Select Image</option>
+                </select>
             </div>
             <div id="blog_post" class="form-row">
                 <textarea id="blog_post_input" class="input row-12" placeholder="*Blog Post (i.e. <p>INSERT_HTML_CONTENT</p>)" required></textarea>

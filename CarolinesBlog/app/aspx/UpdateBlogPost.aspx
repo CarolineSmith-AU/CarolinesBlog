@@ -21,7 +21,9 @@
         </div>
         <div id="Form1">
             <div id="post_ID" class="form-row">
-                <input id="post_ID_input" class="input row-12" type="text" placeholder="*Post ID" required />
+                <select id="posts_select" class="input row-12" type="text">
+                    <option value="select-image" disabled selected>Select Blog to Edit</option>
+                </select>
             </div>
             <div class="button-form-row">
                 <input id="submit_post_ID" class="gold-button pointer" value="Submit" />
@@ -38,10 +40,14 @@
                 <input id="blog_tags_input" class="input row-12" type="text" placeholder="*3-4 Tags (i.e. tag1,tag2,tag3,tag4)" required />
             </div>
             <div id="blog_type" class="form-row">
-                <input id="blog_type_input" class="input row-12" type="text" placeholder="*Blog Type (integer corresponding to type)" required />
+                <select id="blog_type_select" class="input row-12" type="text">
+                    <option value="select-type" disabled selected>Select Blog Type</option>
+                </select>
             </div>
             <div id="blog_image" class="form-row">
-                <input id="blog_image_input" class="input row-12" type="text" placeholder="*Image URL" required />
+                <select id="images_select" class="input row-12" type="text">
+                    <option value="select-image" disabled selected>Select Image</option>
+                </select>
             </div>
             <div id="blog_post" class="form-row">
                 <textarea id="blog_post_input" class="input row-12" placeholder="*Blog Post (i.e. <p>INSERT_HTML_CONTENT</p>)" required></textarea>
