@@ -105,15 +105,23 @@
         font-size: 15px;
     }
 }
-/*Change hover effects of "Read Post" button on blog link images*/
-/*@media(max-width: 1000px) {
-    .blog-button {
-        opacity: 1;
-        padding: 6px;
-        top: 69%;
-    }
 
-    .blog-image-container:hover .blog-button {
-        top: 69%;
-    }
-}*/
+#newer {
+    float: left;
+    font-size: 20px;
+    color: #b0b0b0;
+}
+
+#older {
+    float: right;
+    font-size: 20px;
+    color: #b0b0b0;
+}
+
+#pagination_container {
+    max-width: 575px;
+}
+
+#pagination_container .fa-angle-right:before, #pagination_container .fa-angle-left:before {
+    margin: 10px;
+}

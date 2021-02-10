@@ -27,7 +27,7 @@ Public Class Mail
     'Build email for new blog post notification
     <WebMethod()> Public Shared Sub Email_Send_Blog_Notif(ByVal post As BlogPost)
         Dim mailBodyHTML As String = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory & "app\email_templates\NewBlogPost.html")
-        Dim resultHTML As String = String.Format(mailBodyHTML, post.Get_Title(), post.Get_Blog_Text().Substring(0, post.Get_Blog_Text().IndexOf("<!--more-->")) & "...", post.Get_Blog_URL(), "New blog post by")
+        Dim resultHTML As String = String.Format(mailBodyHTML, post.Get_Title(), post.Get_Blog_Text().Substring(0, post.Get_Blog_Text().IndexOf("<!--more-->")), post.Get_Blog_URL(), "New blog post by")
 
         Dim htmlView As AlternateView = AlternateView.CreateAlternateViewFromString(resultHTML, Encoding.UTF8, "text/html")
 
@@ -62,7 +62,7 @@ Public Class Mail
         Dim post As JToken = postArray.Item(0)
         Dim tags As JArray = post.Value(Of JArray)("TAGS")
         Dim postObj As BlogPost = New BlogPost(post.Value(Of String)("BLOG_ID").ToString(), post.Value(Of String)("TITLE"), post.Value(Of String)("DATE"), post.Value(Of String)("BLOG_TEXT"), post.Value(Of Integer)("BLOG_TYPE"), post.Value(Of String)("IMAGE_URL"), New ArrayList(tags.ToArray()))
-        Dim resultHTML As String = String.Format(mailBodyHTML, postObj.Get_Title(), postObj.Get_Blog_Text().Substring(0, postObj.Get_Blog_Text().IndexOf("<!--more-->")) & "...", postObj.Get_Blog_URL(), "Thanks for subscribing! Read the latest blog post by")
+        Dim resultHTML As String = String.Format(mailBodyHTML, postObj.Get_Title(), postObj.Get_Blog_Text().Substring(0, postObj.Get_Blog_Text().IndexOf("<!--more-->")), postObj.Get_Blog_URL(), "Thanks for subscribing! Read the latest blog post by")
 
         Dim htmlView As AlternateView = AlternateView.CreateAlternateViewFromString(resultHTML, Encoding.UTF8, "text/html")
 

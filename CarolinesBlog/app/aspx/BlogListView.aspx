@@ -9,6 +9,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="blog_list_view_container" class="blog-posts content-section"></div>
 
+    <div class="content-section" id="pagination_container">
+        <span class="pointer" id="newer"><i class="fa fa-angle-left"></i>newer</span>
+        <span class="pointer" id="older">older<i class="fa fa-angle-right"></i></span>
+    </div>
+
     <script type="text/html" id="blog_posts_template">
         <a href="%blog_url%" class='blog-post'>
             <div data-id="%blog_id%">

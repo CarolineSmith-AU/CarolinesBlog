@@ -25,7 +25,7 @@ Subscribe = {
             const email_addr = $(".sub-input").val();
             console.log(email_addr);
             var data = { email_addr: email_addr };
-            var params = JSON.stringify(data)
+            var params = JSON.stringify(data);
 
             $.ajax({
                 type: "POST",
@@ -37,30 +37,24 @@ Subscribe = {
                 cache: false,
                 success: function (data) {
                     console.log(data);
-                    $(".sub-input").val("");
-                    Modal.OpenModal({
-                        title: "You have successfully subscribed!",
-                        templateName: "/app/aspx/SuccessMessage.html",
-                        message: "Thanks for subscribing! Check your inbox for new content notifications.",
-                        searchSite: function (searchInput) {
-                            console.log("Searching merchandise.");
-                        }
-                    });
-                },
-                error: function () {
-                    console.log("Ajax call failed");
-                }
-            });
+                    var dataJson = JSON.parse(data.d);
+                    var is_subbed = dataJson.IS_SUBBED;
 
-            $.ajax({
-                type: "POST",
-                url: "/app/vb/Mail.aspx/Email_Send_Latest_Post",
-                data: params,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                cache: false,
-                success: function (data) {
-                    console.log(data);
+                    if(is_subbed == 0) {
+                        Modal.OpenModal({
+                            title: "You have successfully subscribed!",
+                            templateName: "/app/aspx/SuccessMessage.html",
+                            message: "Thanks for subscribing! Check your inbox for new content notifications.",
+                        });
+                        Subscribe.sendLatestPost(params);
+                    } else { //is_subbed = 1
+                        Modal.OpenModal({
+                            title: "You are already subscribed!",
+                            templateName: "/app/aspx/SuccessMessage.html",
+                            message: "Our records show you are already subscribed to BLACK GIRL GOLDEN! Keep an eye on your inbox for notifications about new content.",
+                        });
+                    }
+                    $(".sub-input").val("");
                 },
                 error: function () {
                     console.log("Ajax call failed");
@@ -70,6 +64,23 @@ Subscribe = {
 
         $(document).on("click", "#unsub_button", function () {
             Subscribe.unsub();
+        });
+    },
+
+    sendLatestPost: function (params) {
+        $.ajax({
+            type: "POST",
+            url: "/app/vb/Mail.aspx/Email_Send_Latest_Post",
+            data: params,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            cache: false,
+            success: function (data) {
+                console.log(data);
+            },
+            error: function () {
+                console.log("Ajax call failed");
+            }
         });
     },
 
@@ -138,6 +149,7 @@ Modal = {
         $(document).on("click", ".modal-close", function () {
             $("#modal_container").removeClass("open");
             $("#modal_container").addClass("closed");
+            $("#modal_content").html("");
         });
 
         //$("#modal_container").closest(".modal").click(function () {

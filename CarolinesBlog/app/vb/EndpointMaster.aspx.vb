@@ -16,16 +16,19 @@ Public Class EndpointMaster
     End Sub
 
 
-    <WebMethod()> Public Shared Sub Subscribe_To_Blog(ByVal email_addr As String)
+    <WebMethod()> Public Shared Function Subscribe_To_Blog(ByVal email_addr As String)
         Dim query2 As String = "SELECT * FROM sub_email_list WHERE EMAIL_ADDR = '" & email_addr & "' and BLOGGER_ID = " & blogger_id
         Dim dt As DataTable = Get_DataTable(query2, "blogdb")
         If dt.Rows.Count = 0 Then
             Dim query As String = "INSERT INTO sub_email_list (EMAIL_ADDR, IS_SUBSCRIBED, BLOGGER_ID) VALUES('" & email_addr & "', 1, " & blogger_id & ")"
             Update_SQL_DB(query, "blogdb")
+            Dim output As New JObject(New JProperty("IS_SUBBED", 0))
+            Return output.ToString()
         Else
-            Return
+            Dim output As New JObject(New JProperty("IS_SUBBED", 1))
+            Return output.ToString()
         End If
-    End Sub
+    End Function
 
     <WebMethod()> Public Shared Sub Unsubscribe_From_Blog(ByVal email_addr As String)
         Dim query As String = "DELETE FROM sub_email_list WHERE EMAIL_ADDR ='" & email_addr & "' AND BLOGGER_ID = " & blogger_id & ";"
@@ -223,17 +226,17 @@ Public Class EndpointMaster
 
     Public Shared Function Get_DataTable(ByVal query As String, ByVal data_table As String)
         Dim dt As DataTable
-        Dim connstring As String = "server=aws-blogdb.cs5jheun794a.us-east-2.rds.amazonaws.com;
-            userid=admin;
-            password=hU8f6Dww;
-            database=blogdb"
+        'Dim connstring As String = "server=aws-blogdb.cs5jheun794a.us-east-2.rds.amazonaws.com;
+        '    userid=admin;
+        '    password=hU8f6Dww;
+        '    database=blogdb"
 
         '*****************Use below connection string for testing on local************************
-        'Dim connstring As String = "host=localhost;
-        '    port=3306;
-        '    userid=root;
-        '    password=hU8f6Dw;
-        '    database=blogdb"
+        Dim connstring As String = "host=localhost;
+            port=3306;
+            userid=root;
+            password=hU8f6Dw;
+            database=blogdb"
         '*****************************************************************************************
         Dim conn As New MySqlConnection(connstring)
         Try
@@ -255,17 +258,17 @@ Public Class EndpointMaster
 
     Public Shared Function Update_SQL_DB(ByVal query As String, ByVal data_table As String)
         Dim newID
-        Dim connstring As String = "server=aws-blogdb.cs5jheun794a.us-east-2.rds.amazonaws.com;
-            userid=admin;
-            password=hU8f6Dww;
-            database=blogdb"
+        'Dim connstring As String = "server=aws-blogdb.cs5jheun794a.us-east-2.rds.amazonaws.com;
+        '    userid=admin;
+        '    password=hU8f6Dww;
+        '    database=blogdb"
 
         '*****************Use below connection string for testing on local************************
-        'Dim connstring As String = "host=localhost;
-        '    port=3306;
-        '    userid=root;
-        '    password=hU8f6Dw;
-        '    database=blogdb"
+        Dim connstring As String = "host=localhost;
+            port=3306;
+            userid=root;
+            password=hU8f6Dw;
+            database=blogdb"
         '*****************************************************************************************
 
         Dim conn As New MySqlConnection(connstring)

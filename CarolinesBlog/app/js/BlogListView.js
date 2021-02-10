@@ -1,9 +1,21 @@
 ﻿$(document).ready(function () {
+    //Order is important!
+    BlogListView.SetEventListeners();
     BlogListView.GetAllBlogs();
 });
 BlogListView = {
     blogs: null,
+    blogsPerPage: 30,
+    currPage: 1,
 
+    SetEventListeners: function () {
+        $(document).on("click", "#older", function () {
+            location.pathname = "/blog/page/" + (BlogListView.currPage + 1)
+        });
+        $(document).on("click", "#newer", function () {
+            location.pathname = "/blog/page/" + (BlogListView.currPage - 1)
+        });
+    },
     GetBlogType: function () {
         var type = window.location.pathname.substring(1); //Erase first char which is '/'
         return type;
@@ -26,6 +38,7 @@ BlogListView = {
                     posts.push(new Blog_Post(item));
                 });
                 BlogListView.blogs = posts;
+                BlogListView.SetPagination();
                 BlogListView.SetListViewHTML();
             },
             error: function () {
@@ -35,7 +48,13 @@ BlogListView = {
     },
     SetListViewHTML: function () {
         var template = $("#blog_posts_template").html();
-        var html = BlogListView.blogs.reduce(function (accumulator, currVal) {
+        const maxIndexCurrPage = BlogListView.blogsPerPage * BlogListView.currPage;
+        const startIndex = (BlogListView.blogsPerPage * BlogListView.currPage) - BlogListView.blogsPerPage;
+
+        var html = BlogListView.blogs.reduce(function (accumulator, currVal, index) {
+            if ((index >= maxIndexCurrPage) || (index < startIndex)) {
+                return accumulator;
+            }
             var cleanedTitle = currVal.Title.replace("&", "and");
             cleanedTitle = cleanedTitle.replace(/[^a-zA-Z0-9 ]/g, "");
             var tagsString = currVal.Tags.reduce(function (acc, curr) {
@@ -53,5 +72,26 @@ BlogListView = {
         }, "");
 
         $("#blog_list_view_container").html(html);
+    },
+    SetPagination: function () {
+        var urlColl = location.pathname.split("/");
+        var page = urlColl[3];
+        const maxIndexCurrPage = BlogListView.blogsPerPage * page;
+
+        if (page == undefined || page == "" || page == null || page == 1) {
+            BlogListView.currPage = 1;
+            $("#newer").addClass("hidden");
+            $("#older").removeClass("hidden");
+            BlogListView.currPage = 1;
+        } else if (BlogListView.blogs.length == maxIndexCurrPage) {
+            $("#older").addClass("hidden");
+            $("#newer").removeClass("hidden");
+            BlogListView.currPage = page;
+        }
+
+        if (BlogListView.blogs.length <= BlogListView.blogsPerPage) {
+            $("#older").addClass("hidden");
+            $("#newer").addClass("hidden");
+        }
     }
 };

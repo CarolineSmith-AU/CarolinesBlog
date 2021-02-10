@@ -16,6 +16,8 @@ Public Class MvcApplication
             "", "~/app/aspx/HomePage.aspx")
         routes.MapPageRoute("All Blogs",
             "blog", "~/app/aspx/BlogListView.aspx")
+        routes.MapPageRoute("All Blogs Paginated",
+            "blog/page/{page}", "~/app/aspx/BlogListView.aspx")
         routes.MapPageRoute("Blog Post",
             "blog/{id}/{title}", "~/app/aspx/BlogPostTemplate.aspx")
         routes.MapPageRoute("Contact Page",
