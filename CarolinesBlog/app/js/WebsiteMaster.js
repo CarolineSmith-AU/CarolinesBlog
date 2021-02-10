@@ -51,6 +51,21 @@ Subscribe = {
                     console.log("Ajax call failed");
                 }
             });
+
+            $.ajax({
+                type: "POST",
+                url: "/app/vb/Mail.aspx/Email_Send_Latest_Post",
+                data: params,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function () {
+                    console.log("Ajax call failed");
+                }
+            });
         });
 
         $(document).on("click", "#unsub_button", function () {

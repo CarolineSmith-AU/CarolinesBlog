@@ -11,10 +11,6 @@
     getAllPosts();
 });
 
-BlogPost = {
-    post: null
-};
-
 getPost = function (id) {
     var data = { blog_id: id }
     var params = JSON.stringify(data);
@@ -131,6 +127,7 @@ setImagesDropdown = function () {
         image_option.text = image.split("/")[3];
         images.add(image_option);
     });
+    $("#images_select").val(BlogPost.post.Image_URL);
 }
 
 setAllPostsDropdown = function () {
@@ -141,6 +138,7 @@ setAllPostsDropdown = function () {
         post_option.text = post.Title;
         posts.add(post_option);
     });
+    $("#posts_select").val(BlogPost.post.Blog_Type);
 }
 
 showUpdateForm = function () {
@@ -155,8 +153,14 @@ showUpdateForm = function () {
     getTypesAndImages();
 };
 
+//Constants related to the blogger
 Blogger = {
     types: null,
     images: null,
     posts: null
-}
+};
+
+//Blog being updated
+BlogPost = {
+    post: null
+};
