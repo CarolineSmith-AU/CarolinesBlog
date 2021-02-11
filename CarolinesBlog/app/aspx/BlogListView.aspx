@@ -7,6 +7,15 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="search-bar-container-top">
+        <input id="search_site_input" class="input" type="text" placeholder="Filter blog post results..." />
+        <i class="fa fa-search pointer"></i>
+    </div>
+
+    <div id="blog_list_emtpy_view" class="content-section hidden">
+        <p class="empty-view-text">There are no blog posts matching your search results.</p>
+    </div>
+
     <div id="blog_list_view_container" class="blog-posts content-section"></div>
 
     <div class="content-section" id="pagination_container">

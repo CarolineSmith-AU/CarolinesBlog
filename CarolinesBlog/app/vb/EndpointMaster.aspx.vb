@@ -226,17 +226,17 @@ Public Class EndpointMaster
 
     Public Shared Function Get_DataTable(ByVal query As String, ByVal data_table As String)
         Dim dt As DataTable
-        'Dim connstring As String = "server=aws-blogdb.cs5jheun794a.us-east-2.rds.amazonaws.com;
-        '    userid=admin;
-        '    password=hU8f6Dww;
-        '    database=blogdb"
+        Dim connstring As String = "server=aws-blogdb.cs5jheun794a.us-east-2.rds.amazonaws.com;
+            userid=admin;
+            password=hU8f6Dww;
+            database=blogdb"
 
         '*****************Use below connection string for testing on local************************
-        Dim connstring As String = "host=localhost;
-            port=3306;
-            userid=root;
-            password=hU8f6Dw;
-            database=blogdb"
+        'Dim connstring As String = "host=localhost;
+        '    port=3306;
+        '    userid=root;
+        '    password=hU8f6Dw;
+        '    database=blogdb"
         '*****************************************************************************************
         Dim conn As New MySqlConnection(connstring)
         Try
@@ -258,17 +258,17 @@ Public Class EndpointMaster
 
     Public Shared Function Update_SQL_DB(ByVal query As String, ByVal data_table As String)
         Dim newID
-        'Dim connstring As String = "server=aws-blogdb.cs5jheun794a.us-east-2.rds.amazonaws.com;
-        '    userid=admin;
-        '    password=hU8f6Dww;
-        '    database=blogdb"
+        Dim connstring As String = "server=aws-blogdb.cs5jheun794a.us-east-2.rds.amazonaws.com;
+            userid=admin;
+            password=hU8f6Dww;
+            database=blogdb"
 
         '*****************Use below connection string for testing on local************************
-        Dim connstring As String = "host=localhost;
-            port=3306;
-            userid=root;
-            password=hU8f6Dw;
-            database=blogdb"
+        'Dim connstring As String = "host=localhost;
+        '    port=3306;
+        '    userid=root;
+        '    password=hU8f6Dw;
+        '    database=blogdb"
         '*****************************************************************************************
 
         Dim conn As New MySqlConnection(connstring)
