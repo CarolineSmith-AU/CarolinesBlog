@@ -13,7 +13,7 @@ Public Class Mail
     'Private Const Email_From As String = "cleeannsmith@gmail.com"
     'Private Const Email_Password As String = "38r7Zy0!_~"
     Private Const Email_From As String = "blackgirlgolden@gmail.com"
-    Private Const Email_Password As String = "beebop11"
+    Private Const Email_Password As String = "Cairo021317love"
 
     'Social Media Links
     Private Const Instagram_Link As String = ""
