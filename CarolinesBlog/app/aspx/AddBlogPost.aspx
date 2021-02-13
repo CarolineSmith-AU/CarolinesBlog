@@ -18,6 +18,7 @@
     <div class="content-section">
         <div class="page-content-header">
             <h1 class="content-header">Add A Blog Post</h1>
+            <p class="content-subtext">Make sure to include a &lt!--more--&gt tag in your post!</p>
         </div>
         <form id="Form1" runat="server">
             <div id="auth" class="form-row">

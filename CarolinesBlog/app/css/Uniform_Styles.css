@@ -83,6 +83,16 @@ a {
     padding: 10px;
     font-weight: 400;
     text-align: center;
+    margin: 0 auto;
+}
+
+.content-subtext {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.page-content-header {
+    margin-bottom: 45px;
 }
 
 .sub-content-header {
