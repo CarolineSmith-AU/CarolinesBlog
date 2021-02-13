@@ -162,6 +162,13 @@
       <DependentUpon>AddBlogPost.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="app\aspx\BlogPostTempForTesting.aspx.designer.vb">
+      <DependentUpon>BlogPostTempForTesting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\aspx\BlogPostTempForTesting.aspx.vb">
+      <DependentUpon>BlogPostTempForTesting.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="app\aspx\ContactPage.aspx.designer.vb">
       <DependentUpon>ContactPage.aspx</DependentUpon>
     </Compile>
@@ -267,6 +274,7 @@
   <ItemGroup>
     <Content Include="app\aspx\About.aspx" />
     <Content Include="app\aspx\AddBlogPost.aspx" />
+    <Content Include="app\aspx\BlogPostTempForTesting.aspx" />
     <Content Include="app\aspx\ContactPage.aspx" />
     <Content Include="app\aspx\SuccessMessage.html" />
     <Content Include="app\aspx\Unsubscribe.aspx" />
@@ -285,14 +293,17 @@
     <Content Include="app\email_templates\NewBlogPost.html" />
     <Content Include="app\fonts\fontawesome-webfont.svg" />
     <Content Include="app\Images\50-50 %282%29.jpg" />
+    <Content Include="app\Images\barbara_stanwyck.jpg" />
     <Content Include="app\Images\Basil Rathbone.jpg" />
     <Content Include="app\Images\Biden_Bible.jpg" />
     <Content Include="app\Images\biden_swear.jpg" />
     <Content Include="app\Images\biden_swear.png" />
     <Content Include="app\Images\Black-Couple-Arguing-About-Money.jpg" />
+    <Content Include="app\Images\Bridesmaids %282%29.jpg" />
     <Content Include="app\Images\Bridgerton.jpg" />
     <Content Include="app\Images\Charlotte 1.jpg" />
     <Content Include="app\Images\Charlotte 2.jpg" />
+    <Content Include="app\Images\Crown2-3J.jpg" />
     <Content Include="app\Images\dark_journal_1_resized.jpg" />
     <Content Include="app\Images\Date night 1.jpg" />
     <Content Include="app\Images\Date night 2.jpg" />
@@ -300,6 +311,9 @@
     <Content Include="app\Images\DSCN0002.JPG" />
     <Content Include="app\Images\facebook_black.jpg" />
     <Content Include="app\Images\floral_gold_pattern.jpg" />
+    <Content Include="app\Images\flowers.jpg" />
+    <Content Include="app\Images\Flowers2J.jpg" />
+    <Content Include="app\Images\flowers_resized.jpg" />
     <Content Include="app\Images\gardenia_square.jpg" />
     <Content Include="app\Images\gardenia_square_2.jpg" />
     <Content Include="app\Images\gardenia_square_same.jpg" />
@@ -322,7 +336,10 @@
     <Content Include="app\Images\lauren_blue_dress_resized_2.jpg" />
     <Content Include="app\Images\lauren_blue_dress_resized_3.jpg" />
     <Content Include="app\Images\lauren_blue_dress_resized_4.jpg" />
+    <Content Include="app\Images\Love yourself first1J.jpg" />
     <Content Include="app\Images\luxury-gold-pattern.jpg" />
+    <Content Include="app\Images\Makeup11J.jpg" />
+    <Content Include="app\Images\Makeup2 1J.jpg" />
     <Content Include="app\Images\Matthew Cherry Hair Love.png" />
     <Content Include="app\Images\mug_square.jpg" />
     <Content Include="app\Images\Nora_Quote.jpg" />
@@ -334,6 +351,8 @@
     <Content Include="app\Images\Pink hat8_large_cropped.jpg" />
     <Content Include="app\Images\Queen-Nandi.jpg" />
     <Content Include="app\Images\tea_square.jpg" />
+    <Content Include="app\Images\workout.jpg" />
+    <Content Include="app\Images\Writing a letter-2J.jpg" />
     <Content Include="app\Images\Yellow mirror 4.png" />
     <Content Include="app\Images\Yellow mirror.png" />
     <Content Include="app\Images\Yellow set 17- J.jpg" />
