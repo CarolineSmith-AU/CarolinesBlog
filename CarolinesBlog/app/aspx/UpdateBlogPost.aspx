@@ -31,7 +31,7 @@
         </div>
         <form id="Form2" runat="server" class="hidden">
             <div id="auth" class="form-row">
-                <input id="password_input" class="input row-12" type="text" placeholder="*Password" required />
+                <input id="password_input" class="input row-12" type="password" placeholder="*Password" required />
             </div>
             <div id="blog_title" class="form-row">
                 <input id="blog_title_input" class="input row-12" type="text" placeholder="*Title" required />
